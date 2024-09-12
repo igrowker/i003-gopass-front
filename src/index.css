@@ -4,6 +4,6 @@
 
 @layer baser {
   body {
-    @apply bg-gray-500;
+    @apply w-full bg-customBlack overflow-hidden;
   }
 }
