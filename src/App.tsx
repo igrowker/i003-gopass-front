@@ -2,12 +2,19 @@ import "./App.css"
 import { Routes, Route } from "react-router-dom"
 
 import VerificarEntradaComponent from "./components/view/VerificarEntradaComponent"
+import { LandingView } from "./components/view/LandingPage/LandingView"
 
 function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<VerificarEntradaComponent />} />
+        
+        //Rutas públicas
+        <Route path="/login" element={<VerificarEntradaComponent />} />
+
+        //Rutas privadas
+        <Route path="/" element={<LandingView />} />
+        
       </Routes>
     </>
   )

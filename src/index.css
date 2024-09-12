@@ -4,6 +4,6 @@
 
 @layer baser {
   body {
-    @apply bg-gray-500;
+    @apply bg-[#F7FAFC];
   }
 }
