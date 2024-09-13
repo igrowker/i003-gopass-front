@@ -1,25 +1,35 @@
-import { Link } from "react-router-dom"
+import LoginLink from "./core/LoginLink"
 
-import LabelInput from "./core/LabelInput"
-import LabelInputPassword from "./core/LabelInputPassword"
+import { FcGoogle } from "react-icons/fc"
+import { IoLogoApple } from "react-icons/io5"
+import { SiFacebook } from "react-icons/si"
 
 export default function Login() {
   return (
-    <div className="flex w-full h-screen justify-center relative top-24 ">
-      <div className="w-full max-w-md p-2 sm:p-4 md:p-6 flex flex-col items-center gap-4">
+    <div
+      className="flex w-full h-screen justify-center relative"
+      style={{
+        backgroundImage: "url(/src/assets/login-image.png)",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+      }}
+    >
+      <div className="w-full max-w-md p-2 sm:p-4 md:p-6 flex flex-col justify-center items-center gap-4 mb-36">
         <picture>
           <source srcSet="/src/assets/isologo.webp" type="image/webp" />
           <source srcSet="/src/assets/isologo.svg" type="image/svg+xml" />
-          <img src="/src/assets/isologo.png" alt="Logo" className="h-32 w-32" />
+          <img src="/src/assets/isologo.png" alt="Logo" className="w-[15rem]" />
         </picture>
-        <LabelInput type="text" placeholder="DNI" className="text-customBlack" />
-        <LabelInputPassword className="text-customBlack" />
-        <div>
-          <p className="text-customWhite font-semibold">¿No estás registrado? </p>
-          <Link className="text-customGreen font-bold" to="/register">
-            Regístrate aquí
-          </Link>
-        </div>
+
+        <LoginLink icon={<FcGoogle />} url="" children="Continue With Google" />
+        <LoginLink
+          icon={<IoLogoApple />}
+          url=""
+          children="Continue With Apple"
+          iconClassName="group-hover:text-white transition duration-500"
+        />
+        <LoginLink icon={<SiFacebook />} url="" children="Continue With Facebook" iconClassName="text-blue-600" />
       </div>
     </div>
   )
