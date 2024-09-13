@@ -30,6 +30,10 @@ export default function Login() {
           iconClassName="group-hover:text-white transition duration-500"
         />
         <LoginLink icon={<SiFacebook />} url="" children="Continue With Facebook" iconClassName="text-blue-600" />
+        <div className="text-customWhite flex flex-col items-center gap-4 text-xl font-medium">
+          <p>Or</p>
+          <p>Skip For Now</p>
+        </div>
       </div>
     </div>
   )
