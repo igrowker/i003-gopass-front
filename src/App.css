@@ -1,0 +1,12 @@
+.bg-login-image {
+  background-image: url("/src/assets/login-image.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@media (max-width: 640px) {
+  .bg-login-image {
+    background-size: 240% 100%;
+  }
+}

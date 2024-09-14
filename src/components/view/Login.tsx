@@ -6,15 +6,7 @@ import { SiFacebook } from "react-icons/si"
 
 export default function Login() {
   return (
-    <div
-      className="relative flex h-screen w-full justify-center"
-      style={{
-        backgroundImage: "url(/src/assets/login-image.png)",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-        backgroundSize: "cover"
-      }}
-    >
+    <div className="bg-login-image relative flex h-screen w-full justify-center">
       <div className="mb-36 flex w-full max-w-md flex-col items-center justify-center gap-4 p-2 sm:p-4 md:p-6">
         <picture>
           <source srcSet="/src/assets/isologo.webp" type="image/webp" />
