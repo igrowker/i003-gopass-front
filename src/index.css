@@ -5,6 +5,7 @@
 
 @layer base {
   body {
-    @apply w-full bg-customBlack overflow-hidden;
+    @apply w-full overflow-hidden bg-customBlack;
+    font-family: "Lato", sans-serif;
   }
 }

@@ -7,15 +7,15 @@ import { SiFacebook } from "react-icons/si"
 export default function Login() {
   return (
     <div
-      className="flex w-full h-screen justify-center relative"
+      className="relative flex h-screen w-full justify-center"
       style={{
         backgroundImage: "url(/src/assets/login-image.png)",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
-        backgroundSize: "cover",
+        backgroundSize: "cover"
       }}
     >
-      <div className="w-full max-w-md p-2 sm:p-4 md:p-6 flex flex-col justify-center items-center gap-4 mb-36">
+      <div className="mb-36 flex w-full max-w-md flex-col items-center justify-center gap-4 p-2 sm:p-4 md:p-6">
         <picture>
           <source srcSet="/src/assets/isologo.webp" type="image/webp" />
           <source srcSet="/src/assets/isologo.svg" type="image/svg+xml" />
@@ -30,10 +30,15 @@ export default function Login() {
           iconClassName="group-hover:text-white transition duration-500"
         />
         <LoginLink icon={<SiFacebook />} url="" children="Continue With Facebook" iconClassName="text-blue-600" />
-        <div className="text-customWhite flex flex-col items-center gap-4 text-xl font-medium">
+        <div className="flex flex-col items-center gap-4 text-[1.1rem] font-medium text-customWhite">
           <p>Or</p>
           <p>Skip For Now</p>
         </div>
+        <footer className="absolute bottom-0 mb-6">
+          <p className="text-center font-medium text-customWhite">
+            I agree to the Terms & Conditions and Privacy Policy
+          </p>
+        </footer>
       </div>
     </div>
   )
