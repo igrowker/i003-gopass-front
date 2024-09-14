@@ -1,4 +1,4 @@
-import Button from "../core/Button/Button"
+import Button from "../Button/Button"
 
 export default function ComprarReventaComponent() {
   return (
