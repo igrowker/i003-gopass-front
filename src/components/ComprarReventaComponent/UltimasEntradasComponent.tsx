@@ -1,4 +1,4 @@
-import Button from "../Button/Button"
+import Button from "../core/Button/Button"
 
 export default function UltimasEntradasComponent() {
   return (
