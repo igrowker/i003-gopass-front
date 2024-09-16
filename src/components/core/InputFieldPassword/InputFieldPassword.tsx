@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function InputFieldPassword() {
+export default function InputFieldPassword({ placeholder, id }: { placeholder: string; id: string }) {
   const [showPassword, setShowPassword] = useState(false)
   const [password, setPassword] = useState("")
 
@@ -20,8 +20,8 @@ export default function InputFieldPassword() {
       <label className="input flex items-center gap-2 bg-customWhite">
         <input
           type={showPassword ? "text" : "password"}
-          placeholder="Contraseña"
-          id="password"
+          placeholder={placeholder}
+          id={id}
           className="grow"
           onChange={handlePasswordChange}
         />

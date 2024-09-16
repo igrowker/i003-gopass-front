@@ -17,8 +17,8 @@ export default function LoginSession() {
 
           <form className="flex w-[90%] flex-col gap-5 rounded-2xl bg-[#e0e0e0e2] p-3">
             <h1 className="pt-4 text-left text-2xl font-black">Inicia sesión</h1>
-            <InputField />
-            <InputFieldPassword />
+            <InputField placeholder="Email" id="email" />
+            <InputFieldPassword placeholder="Contraseña" id="password" />
             <Link className="underline" to="">
               ¿Olvidaste la constraseña?
             </Link>
