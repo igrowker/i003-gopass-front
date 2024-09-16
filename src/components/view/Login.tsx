@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom"
+
+import Button from "../core/Button/Button"
 import LabelInput from "./core/LabelInput"
 
 export default function LoginSession() {
@@ -11,7 +14,20 @@ export default function LoginSession() {
             <img src="/src/assets/isologo.png" alt="Logo" className="w-[15rem]" />
           </picture>
 
-          <LabelInput />
+          <form className="flex w-[90%] flex-col gap-5 rounded-2xl bg-[#e0e0e0e2] p-3">
+            <h1 className="pt-4 text-left text-2xl font-black">Inicia sesión</h1>
+            <LabelInput />
+            <Link className="underline" to="">
+              ¿Olvidaste la constraseña?
+            </Link>
+            <Button className="bg-black text-white hover:bg-customRed hover:text-black">Iniciar sesión</Button>
+            <p className="text-center">
+              ¿Aún no tienes cuenta?
+              <a className="ml-2 font-bold underline" href="#">
+                Regístrate
+              </a>
+            </p>
+          </form>
         </div>
       </div>
     </>
