@@ -20,7 +20,7 @@ export default function LoginSession() {
             <Link className="underline" to="">
               ¿Olvidaste la constraseña?
             </Link>
-            <Button className="bg-black text-white hover:bg-customRed hover:text-black">Iniciar sesión</Button>
+            <Button className="bg-black text-xl text-white hover:bg-customRed hover:text-black">Iniciar sesión</Button>
             <p className="text-center">
               ¿Aún no tienes cuenta?
               <a className="ml-2 font-bold underline" href="#">
