@@ -4,6 +4,8 @@ import Button from "../core/Button/Button"
 import InputField from "../core/InputField/InputField"
 import InputFieldPassword from "../core/InputFieldPassword/InputFieldPassword"
 
+
+
 export default function LoginSession() {
   return (
     <>
@@ -25,9 +27,9 @@ export default function LoginSession() {
             <Button className="bg-black text-xl text-white hover:bg-customRed hover:text-black">Iniciar sesión</Button>
             <p className="text-center">
               ¿Aún no tienes cuenta?
-              <a className="ml-2 font-bold underline" href="#">
+              <Link to="/register" className="ml-2 font-bold underline">
                 Regístrate
-              </a>
+              </Link>
             </p>
           </form>
         </div>
