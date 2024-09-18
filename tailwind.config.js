@@ -17,6 +17,9 @@ export default {
       fontFamily: {
         azonix: ['Azonix', 'sans-serif'],
       },
+      boxShadow: {
+        'custom-avatar': '0 8px 20px rgba(0, 0, 0, 0.5), 0 12px 40px rgba(0, 0, 0, 0.2)'
+      }
     },
   },
   plugins: [

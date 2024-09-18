@@ -1,6 +1,7 @@
 import { Navbar } from "../UI/Navbar"
 import Button from "../core/Button/Button"
 import InputField from "../core/InputField/InputField"
+import Avatar from "../UI/Avatar"
 
 export default function UserProfile() {
   return (
@@ -13,14 +14,13 @@ export default function UserProfile() {
 
         <div className="flex flex-row text-2xl w-full justify-center relative">
 
-            <h2 className="text-center">Mi cuenta</h2>
+          <h2 className="text-center">Mi cuenta</h2>
 
         </div>
 
-
-        <picture>
-          <img src="src/assets/isologo.webp" className="w-[10rem] h-[10rem] rounded-full my-6 shadow-2xl"></img>
-        </picture>
+        <div className="Avatar">
+          <Avatar></Avatar>
+        </div>
 
         <form className="flex flex-col gap-3 w-[20rem] md:w-[30rem] sm:w-[30rem] lg:w-[40rem]">
 
