@@ -7,6 +7,7 @@ import SocialLogin from "./components/view/SocialLogin"
 import Login from "./components/view/Login"
 import Register from "./components/view/Register"
 import UserProfile from "./components/view/UserProfile"
+import Ticket from "./components/view/Ticket"
 function App() {
   return (
     <>
@@ -19,6 +20,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/user-profile" element={<UserProfile />} />
+        <Route path="/ticket" element={<Ticket />} />
       </Routes>
     </>
   )
