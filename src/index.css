@@ -3,8 +3,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Azonix";
+  src: url("./assets/fonts/Azonix.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 @layer base {
   body {
-    @apply w-full bg-customWhite overflow-hidden;
+    @apply w-full bg-customWhite;
+    font-family: "Lato", sans-serif;
   }
 }

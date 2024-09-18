@@ -14,6 +14,9 @@ export default {
         customRed: "#C3261B",
         customGreen: "#00BF63"
       },
+      fontFamily: {
+        azonix: ['Azonix', 'sans-serif'],
+      },
     },
   },
   plugins: [

@@ -1,7 +1,15 @@
-export default function Button({ className, children }: { className: string; children: string }) {
+interface ButtonProps {
+  className?: string
+  children: string
+  type?: any
+}
+
+export default function Button({ className, children, type }: ButtonProps) {
   return (
     <>
-      <button className={`btn glass bg-customLigthRed  ${className ? className : ""}`}>{children}</button>
+      <button type={type} className={`btn glass ${className ? className : ""}`}>
+        {children}
+      </button>
     </>
   )
 }
