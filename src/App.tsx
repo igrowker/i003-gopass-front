@@ -7,18 +7,20 @@ import SocialLogin from "./components/view/SocialLogin"
 import Login from "./components/view/Login"
 import Register from "./components/view/Register"
 import UserProfile from "./components/view/UserProfile"
+import ComprarEntrada from "./components/view/ComprarEntrada"
+
 function App() {
   return (
     <>
       <Routes>
-        //Rutas públicas
-        <Route path="/verificar-entrada" element={<VerificarEntradaComponent />} />
-        //Rutas privadas
         <Route path="/" element={<LandingView />} />
         <Route path="/social-login" element={<SocialLogin />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+
         <Route path="/user-profile" element={<UserProfile />} />
+        <Route path="/verificar-entrada" element={<VerificarEntradaComponent />} />
+        <Route path="/comprar-entrada" element={<ComprarEntrada />} />
       </Routes>
     </>
   )
