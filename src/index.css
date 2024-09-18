@@ -12,7 +12,7 @@
 
 @layer base {
   body {
-    @apply w-full overflow-hidden bg-customBlack;
+    @apply w-full bg-customWhite;
     font-family: "Lato", sans-serif;
   }
 }

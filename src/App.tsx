@@ -5,6 +5,7 @@ import VerificarEntradaComponent from "./components/view/VerificarEntradaCompone
 import SocialLogin from "./components/view/SocialLogin"
 import Login from "./components/view/Login"
 import Register from "./components/view/Register"
+import UserProfile from "./components/view/UserProfile"
 function App() {
   return (
     <>
@@ -12,7 +13,8 @@ function App() {
         <Route path="/" element={<VerificarEntradaComponent />} />
         <Route path="/social-login" element={<SocialLogin />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register/>} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/user-profile" element={<UserProfile/>} />
       </Routes>
     </>
   )
