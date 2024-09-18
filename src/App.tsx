@@ -9,6 +9,7 @@ import Register from "./components/view/Register"
 import UserProfile from "./components/view/UserProfile"
 import ComprarEntrada from "./components/view/ComprarEntrada"
 
+import Ticket from "./components/view/Ticket"
 function App() {
   return (
     <>
@@ -19,6 +20,7 @@ function App() {
         <Route path="/register" element={<Register />} />
 
         <Route path="/user-profile" element={<UserProfile />} />
+        <Route path="/ticket" element={<Ticket />} />
         <Route path="/verificar-entrada" element={<VerificarEntradaComponent />} />
         <Route path="/comprar-entrada" element={<ComprarEntrada />} />
       </Routes>
