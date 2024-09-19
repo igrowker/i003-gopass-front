@@ -1,6 +1,14 @@
 import { useState } from "react"
 
-export default function InputFieldPassword({ placeholder, id, className }: { placeholder: string; id: string; className?: string}) {
+export default function InputFieldPassword({
+  placeholder,
+  id,
+  className
+}: {
+  placeholder: string
+  id: string
+  className?: string
+}) {
   const [showPassword, setShowPassword] = useState(false)
   const [password, setPassword] = useState("")
 
@@ -17,21 +25,20 @@ export default function InputFieldPassword({ placeholder, id, className }: { pla
 
   return (
     <>
-      <label className="border-[2px] rounded-lg flex items-center gap-2 bg-customWhite">
+      <label className="input flex items-center gap-2 rounded-lg border-[2px] bg-customWhite">
         <input
           type={showPassword ? "text" : "password"}
           placeholder={placeholder}
           id={id}
-          className={`grow input ${className? className: ""}`}
+          className={`grow ${className ? className : ""}`}
           onChange={handlePasswordChange}
-          
         />
         <svg
           onClick={togglePasswordVisibility}
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="currentColor"
-          className="h-7 w-7 cursor-pointer opacity-70 mr-3.5"
+          className="mr-3.5 h-7 w-7 cursor-pointer opacity-70"
         >
           {showPassword ? (
             <path d="M12 4.5C7.305 4.5 3.27 7.288 1.5 12c1.77 4.712 5.805 7.5 10.5 7.5s8.73-2.788 10.5-7.5c-1.77-4.712-5.805-7.5-10.5-7.5zm0 13c-2.485 0-4.5-2.015-4.5-4.5s2.015-4.5 4.5-4.5 4.5 2.015 4.5 4.5-2.015 4.5-4.5 4.5zm0-7.5c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3z" />
