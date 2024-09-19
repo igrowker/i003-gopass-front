@@ -24,21 +24,21 @@ export default function UserProfile() {
 
         <form className="flex flex-col gap-3 w-[20rem] md:w-[30rem] sm:w-[30rem] lg:w-[40rem]">
 
-          <InputField type="text" className="" placeholder="user.name" id="fullName" label="Nombre Completo" />
+          <InputField type="text" className="border-solid border-2 rounded-md p-2" placeholder="user.name" id="fullName" label="Nombre Completo" />
 
-          <InputField type="email" className="" placeholder="user.email" id="email" label="Email" />
+          <InputField type="email" className="border-solid border-2 rounded-md p-2" placeholder="user.email" id="email" label="Email" />
 
-          <InputField type="password" className="" placeholder="Contraseña" id="password" label="Contraseña" />
+          <InputField type="password" className="border-solid border-2 rounded-md p-2" placeholder="Contraseña" id="password" label="Contraseña" />
 
-          <InputField type="date" className="" placeholder="user.birthdate" id="birthdate" label="Birthdate" />
+          <InputField type="date" className="border-solid border-2 rounded-md p-2" placeholder="user.birthdate" id="birthdate" label="Birthdate" />
 
-          <InputField type="text" className="" placeholder="user.address" id="address" label="Address" />
+          <InputField type="text" className="border-solid border-2 rounded-md p-2" placeholder="user.address" id="address" label="Address" />
 
-          <InputField type="text" className="" placeholder="user.city" id="city" label="Ciudad" />
+          <InputField type="text" className="border-solid border-2 rounded-md p-2" placeholder="user.city" id="city" label="Ciudad" />
 
-          <InputField type="text" className="" placeholder="user.country" id="country" label="País" />
+          <InputField type="text" className="border-solid border-2 rounded-md p-2" placeholder="user.country" id="country" label="País" />
 
-          <InputField type="text" className="" placeholder="user.dni" id="dni" label="DNI/NIE/Pasaporte" />
+          <InputField type="text" className="border-solid border-2 rounded-md p-2" placeholder="user.dni" id="dni" label="DNI/NIE/Pasaporte" />
 
           <Button className="mt-4 mb-6 bg-customGreen text-white font-semibold" type="submit" >Guardar</Button>
         </form>
