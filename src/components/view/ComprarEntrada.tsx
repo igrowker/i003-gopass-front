@@ -41,9 +41,7 @@ export default function ComprarEntrada() {
           <sup className="text-left text-sm">Entrada de reventa</sup>
         </div>
         <div className="flex w-[22rem] justify-between gap-3">
-          <h3 className="rounded-e-md border-4 border-customRed p-1 px-2 font-semibold text-customLigthRed">
-            Barcelona
-          </h3>
+          <h3 className="rounded-md border-4 border-customRed p-1 px-2 font-semibold text-customLigthRed">Barcelona</h3>
           <h3 className="rounded-md border-4 border-customRed bg-customRed p-1 px-2 font-semibold text-customWhite">
             Real Madrid
           </h3>
