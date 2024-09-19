@@ -1,13 +1,17 @@
+import { useState } from "react"
 import { Navbar } from "../UI/Navbar"
 import { FaRegCalendarAlt } from "react-icons/fa"
 import { GiPositionMarker } from "react-icons/gi"
 import { HiDownload } from "react-icons/hi"
 
-interface TicketProps{
-  isVerified: boolean
-}
 
-export default function Ticket({isVerified}: TicketProps) {
+export default function Ticket() {
+  const [isVerified, setIsVerified] = useState(false)
+
+  const handleVerified = () => {
+    setIsVerified(!isVerified)
+  }
+
   return (
     <>
       <div>
@@ -26,7 +30,7 @@ export default function Ticket({isVerified}: TicketProps) {
           <div>
             <p><span className="font-semibold">Ref:</span> 78735287573928</p>
           </div>
-          <div className={`p-2 rounded-xl text-customWhite ${isVerified ? 'bg-customGreen' : 'bg-customLigthRed'
+          <div onClick={handleVerified} className={`p-2 rounded-xl text-customWhite ${isVerified ? 'bg-customGreen' : 'bg-customLigthRed'
             }`}>
             <p>AUTENCIDAD {isVerified ? 'VERIFICADA' : 'NO VERIFICADA'}</p>
           </div>

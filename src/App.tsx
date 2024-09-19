@@ -8,6 +8,7 @@ import Login from "./components/view/Login"
 import Register from "./components/view/Register"
 import UserProfile from "./components/view/UserProfile"
 import Ticket from "./components/view/Ticket"
+import Contact from "./components/view/Contact"
 function App() {
   return (
     <>
@@ -21,6 +22,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/user-profile" element={<UserProfile />} />
         <Route path="/ticket" element={<Ticket />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </>
   )
