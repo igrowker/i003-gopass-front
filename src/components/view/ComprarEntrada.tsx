@@ -2,6 +2,7 @@ import { Navbar } from "../UI/Navbar"
 
 import { FaRegCalendarAlt } from "react-icons/fa"
 import { GiPositionMarker } from "react-icons/gi"
+import Avatar from "../UI/Avatar"
 
 export default function ComprarEntrada() {
   return (
@@ -46,6 +47,7 @@ export default function ComprarEntrada() {
         </div>
         <hr className="my-2 w-[90%] border-t-4" />
         <p>Vendedor verificado:</p>
+        <Avatar size="5rem" />
       </div>
     </>
   )
