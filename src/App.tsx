@@ -11,6 +11,7 @@ import ComprarEntrada from "./components/view/ComprarEntrada"
 
 import Ticket from "./components/view/Ticket"
 import Contact from "./components/view/Contact"
+import ModalShipping from "./components/core/ModalShipping/ModalShipping"
 function App() {
   
   return (
@@ -27,7 +28,6 @@ function App() {
 
         <Route path="/verificar-entrada" element={<VerificarEntradaComponent />} />
         <Route path="/comprar-entrada" element={<ComprarEntrada />} />
-
       </Routes>
     </>
   )
