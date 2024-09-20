@@ -10,6 +10,7 @@ import UserProfile from "./components/view/UserProfile"
 import ComprarEntrada from "./components/view/ComprarEntrada"
 
 import Ticket from "./components/view/Ticket"
+import Contact from "./components/view/Contact"
 function App() {
   return (
     <>
@@ -18,7 +19,6 @@ function App() {
         <Route path="/social-login" element={<SocialLogin />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-
         <Route path="/user-profile" element={<UserProfile />} />
         <Route path="/ticket" element={<Ticket />} />
         <Route path="/verificar-entrada" element={<VerificarEntradaComponent />} />
