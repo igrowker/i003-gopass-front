@@ -10,6 +10,7 @@ import UserProfile from "./components/view/UserProfile"
 import Ticket from "./components/view/Ticket"
 import Contact from "./components/view/Contact"
 function App() {
+  
   return (
     <>
       <Routes>
