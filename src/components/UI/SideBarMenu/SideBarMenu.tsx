@@ -4,13 +4,12 @@ import { IoTicketOutline } from "react-icons/io5"
 import { LuBadgePercent } from "react-icons/lu"
 import { MdOutlineVerifiedUser } from "react-icons/md"
 
-
 export default function SideBarMenu({ isOpen }: { isOpen: boolean }) {
-
-
   return (
-    <div className="fixed inset-0 flex items-start justify-start bg-black bg-opacity-50">
-      <div className={`w-1/2 rounded-r-lg bg-gradient-to-r from-black to-gray-800 p-2 pb-14 text-customWhite ${isOpen ? "animate-slide-in" : "animate-slide-out"} `} >
+    <div className="fixed inset-0 z-10 flex items-start justify-start bg-black bg-opacity-30">
+      <div
+        className={`h-screen w-1/2 rounded-r-lg bg-gradient-to-r from-black to-gray-800 p-2 pb-14 text-customWhite ${isOpen ? "animate-slide-in" : "animate-slide-out"} `}
+      >
         <div className="flex flex-col items-center gap-4">
           <Avatar />
           <h2 className="font-azonix">FRANCO</h2>
