@@ -3,7 +3,7 @@ import LOGO from "../../assets/isologo.png"
 export const Navbar = () => {
   return (
     <div className="navbar relative flex w-full items-center justify-center bg-customRed">
-      <img className="h-20 w-20" src={LOGO} />
+      <img className="h-16 w-16" src={LOGO} />
       <div className="absolute right-4">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost">
