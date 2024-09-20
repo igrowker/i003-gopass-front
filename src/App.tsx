@@ -8,6 +8,7 @@ import Login from "./components/view/Login"
 import Register from "./components/view/Register"
 import UserProfile from "./components/view/UserProfile"
 import ComprarEntrada from "./components/view/ComprarEntrada"
+import SideBarMenu from "./components/UI/SideBarMenu/SideBarMenu"
 
 import Ticket from "./components/view/Ticket"
 import Contact from "./components/view/Contact"
@@ -28,6 +29,7 @@ function App() {
 
         <Route path="/verificar-entrada" element={<VerificarEntradaComponent />} />
         <Route path="/comprar-entrada" element={<ComprarEntrada />} />
+        <Route path="/sidebar" element={<SideBarMenu />} />
       </Routes>
     </>
   )
