@@ -1,10 +1,10 @@
 interface AvatarProps {
-  size?: string; 
+  size?: string;
 }
 
 export default function Avatar({ size = '10rem' }: AvatarProps) {
   return (
-    <div className="avatar">
+    <div className="avatar -z-20">
       <div
         className="m-5 rounded-full shadow-custom-avatar"
         style={{ width: size, height: size }}

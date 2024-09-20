@@ -73,7 +73,7 @@ export default function ComprarEntrada() {
             </p>
           </div>
           <span className="my-8 flex w-full justify-center">
-            <Button className="w-[15rem] bg-customGreen text-customWhite">COMPRAR</Button>
+            <Button className="w-[15rem] bg-customGreen text-customWhite -z-20">COMPRAR</Button>
           </span>
         </div>
       </div>

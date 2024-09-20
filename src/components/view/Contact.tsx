@@ -18,7 +18,7 @@ export default function Contact() {
 
         <div className="flex flex-row text-2xl w-full justify-center relative">
 
-          <h2 className="text-center m-5 font-semibold text-xl">Contacto</h2>
+          <h2 className="text-center m-5 font-semibold text-xl -z-20">Contacto</h2>
 
         </div>
 
@@ -34,7 +34,7 @@ export default function Contact() {
 
           <TextArea placeholder="Dejanos tu consulta o describe tu incidencia" label="Mensaje" id="message"></TextArea>
 
-          <Button className="mt-4 mb-6 bg-customGreen text-white font-semibold" type="submit" >Contactar</Button>
+          <Button className="mt-4 mb-6 bg-customGreen text-white font-semibold -z-10" type="submit" >Contactar</Button>
         </form>
 
       </div>

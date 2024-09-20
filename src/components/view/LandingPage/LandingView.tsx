@@ -2,6 +2,7 @@ import { Footer } from "../../UI/Footer";
 import { Navbar } from "../../UI/Navbar";
 
 export const LandingView = () => {
+
   return (
     <>
       <Navbar />
