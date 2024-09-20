@@ -28,10 +28,6 @@ function App() {
 
         <Route path="/verificar-entrada" element={<VerificarEntradaComponent />} />
         <Route path="/comprar-entrada" element={<ComprarEntrada />} />
-
-        //Test
-        <Route path="/modal-shipping" element={<ModalShipping />} />
-
       </Routes>
     </>
   )
