@@ -11,6 +11,7 @@ import ComprarEntrada from "./components/view/ComprarEntrada"
 
 import Ticket from "./components/view/Ticket"
 import Contact from "./components/view/Contact"
+import VenderEntrada from "./components/view/VenderEntrada"
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
 
         <Route path="/verificar-entrada" element={<VerificarEntradaComponent />} />
         <Route path="/comprar-entrada" element={<ComprarEntrada />} />
+        <Route path="/vender-entrada" element={<VenderEntrada />} />
       </Routes>
     </>
   )
