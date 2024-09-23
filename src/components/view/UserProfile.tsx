@@ -40,7 +40,7 @@ export default function UserProfile() {
 
           <InputField type="text" className="border-solid border-2 rounded-md p-2" placeholder="user.dni" id="dni" label="DNI/NIE/Pasaporte" />
 
-          <Button className="mt-4 mb-6 bg-customGreen text-white font-semibold" type="submit" >Guardar</Button>
+          <Button className="mt-4 mb-6 bg-customGreen text-white font-semibold -z-10" type="submit" >Contactar</Button>
         </form>
 
       </div>
