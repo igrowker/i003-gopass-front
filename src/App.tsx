@@ -12,6 +12,7 @@ import VenderEntrada from "./components/view/VenderEntrada"
 
 import Ticket from "./components/view/Ticket"
 import Contact from "./components/view/Contact"
+import VenderEntrada from "./components/view/VenderEntrada"
 
 function App() {
   return (
