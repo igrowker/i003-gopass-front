@@ -1,3 +1,4 @@
+
 import { useState } from "react"
 import { Navbar } from "../UI/Navbar";
 import InputField from "../core/InputField/InputField";
@@ -65,3 +66,4 @@ export default function VenderEntrada() {
     </>
   )
 }
+
