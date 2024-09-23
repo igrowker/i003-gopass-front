@@ -8,7 +8,7 @@ import Login from "./components/view/Login"
 import Register from "./components/view/Register"
 import UserProfile from "./components/view/UserProfile"
 import ComprarEntrada from "./components/view/ComprarEntrada"
-import VenderEntrada from "./components/view/VenderEntrada"
+import PagarEntrada from "./components/view/PagarEntrada"
 
 import Ticket from "./components/view/Ticket"
 import Contact from "./components/view/Contact"
@@ -28,7 +28,7 @@ function App() {
 
         <Route path="/verificar-entrada" element={<VerificarEntradaComponent />} />
         <Route path="/comprar-entrada" element={<ComprarEntrada />} />
-        <Route path="/vender-entrada" element={<VenderEntrada />} />
+        <Route path="/pagar-entrada" element={<PagarEntrada />} />
       </Routes>
     </>
   )
