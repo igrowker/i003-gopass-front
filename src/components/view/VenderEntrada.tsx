@@ -51,20 +51,14 @@ export default function VenderEntrada() {
 
           <InputField type="text" className="border-solid border-2 rounded-md p-2" placeholder="Precio de reventa" id="country" label="Precio de reventa" />
 
-          <div className="flex items-center gap-2">
-            <input 
-              type="checkbox" 
-              id="terms" 
-              checked={isChecked} 
-              onChange={handleCheckboxChange} // Usar el evento tipado
-              className="h-4 w-4"
-            />
-            <label htmlFor="terms" className="text-sm">
-            Declaro que soy consciente de que estoy realizando una reventa de entradas y que toda la información proporcionada en este formulario es verídica. Entiendo que la venta de entradas falsificadas, duplicadas o inválidas puede acarrear sanciones legales y comprometer mi responsabilidad ante las autoridades y los organizadores del evento.
-            </label>
-          </div>
+          <div className="mt-4 flex w-auto items-start px-4">
+          <input type="checkbox" className="mt-1 h-6 w-6" />
+          <p className="ml-2 w-full">
+          Declaro que soy consciente de que estoy realizando una reventa de entradas y que toda la información proporcionada en este formulario es verídica. Entiendo que la venta de entradas falsificadas, duplicadas o inválidas puede acarrear sanciones legales y comprometer mi responsabilidad ante las autoridades y los organizadores del evento.
+          </p>
+        </div>
 
-          <Button className="mt-4 mb-6 bg-customGreen text-white font-semibold" type="submit" > Revender </Button>
+          <Button className="mt-4 mb-6 bg-customGreen text-white font-semibold -z-10" type="submit" >Contactar</Button>
         </form>
 
       </div>
