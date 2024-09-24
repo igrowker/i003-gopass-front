@@ -8,7 +8,7 @@ function EntradaAutenticada() {
       <section className="flex flex-col items-center p-4">
         <div className="m-4 flex flex-col items-star">
           <div className="mb-10 font-semibold text-xl">
-            <h1>Verifica tu entrada</h1>
+            <h1>Verificar una entrada</h1>
           </div>
           <div className="p-2 bg-customGreen rounded-xl text-center text-customWhite">
             <p>AUTENCIDAD VERIFICADA</p>

@@ -6,7 +6,7 @@ function EntradaInvalida() {
       <section className="flex flex-col items-center p-4">
         <div className="m-4 flex flex-col items-star">
           <div className="mb-10 font-semibold text-xl">
-            <h1>Verifica tu entrada</h1>
+            <h1>Verifica una entrada</h1>
           </div>
           <div className="bg-customLigthRed p-2 rounded-xl text-center text-customWhite">
             <p>AUTENCIDAD NO VERIFICADA</p>
