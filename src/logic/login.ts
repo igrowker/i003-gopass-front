@@ -9,8 +9,13 @@ const autenticarUsuario = async (email: string, password: string) => {
     // Hacer la petición para obtener todos los usuarios
     const response = await api.get("/users")
 
+    interface User {
+      email: string
+      password: string
+    }
+
     // Filtrar los usuarios con el email y password proporcionados
-    const user = response.data.find((user: any) => user.email === email && user.password === password)
+    const user: Object = response.data.find((user: User) => user.email === email && user.password === password)
 
     if (user) {
       console.log("Login successful", user)
