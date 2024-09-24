@@ -1,29 +1,80 @@
 import { Link, useNavigate } from "react-router-dom"
+import Swal from 'sweetalert2';
 
 import Button from "../core/Button/Button"
 import InputField from "../core/InputField/InputField"
 import InputFieldPassword from "../core/InputFieldPassword/InputFieldPassword"
 import { IoIosMail } from "react-icons/io"
 
-import logic from "../../logic"
+//import logic from "../../logic"
 
 export default function LoginSession() {
   const navigate = useNavigate()
 
-  const handleLoginSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
+//import Swal from 'sweetalert2';
 
-    const target = event.target as EventTarget & { email: HTMLInputElement; password: HTMLInputElement }
-    const email = target.email.value
-    const password = target.password.value
+const handleLoginSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  event.preventDefault();
 
-    try {
-      await logic.autenticarUsuario(email, password)
-      navigate("/")
-    } catch (error) {
-      alert("Error al iniciar sesión")
-    }
+  const target = event.target as typeof event.target & {
+    email: { value: string };
+    password: { value: string };
+  };
+
+  const email = target.email.value.trim();
+  const password = target.password.value.trim();
+
+  if (!email || !password) {
+    Swal.fire({
+      icon: "warning",
+      title: "Campos vacíos",
+      text: "Por favor ingresa tu correo electrónico y contraseña.",
+    });
+    return;
   }
+
+  try {
+    const response = await fetch("https://localhost:7220/api/Usuario/Login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Error: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+
+    // Supongamos que la API devuelve un token o información de usuario
+    // Puedes almacenar el token en localStorage o en el estado de tu aplicación
+    const { token } = data;
+    localStorage.setItem("authToken", token);
+
+    Swal.fire({
+      icon: "success",
+      title: "Inicio de sesión exitoso",
+      text: "Redirigiendo...",
+      timer: 1500,
+      showConfirmButton: false,
+    });
+    navigate("/"); // Redirige a la página principal después del login exitoso
+
+  } catch (error) {
+    Swal.fire({
+      icon: "error",
+      title: "Error al iniciar sesión",
+      text: error instanceof Error ? error.message : "Error desconocido",
+    });
+  }
+};
+
+
 
   return (
     <>
