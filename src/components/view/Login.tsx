@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom"
+import UseContext from "../../contexts/UseContext"
 
 import Button from "../core/Button/Button"
 import InputField from "../core/InputField/InputField"
@@ -11,17 +12,22 @@ import { SystemError } from "com/errors"
 export default function LoginSession() {
   const navigate = useNavigate()
 
+  const { alert } = UseContext()
+
   const handleLoginSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
-    const target = event.target as EventTarget & { email: HTMLInputElement; password: HTMLInputElement }
+    const target = event.target as EventTarget & {
+      email: HTMLInputElement
+      password: HTMLInputElement
+    }
     const email = target.email.value
     const password = target.password.value
 
     try {
       await logic.autenticarUsuario(email, password)
       navigate("/")
-    } catch (error: unknown) {
+    } catch (error: any) {
       if (error instanceof SystemError) {
         alert(error.message)
       }
