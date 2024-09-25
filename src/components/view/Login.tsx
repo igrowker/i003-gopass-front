@@ -1,11 +1,30 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 import Button from "../core/Button/Button"
 import InputField from "../core/InputField/InputField"
 import InputFieldPassword from "../core/InputFieldPassword/InputFieldPassword"
 import { IoIosMail } from "react-icons/io"
 
+import logic from "../../logic"
+
 export default function LoginSession() {
+  const navigate = useNavigate()
+
+  const handleLoginSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+
+    const target = event.target as EventTarget & { email: HTMLInputElement; password: HTMLInputElement }
+    const email = target.email.value
+    const password = target.password.value
+
+    try {
+      await logic.autenticarUsuario(email, password)
+      navigate("/")
+    } catch (error) {
+      alert("Error al iniciar sesión")
+    }
+  }
+
   return (
     <>
       <div className="bg-login-image fixed flex h-screen w-full justify-center">
@@ -16,9 +35,9 @@ export default function LoginSession() {
             <img src="/src/assets/isologo.png" alt="Logo" className="w-[15rem]" />
           </picture>
 
-          <form className="flex w-[90%] flex-col gap-5 rounded-2xl bg-[#e0e0e0e2] p-3">
+          <form onSubmit={handleLoginSubmit} className="flex w-[90%] flex-col gap-5 rounded-2xl bg-[#e0e0e0e2] p-3">
             <h1 className="-mb-5 pt-4 text-left text-2xl font-black">Inicia sesión</h1>
-            <InputField  className="ml-4" type="email" placeholder="Email" id="email" icon={<IoIosMail />} />
+            <InputField className="ml-4" type="email" placeholder="Email" id="email" icon={<IoIosMail />} />
             <InputFieldPassword placeholder="Contraseña" id="password" />
             <Link className="underline" to="">
               ¿Olvidaste la constraseña?
