@@ -11,17 +11,6 @@ import Avatar from "./Avatar"
 import logoutUser from "../../../privateRoutes/logoutUser"
 
 export default function SideBarMenu({ isOpen }: { isOpen: boolean }) {
-  const navigate = useNavigate()
-
-  const handleLogout = () => {
-<<<<<<< HEAD:src/app/components/UI/SideBarMenu.tsx
-    logoutUser()
-=======
-    logic.logoutUser()
->>>>>>> 7d05489 (add logout user funciton 7#):src/components/UI/SideBarMenu.tsx
-    navigate("/login")
-  }
-
   return (
     <div className="fixed inset-0 z-10 flex items-start justify-start bg-black bg-opacity-30">
       <div
