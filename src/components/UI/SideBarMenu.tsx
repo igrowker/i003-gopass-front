@@ -32,7 +32,7 @@ export default function SideBarMenu({ isOpen }: { isOpen: boolean }) {
                   Entradas
                 </li>
               </Link>
-              <Link to="/">
+              <Link to="/vender-entrada">
                 <li className="flex cursor-pointer items-center gap-2">
                   <LuBadgePercent />
                   Revender
