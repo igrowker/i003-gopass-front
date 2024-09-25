@@ -11,10 +11,14 @@ export const LandingView = () => {
       <Navbar />
       <BannerMove />
       <Grid />
+      <div className="w-full flex justify-center">
+      <hr className="bg-customBlack w-[95%] border"/>
+      </div>
+      <h2 className="m-4 text-xl font-bold">Entradas de reventa</h2>
       <section>
         <ul>
           <li>
-            <Card/>
+            <Card />
           </li>
         </ul>
       </section>
