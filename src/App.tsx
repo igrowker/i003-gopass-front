@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import { useState } from 'react'
 import { AppWrapper } from './contexts/AppWrapper'
 
-import Alert from './components/UI/Alert/Alert'
+import Alert from './components/UI/Alert'
 import VerificarEntradaComponent from './components/view/VerificarEntradaComponent'
 import { LandingView } from './components/view/LandingPage/LandingView'
 import SocialLogin from './components/view/SocialLogin'
