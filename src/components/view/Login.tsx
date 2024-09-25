@@ -6,6 +6,7 @@ import InputFieldPassword from "../core/InputFieldPassword/InputFieldPassword"
 import { IoIosMail } from "react-icons/io"
 
 import logic from "../../logic"
+import { SystemError } from "com/errors"
 
 export default function LoginSession() {
   const navigate = useNavigate()
@@ -20,8 +21,11 @@ export default function LoginSession() {
     try {
       await logic.autenticarUsuario(email, password)
       navigate("/")
-    } catch (error) {
-      alert("Error al iniciar sesión")
+    } catch (error: unknown) {
+      if (error instanceof SystemError) {
+        alert(error.message)
+      }
+      alert(error.message)
     }
   }
 
