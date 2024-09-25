@@ -1,31 +1,30 @@
 import axios from "axios"
+import validate from "com/validate"
+import { SystemError, CredentialsError } from "com/errors"
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL
 })
 
 const autenticarUsuario = async (email: string, password: string) => {
+  validate.email(email)
+  validate.password(password)
+
+  const body = { email, password }
+
   try {
-    // Hacer la petición para obtener todos los usuarios
-    const response = await api.get("/users")
-
-    interface User {
-      email: string
-      password: string
-    }
-
-    // Filtrar los usuarios con el email y password proporcionados
-    const user: Object = response.data.find((user: User) => user.email === email && user.password === password)
-
-    if (user) {
-      console.log("Login successful", user)
-      return user // Devuelve el usuario encontrado
+    const response = await api.post("/Usuario/Login", body)
+    return response.data
+  } catch (error: unknown) {
+    if (axios.isAxiosError(error)) {
+      if (error.response && error.response.status === 401) {
+        throw new CredentialsError("Credenciales incorrectas")
+      } else {
+        throw new SystemError("Error del sistema al autenticar el usuario")
+      }
     } else {
-      throw new Error("Invalid email or password")
+      throw new SystemError("Error desconocido al autenticar el usuario")
     }
-  } catch (error) {
-    console.error("Error logging in", error)
-    throw error
   }
 }
 

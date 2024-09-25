@@ -1,4 +1,4 @@
-import { ContentError } from "../com/errors.tsx"
+import { ContentError, MatchError } from "../com/errors.tsx"
 
 export const EMAIL_REGEX =
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -42,6 +42,12 @@ function validateDocument(document: string) {
   }
 }
 
+function validatePasswordsMatch(password: string, passwordRepeat: string) {
+  if (password !== passwordRepeat) {
+    throw new MatchError("Contraseñas no coinciden")
+  }
+}
+
 const validate = {
   email: validateEmail,
   fullName: validateFullName,
@@ -49,6 +55,7 @@ const validate = {
   city: validateCity,
   country: validateCountry,
   document: validateDocument,
+  passwordsMatch: validatePasswordsMatch,
 }
 
 export default validate
