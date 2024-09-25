@@ -14,7 +14,8 @@ const autenticarUsuario = async (email: string, password: string) => {
 
   try {
     const response = await api.post("/Usuario/Login", body)
-    return response.data
+    const token = response.data.token
+    sessionStorage.setItem("token", token)
   } catch (error: unknown) {
     if (axios.isAxiosError(error)) {
       if (error.response && error.response.status === 401) {
@@ -22,8 +23,6 @@ const autenticarUsuario = async (email: string, password: string) => {
       } else {
         throw new SystemError("Error del sistema al autenticar el usuario")
       }
-    } else {
-      throw new SystemError("Error desconocido al autenticar el usuario")
     }
   }
 }
