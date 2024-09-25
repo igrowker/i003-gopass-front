@@ -5,6 +5,8 @@ import { IoTicketOutline } from "react-icons/io5"
 import { LuBadgePercent } from "react-icons/lu"
 import { MdOutlineVerifiedUser } from "react-icons/md"
 
+import logic from "../../logic/"
+
 import Avatar from "./Avatar"
 import logoutUser from "../../../privateRoutes/logoutUser"
 
@@ -12,7 +14,11 @@ export default function SideBarMenu({ isOpen }: { isOpen: boolean }) {
   const navigate = useNavigate()
 
   const handleLogout = () => {
+<<<<<<< HEAD:src/app/components/UI/SideBarMenu.tsx
     logoutUser()
+=======
+    logic.logoutUser()
+>>>>>>> 7d05489 (add logout user funciton 7#):src/components/UI/SideBarMenu.tsx
     navigate("/login")
   }
 

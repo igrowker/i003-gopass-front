@@ -20,8 +20,6 @@ const autenticarUsuario = async (email: string, password: string) => {
       } else {
         throw new SystemError("Error del sistema al autenticar el usuario")
       }
-    } else {
-      throw new SystemError("Error desconocido al autenticar el usuario")
     }
   }
 }
