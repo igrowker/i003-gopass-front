@@ -1,12 +1,11 @@
 import { useState } from "react"
-import { Navbar } from "../UI/Navbar"
-import InputField from "../core/InputField/InputField"
-import Button from "../core/Button/Button"
-import TextArea from "../core/TextArea/TextArea"
+import { Navbar } from "../components/UI/Navbar"
+import InputField from "../../app/components/core/InputField/InputField"
+import Button from "../../app/components/core/Button/Button"
+import TextArea from "../../app/components/core/TextArea/TextArea"
 
 export default function VenderEntrada() {
   const [isVerified, setIsVerified] = useState(false)
-  const [isChecked, setIsChecked] = useState(false)
 
   const handleVerified = () => {
     setIsVerified(!isVerified)

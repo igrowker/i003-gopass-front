@@ -1,13 +1,7 @@
 import axios from "axios"
 import validate from "com/validate"
 import { SystemError } from "com/errors"
-
-const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
-  headers: {
-    "Content-Type": "application/json"
-  }
-})
+import { httpClient } from "../api/axios-config"
 
 const registrarUsuario = async (email: string, password: string, passwordRepeat: string) => {
   validate.email(email)
@@ -17,7 +11,7 @@ const registrarUsuario = async (email: string, password: string, passwordRepeat:
   const body = { email, password, passwordRepeat }
 
   try {
-    const response = await api.post("/Usuario/Register", body)
+    const response = await httpClient.post("/Usuario/Register", body)
 
     if (response.status === 201) return
 

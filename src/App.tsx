@@ -1,21 +1,21 @@
-import './App.css'
-import { Routes, Route } from 'react-router-dom'
-import { useState } from 'react'
-import { AppWrapper } from './contexts/AppWrapper'
+import "./App.css"
+import { Routes, Route } from "react-router-dom"
+import { useState } from "react"
+import { AppWrapper } from "./context/AppWrapper"
 
-import Alert from './components/UI/Alert'
-import VerificarEntradaComponent from './components/view/VerificarEntradaComponent'
-import { LandingView } from './components/view/LandingPage/LandingView'
-import SocialLogin from './components/view/SocialLogin'
-import Login from './components/view/Login'
-import Register from './components/view/Register'
-import UserProfile from './components/view/UserProfile'
-import ComprarEntrada from './components/view/ComprarEntrada'
-import PagarEntrada from './components/view/PagarEntrada'
+import Alert from "./app/components/UI/Alert"
+import VerificarEntradaComponent from "./app/components/VerificarEntrada/EntradaAutenticada"
+import { LandingView } from "./app/pages/LandingViewPage"
+import SocialLogin from "./app/pages/SocialLoginPage"
+import Login from "./app/pages/LoginPage"
+import Register from "./app/pages/RegisterPage"
+import UserProfile from "./app/pages/UserProfilePage"
+import ComprarEntrada from "./app/pages/ComprarEntradaPage"
+import PagarEntrada from "./app/pages/PagarEntradaPage"
 
-import Ticket from './components/view/Ticket'
-import Contact from './components/view/Contact'
-import VenderEntrada from './components/view/VenderEntrada'
+import Ticket from "./app/pages/TicketPage"
+import Contact from "./app/pages/ContactPage"
+import VenderEntrada from "./app/pages/VenderEntradaPage"
 
 function App() {
   const [message, setMessage] = useState<string | null>(null)
@@ -35,10 +35,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/ticket" element={<Ticket />} />
 
-          <Route
-            path="/verificar-entrada"
-            element={<VerificarEntradaComponent />}
-          />
+          <Route path="/verificar-entrada" element={<VerificarEntradaComponent />} />
           <Route path="/comprar-entrada" element={<ComprarEntrada />} />
           <Route path="/vender-entrada" element={<VenderEntrada />} />
           <Route path="/pagar-entrada" element={<PagarEntrada />} />
