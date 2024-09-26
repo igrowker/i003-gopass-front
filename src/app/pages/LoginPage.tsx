@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom"
-import UseContext from "../../contexts/UseContext"
+import UseContext from "../../context/UseContext"
 
 import Button from "../core/Button/Button"
 import InputField from "../core/InputField/InputField"
