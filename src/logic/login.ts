@@ -1,10 +1,7 @@
 import axios from "axios"
 import validate from "com/validate"
 import { SystemError, CredentialsError } from "com/errors"
-
-const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL
-})
+import { httpClient } from "../api/axios-config"
 
 const autenticarUsuario = async (email: string, password: string) => {
   validate.email(email)
@@ -13,7 +10,7 @@ const autenticarUsuario = async (email: string, password: string) => {
   const body = { email, password }
 
   try {
-    const response = await api.post("/Usuario/Login", body)
+    const response = await httpClient.post("/Usuario/Login", body)
     return response.data
   } catch (error: unknown) {
     if (axios.isAxiosError(error)) {
