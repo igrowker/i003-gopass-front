@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { Navbar } from "../../app/components/UI/Navbar"
+import { Navbar } from "../components/UI/Navbar"
 import InputField from "../../app/components/core/InputField/InputField"
 
 import Button from "../../app/components/core/Button/Button"

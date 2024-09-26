@@ -1,11 +1,11 @@
-import { useState } from 'react'
-import { Navbar } from '../UI/Navbar'
-import EntradaAutenticada from '../VerificarEntradaComponent/EntradaAutenticada'
-import EntradaInvalida from '../VerificarEntradaComponent/EntradaInvalida'
-import ValidarEntrada from '../VerificarEntradaComponent/ValidarEntrada'
+// import { useState } from 'react'
+import { Navbar } from "../components/UI/Navbar"
+// import EntradaAutenticada from '../components/VerificarEntrada/EntradaAutenticada'
+// import EntradaInvalida from '../components/VerificarEntrada/EntradaInvalida'
+import ValidarEntrada from '../components/VerificarEntrada/ValidarEntrada'
 
 export default function VerificarEntradaComponent() {
-  const [entradaValida, setEntradaValida] = useState(true)
+  // const [entradaValida, setEntradaValida] = useState(true)
 
   return (
     <>

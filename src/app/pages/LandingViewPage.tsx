@@ -1,8 +1,8 @@
-import { Footer } from "../../UI/Footer";
-import BannerMove from "../../UI/BannerMove";
-import { Navbar } from "../../UI/Navbar";
-import Grid from "../../UI/Grid";
-import Card from "../../UI/Card";
+import { Footer } from "../components/UI/Footer";
+import BannerMove from "../components/UI/BannerMove.tsx"
+import { Navbar } from "../components/UI/Navbar"
+import Grid from "../components/UI/Grid.tsx";
+import Card from "../components/UI/Card.tsx";
 
 export const LandingView = () => {
 

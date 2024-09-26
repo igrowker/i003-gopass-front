@@ -1,9 +1,8 @@
 import { Link, useNavigate } from "react-router-dom"
 import UseContext from "../../context/UseContext"
-
-import Button from "../core/Button/Button"
-import InputField from "../core/InputField/InputField"
-import InputFieldPassword from "../core/InputFieldPassword/InputFieldPassword"
+import Button from "../components/core/Button/Button"
+import InputField from "../components/core/InputField/InputField"
+import InputFieldPassword from "../components/core/InputFieldPassword/InputFieldPassword"
 import { IoIosMail } from "react-icons/io"
 
 import logic from "../../logic"
