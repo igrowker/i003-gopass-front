@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 import { IoSettingsOutline } from "react-icons/io5"
 import { IoTicketOutline } from "react-icons/io5"
@@ -6,8 +6,16 @@ import { LuBadgePercent } from "react-icons/lu"
 import { MdOutlineVerifiedUser } from "react-icons/md"
 
 import Avatar from "./Avatar"
+import logoutUser from "../../../privateRoutes/logoutUser"
 
 export default function SideBarMenu({ isOpen }: { isOpen: boolean }) {
+  const navigate = useNavigate()
+
+  const handleLogout = () => {
+    logoutUser()
+    navigate("/login")
+  }
+
   return (
     <div className="fixed inset-0 z-10 flex items-start justify-start bg-black bg-opacity-30">
       <div
@@ -51,9 +59,9 @@ export default function SideBarMenu({ isOpen }: { isOpen: boolean }) {
             <ul className="flex flex-col gap-5 pt-5 text-center">
               <li className="cursor-pointer">Help & Support</li>
               <li className="cursor-pointer">About Us</li>
-              <Link to="/login">
-                <li className="cursor-pointer">Sign Out</li>
-              </Link>
+              <li className="cursor-pointer" onClick={handleLogout}>
+                Sign Out
+              </li>
             </ul>
           </div>
         </div>
