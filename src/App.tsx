@@ -11,7 +11,7 @@ import PrivateRoutes from "./privateRoutes/PrivateRoutes"
 
 function App() {
   const [message, setMessage] = useState<string | null>(null)
-  const handleMessage = (message: null) => setMessage(message)
+  const handleMessage = (message: string) => setMessage(message)
   const handleAlertAccepted = () => setMessage(null)
 
   return (
