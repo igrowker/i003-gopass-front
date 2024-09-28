@@ -5,7 +5,7 @@ import { GiPositionMarker } from "react-icons/gi"
 
 import VendedorVerificado from "../components/UI/VendedorVerificado"
 
-export default function ComprarEntrada() {
+export default function BuyEntryPage() {
   return (
     <>
       <Navbar />
