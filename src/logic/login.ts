@@ -13,7 +13,11 @@ const autenticarUsuario = async (email: string, password: string) => {
   const body = { email, password }
 
   try {
+<<<<<<<<< Temporary merge branch 1
     const response = await api.post("/Usuario/Login", body)
+=======
+    const response = await httpClient.post("/Usuario/Login", body)
+>>>>>>> develop
     const token = response.data.token
     sessionStorage.setItem("token", token)
   } catch (error: unknown) {
