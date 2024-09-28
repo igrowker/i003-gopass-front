@@ -14,11 +14,7 @@ export default function SideBarMenu({ isOpen }: { isOpen: boolean }) {
   const navigate = useNavigate()
 
   const handleLogout = () => {
-<<<<<<< HEAD:src/app/components/UI/SideBarMenu.tsx
     logoutUser()
-=======
-    logic.logoutUser()
->>>>>>> 7d05489 (add logout user funciton 7#):src/components/UI/SideBarMenu.tsx
     navigate("/login")
   }
 
