@@ -46,7 +46,7 @@ export default function SideBarMenu({ isOpen }: { isOpen: boolean }) {
                   Revender
                 </li>
               </Link>
-              <Link to="/">
+              <Link to="/verificar-entrada/">
                 <li className="flex cursor-pointer items-center gap-2">
                   <MdOutlineVerifiedUser />
                   Verificar

@@ -1,16 +1,16 @@
 import React from "react"
 import { Routes, Route } from "react-router-dom"
 import UserProfile from "../app/pages/UserProfilePage"
-import ComprarEntrada from "../app/pages/ComprarEntradaPage"
-import PagarEntrada from "../app/pages/PagarEntradaPage"
-import VerificarEntradaComponent from "../app/components/VerificarEntrada/EntradaAutenticada"
-import VenderEntrada from "../app/pages/VenderEntradaPage"
+import ComprarEntrada from "../app/pages/BuyEntryPage"
+import PagarEntrada from "../app/pages/PayEntryPage"
+import VenderEntrada from "../app/pages/SellEntryPage"
 import Contact from "../app/pages/ContactPage"
 import Ticket from "../app/pages/TicketPage"
 import LandingView from "../app/pages/LandingViewPage"
 import PrivateRoute from "./PrivateRoute"
 
 import isAuthenticated from "./isAuth"
+import VerifyEntryPage from "../app/pages/VerifyEntryPage"
 
 const PrivateRoutes: React.FC = () => {
   const authStatus = isAuthenticated()
@@ -28,7 +28,7 @@ const PrivateRoutes: React.FC = () => {
       <Route path="/ticket" element={<PrivateRoute element={<Ticket />} isAuthenticated={authStatus} />} />
       <Route
         path="/verificar-entrada"
-        element={<PrivateRoute element={<VerificarEntradaComponent />} isAuthenticated={authStatus} />}
+        element={<PrivateRoute element={<VerifyEntryPage />} isAuthenticated={authStatus} />}
       />
       <Route
         path="/vender-entrada"
