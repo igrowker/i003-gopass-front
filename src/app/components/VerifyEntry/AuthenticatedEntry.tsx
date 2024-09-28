@@ -2,7 +2,7 @@ import { FaRegCalendarAlt } from 'react-icons/fa'
 import { GiPositionMarker } from 'react-icons/gi'
 import Button from '../core/Button/Button'
 
-function EntradaAutenticada() {
+function AuthenticatedEntry() {
   return (
     <>
       <section className="flex flex-col items-center p-4">
@@ -55,4 +55,4 @@ function EntradaAutenticada() {
   )
 }
 
-export default EntradaAutenticada
+export default AuthenticatedEntry

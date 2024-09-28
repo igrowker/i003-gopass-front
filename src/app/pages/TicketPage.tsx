@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Navbar } from "../UI/Navbar"
+import { Navbar } from "../components/UI/Navbar"
 import { FaRegCalendarAlt } from "react-icons/fa"
 import { GiPositionMarker } from "react-icons/gi"
 import { HiDownload } from "react-icons/hi"

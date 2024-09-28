@@ -8,12 +8,17 @@ import { MdOutlineVerifiedUser } from "react-icons/md"
 import logic from "../../logic/"
 
 import Avatar from "./Avatar"
+import logoutUser from "../../../privateRoutes/logoutUser"
 
 export default function SideBarMenu({ isOpen }: { isOpen: boolean }) {
   const navigate = useNavigate()
 
   const handleLogout = () => {
+<<<<<<< HEAD:src/components/UI/SideBarMenu.tsx
     logic.logoutUser()
+=======
+    logoutUser()
+>>>>>>> develop:src/app/components/UI/SideBarMenu.tsx
     navigate("/login")
   }
 
@@ -47,7 +52,7 @@ export default function SideBarMenu({ isOpen }: { isOpen: boolean }) {
                   Revender
                 </li>
               </Link>
-              <Link to="/">
+              <Link to="/verificar-entrada/">
                 <li className="flex cursor-pointer items-center gap-2">
                   <MdOutlineVerifiedUser />
                   Verificar

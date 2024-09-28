@@ -1,11 +1,11 @@
-import { Navbar } from "../UI/Navbar"
+import { Navbar } from "../components/UI/Navbar"
 
 import { FaRegCalendarAlt } from "react-icons/fa"
 import { GiPositionMarker } from "react-icons/gi"
 
-import VendedorVerificado from "../UI/VendedorVerificado"
+import VendedorVerificado from "../components/UI/VendedorVerificado"
 
-export default function ComprarEntrada() {
+export default function BuyEntryPage() {
   return (
     <>
       <Navbar />

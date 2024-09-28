@@ -1,7 +1,7 @@
 import Button from '../core/Button/Button'
 import InputField from '../core/InputField/InputField'
 
-function ValidarEntrada() {
+function ValidateEntry() {
   return (
     <>
       <section className="flex flex-col items-center p-4 w-full">
@@ -31,4 +31,4 @@ function ValidarEntrada() {
   )
 }
 
-export default ValidarEntrada
+export default ValidateEntry

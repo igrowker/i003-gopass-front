@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import LOGO from "../../assets/isologo.png"
+import LOGO from "../../../assets/isologo.svg"
 import SideBarMenu from "./SideBarMenu"
 
 export const Navbar = () => {
