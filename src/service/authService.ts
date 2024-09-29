@@ -36,7 +36,7 @@ export const registrarUsuario = async (email: string, password: string, password
   try {
     const response = await httpClient.post("/Usuario/Register", body)
 
-    if (response.status === 201) return
+    if (response.status === 200) return
 
     throw new SystemError(`Error en el registro: ${response.statusText}`)
   } catch (error: unknown) {
