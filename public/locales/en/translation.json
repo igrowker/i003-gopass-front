@@ -1,0 +1,37 @@
+{
+  "_commentSidebar:": "Sidebar Component",
+  "myAccount": "My Account",
+  "entries": "Entries",
+  "resell": "Resell",
+  "verify": "Verify",
+  "help": "Help & Support",
+  "about": "About Us",
+  "signOut": "Sign Out",
+
+  "_commentProfile:": "Profile Component",
+  "fullName": "Full Name",
+  "email": "Email",
+  "password": "Password",
+  "birthdate": "Birthdate",
+  "city": "City",
+  "country": "Country",
+  "dni": "ID/Passport",
+  "save": "Save",
+
+  "_commentLogin:": "Login Component",
+  "loginTitle": "Log In",
+  "emailPlaceholder": "Email",
+  "passwordPlaceholder": "Password",
+  "forgotPassword": "Forgot your password?",
+  "loginButton": "Log In",
+  "noAccount": "Don't have an account?",
+  "register": "Register",
+
+  "_commentRegister:": "Register Component",
+  "registerTitle": "Register",
+  "confirmPasswordPlaceholder": "Confirm Password",
+  "createAccountButton": "Create Account",
+  "alreadyHaveAccount": "Already have an account?",
+  "login": "Log In",
+  "checkBox": "I'm not a robot"
+}

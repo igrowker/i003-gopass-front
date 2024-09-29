@@ -1,9 +1,11 @@
 import { Navbar } from "../components/UI/Navbar"
+import { useTranslation } from "react-i18next"
 import Button from "../components/core/Button"
 import InputField from "../components/core/InputField"
 import Avatar from "../components/UI/Avatar"
 
 export default function UserProfile() {
+  const { t } = useTranslation()
   return (
     <>
       <div>
@@ -12,7 +14,7 @@ export default function UserProfile() {
 
       <div className="flex flex-col items-center justify-center overflow-visible">
         <div className="relative mt-24 flex w-full flex-row justify-center text-2xl">
-          <h2 className="text-center">Mi cuenta</h2>
+          <h2 className="text-center">{t("myAccount")}</h2>
         </div>
 
         <div className="Avatar">
@@ -23,65 +25,57 @@ export default function UserProfile() {
           <InputField
             type="text"
             className="rounded-md border-2 border-solid p-2"
-            placeholder="user.name"
+            placeholder={t("user.fullName")}
             id="fullName"
-            label="Nombre Completo"
+            label={t("fullName")}
           />
 
           <InputField
             type="email"
             className="rounded-md border-2 border-solid p-2"
-            placeholder="user.email"
+            placeholder={t("user.email")}
             id="email"
-            label="Email"
+            label={t("email")}
           />
 
           <InputField
             type="password"
             className="rounded-md border-2 border-solid p-2"
-            placeholder="Contraseña"
+            placeholder={t("user.password")}
             id="password"
-            label="Contraseña"
+            label={t("password")}
           />
 
           <InputField
             type="date"
             className="rounded-md border-2 border-solid p-2"
-            placeholder="user.birthdate"
+            placeholder={t("user.birthdate")}
             id="birthdate"
-            label="Birthdate"
+            label={t("birthdate")}
           />
 
           <InputField
             type="text"
             className="rounded-md border-2 border-solid p-2"
-            placeholder="user.address"
-            id="address"
-            label="Address"
-          />
-
-          <InputField
-            type="text"
-            className="rounded-md border-2 border-solid p-2"
-            placeholder="user.city"
+            placeholder={t("user.city")}
             id="city"
-            label="Ciudad"
+            label={t("city")}
           />
 
           <InputField
             type="text"
             className="rounded-md border-2 border-solid p-2"
-            placeholder="user.country"
+            placeholder={t("user.country")}
             id="country"
-            label="País"
+            label={t("country")}
           />
 
           <InputField
             type="text"
             className="rounded-md border-2 border-solid p-2"
-            placeholder="user.dni"
+            placeholder={t("user.dni")}
             id="dni"
-            label="DNI/NIE/Pasaporte"
+            label={t("dni")}
           />
 
           <Button className="-z-10 mb-6 mt-4 bg-customGreen font-semibold text-white" type="submit">

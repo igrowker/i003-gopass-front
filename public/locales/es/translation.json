@@ -1,0 +1,34 @@
+{
+  "myAccount": "Mi Cuenta",
+  "entries": "Entradas",
+  "resell": "Revender",
+  "verify": "Verificar",
+  "help": "Ayuda & Soporte",
+  "about": "Sobre Nosotros",
+  "signOut": "Cerrar sesión",
+
+  "fullName": "Nombre Completo",
+  "email": "Correo Electrónico",
+  "password": "Contraseña",
+  "birthdate": "Fecha de Nacimiento",
+  "city": "Ciudad",
+  "country": "País",
+  "dni": "DNI/NIE/Pasaporte",
+  "save": "Guardar",
+
+  "_commentLogin:": "Login Component",
+  "loginTitle": "Inicia sesión",
+  "emailPlaceholder": "Correo Electrónico",
+  "passwordPlaceholder": "Contraseña",
+  "forgotPassword": "¿Olvidaste la contraseña?",
+  "loginButton": "Iniciar sesión",
+  "noAccount": "¿Aún no tienes cuenta?",
+  "register": "Regístrate",
+
+  "_commentRegister:": "Register Component",
+  "registerTitle": "Registro",
+  "confirmPasswordPlaceholder": "Confirmar Contraseña",
+  "createAccountButton": "Crear Cuenta",
+  "alreadyHaveAccount": "¿Ya tienes una cuenta?",
+  "login": "Inicia Sesión"
+}

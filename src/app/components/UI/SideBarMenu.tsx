@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom"
+import { useTranslation } from "react-i18next"
 
 import { IoSettingsOutline } from "react-icons/io5"
 import { IoTicketOutline } from "react-icons/io5"
@@ -9,6 +10,7 @@ import Avatar from "./Avatar"
 import { logoutUser } from "../../../service/authService"
 
 export default function SideBarMenu({ isOpen }: { isOpen: boolean }) {
+  const { t } = useTranslation()
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -31,25 +33,25 @@ export default function SideBarMenu({ isOpen }: { isOpen: boolean }) {
               <Link to="/user-profile">
                 <li className="flex cursor-pointer items-center gap-2">
                   <IoSettingsOutline />
-                  Mi Cuenta
+                  <p>{t("myAccount")}</p>
                 </li>
               </Link>
               <Link to="/">
                 <li className="flex cursor-pointer items-center gap-2">
                   <IoTicketOutline />
-                  Entradas
+                  <p>{t("entries")}</p>
                 </li>
               </Link>
               <Link to="/vender-entrada">
                 <li className="flex cursor-pointer items-center gap-2">
                   <LuBadgePercent />
-                  Revender
+                  <p>{t("resell")}</p>
                 </li>
               </Link>
               <Link to="/verificar-entrada/">
                 <li className="flex cursor-pointer items-center gap-2">
                   <MdOutlineVerifiedUser />
-                  Verificar
+                  <p>{t("verify")}</p>
                 </li>
               </Link>
             </ul>
@@ -57,10 +59,14 @@ export default function SideBarMenu({ isOpen }: { isOpen: boolean }) {
           <hr className="w-full border-2" />
           <div>
             <ul className="flex flex-col gap-5 pt-5 text-center">
-              <li className="cursor-pointer">Help & Support</li>
-              <li className="cursor-pointer">About Us</li>
+              <li className="cursor-pointer">
+                <p>{t("help")}</p>
+              </li>
+              <li className="cursor-pointer">
+                <p>{t("about")}</p>
+              </li>
               <li className="cursor-pointer" onClick={handleLogout}>
-                Sign Out
+                <p>{t("signOut")}</p>
               </li>
             </ul>
           </div>

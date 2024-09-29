@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { useTranslation } from "react-i18next"
 import { IoIosMail } from "react-icons/io"
 import { useLogin } from "../../hooks/useLogin.ts"
 import Button from "../components/core/Button"
@@ -17,6 +18,7 @@ interface LoginFormElement extends HTMLFormElement {
 
 export default function LoginSession() {
   const { login } = useLogin()
+  const { t } = useTranslation()
 
   const handleLoginSubmit = async (event: React.FormEvent<LoginFormElement>) => {
     event.preventDefault()
@@ -42,20 +44,29 @@ export default function LoginSession() {
             <img src="/src/assets/isologo.png" alt="Logo" className="w-[15rem]" />
           </picture>
 
-          <form onSubmit={handleLoginSubmit} className="flex w-[90%] flex-col gap-5 rounded-2xl bg-[#e0e0e0e2] p-3">
-            <h1 className="-mb-5 pt-4 text-left text-2xl font-black">Inicia sesión</h1>
-            <InputField className="ml-4" type="email" placeholder="Email" id="email" icon={<IoIosMail />} />
-            <InputFieldPassword placeholder="Contraseña" id="password" />
+          <form
+            onSubmit={handleLoginSubmit}
+            className="flex w-[90%] flex-col gap-5 rounded-2xl bg-[#e0e0e0e2] p-3 px-6"
+          >
+            <h1 className="-mb-5 pt-4 text-left text-2xl font-black">{t("loginTitle")}</h1>
+            <InputField
+              className="ml-4"
+              type="email"
+              placeholder={t("emailPlaceholder")}
+              id="email"
+              icon={<IoIosMail />}
+            />
+            <InputFieldPassword placeholder={t("passwordPlaceholder")} id="password" />
             <Link className="underline" to="">
-              ¿Olvidaste la constraseña?
+              {t("forgotPassword")}
             </Link>
             <Button type="submit" className="bg-black text-xl text-white hover:bg-customRed hover:text-black">
-              Iniciar sesión
+              {t("loginButton")}
             </Button>
             <p className="text-center">
-              ¿Aún no tienes cuenta?
+              {t("noAccount")}
               <Link to="/register" className="ml-2 font-bold underline">
-                Regístrate
+                {t("register")}
               </Link>
             </p>
           </form>
