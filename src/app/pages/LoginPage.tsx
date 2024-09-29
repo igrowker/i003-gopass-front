@@ -1,16 +1,11 @@
 import { Link } from "react-router-dom"
 import { IoIosMail } from "react-icons/io"
-import { SystemError } from "com/errors"
 import { useLogin } from "../../hooks/useLogin.ts"
-
-import UseContext from "../../context/UseContext"
 import Button from "../components/core/Button/Button"
 import InputField from "../components/core/InputField/InputField"
 import InputFieldPassword from "../components/core/InputFieldPassword/InputFieldPassword"
 
 export default function LoginSession() {
-  const { alert } = UseContext()
-
   const { login } = useLogin()
 
   const handleLoginSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -23,24 +18,7 @@ export default function LoginSession() {
     const email = target.email.value
     const password = target.password.value
 
-    // try {
-    //   await autenticarUsuario(email, password)
-    //   navigate("/")
-    // } catch (error: any) {
-    //   if (error instanceof SystemError) {
-    //     alert(error.message)
-    //   }
-    //   alert(error.message)
-    // }
-
-    try {
-      await login(email, password)
-    } catch (error: any) {
-      if (error instanceof SystemError) {
-        alert(error.message)
-      }
-      alert(error.message)
-    }
+    await login(email, password)
   }
 
   return (
