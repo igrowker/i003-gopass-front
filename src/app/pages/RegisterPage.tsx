@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom"
-import Button from "../components/core/Button/Button"
-import InputField from "../components/core/InputField/InputField"
-import InputFieldPassword from "../components/core/InputFieldPassword/InputFieldPassword"
-import Checkbox from "../components/core/Checkbox/Checkbox"
+import Button from "../components/core/Button"
+import InputField from "../components/core/InputField"
+import InputFieldPassword from "../components/core/InputFieldPassword"
+import Checkbox from "../components/core/Checkbox"
 import { IoIosMail } from "react-icons/io"
 import { useRegister } from "../../hooks/useRegister"
 

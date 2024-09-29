@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom"
 import { IoIosMail } from "react-icons/io"
 import { useLogin } from "../../hooks/useLogin.ts"
-import Button from "../components/core/Button/Button"
-import InputField from "../components/core/InputField/InputField"
-import InputFieldPassword from "../components/core/InputFieldPassword/InputFieldPassword"
+import Button from "../components/core/Button"
+import InputField from "../components/core/InputField"
+import InputFieldPassword from "../components/core/InputFieldPassword"
 
 interface LoginFormElements extends HTMLFormControlsCollection {
   email: HTMLInputElement

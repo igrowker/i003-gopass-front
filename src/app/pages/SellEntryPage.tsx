@@ -1,8 +1,8 @@
 import { useState } from "react"
 import { Navbar } from "../components/UI/Navbar"
-import InputField from "../components/core/InputField/InputField"
-import Button from "../components/core/Button/Button"
-import TextArea from "../components/core/TextArea/TextArea"
+import InputField from "../components/core/InputField"
+import Button from "../components/core/Button"
+import TextArea from "../components/core/TextArea"
 
 export default function SellEntryPage() {
   const [isVerified, setIsVerified] = useState(false)

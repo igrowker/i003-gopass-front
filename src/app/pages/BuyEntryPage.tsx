@@ -3,7 +3,7 @@ import { Navbar } from "../components/UI/Navbar"
 import { FaRegCalendarAlt } from "react-icons/fa"
 import { GiPositionMarker } from "react-icons/gi"
 
-import VerifiedSeller from "../components/UI/VerifiedSeller"
+import VerifiedSeller from "../views/VerifiedSeller"
 
 export default function BuyEntryPage() {
   return (

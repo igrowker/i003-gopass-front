@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom"
 import { Navbar } from "../components/UI/Navbar"
-import InputField from "../../app/components/core/InputField/InputField"
+import InputField from "../../app/components/core/InputField"
 
-import Button from "../../app/components/core/Button/Button"
-import TextArea from "../../app/components/core/TextArea/TextArea"
+import Button from "../../app/components/core/Button"
+import TextArea from "../../app/components/core/TextArea"
 
 import { FaInstagramSquare } from "react-icons/fa"
 import { FaSquareXTwitter } from "react-icons/fa6"
