@@ -3,7 +3,7 @@ import { Navbar } from "../components/UI/Navbar"
 import { FaRegCalendarAlt } from "react-icons/fa"
 import { GiPositionMarker } from "react-icons/gi"
 
-import VendedorVerificado from "../components/UI/VendedorVerificado"
+import VerifiedSeller from "../components/UI/VerifiedSeller"
 
 export default function BuyEntryPage() {
   return (
@@ -46,7 +46,7 @@ export default function BuyEntryPage() {
           <h3 className="p-1 pl-10 text-3xl font-semibold">$100</h3>
         </div>
         <hr className="my-2 w-[90%] border-t-4" />
-        <VendedorVerificado textButton="Comprar" />
+        <VerifiedSeller textButton="Comprar" />
       </div>
     </>
   )
