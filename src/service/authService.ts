@@ -3,7 +3,7 @@ import validate from "com/validate"
 import { SystemError, CredentialsError } from "com/errors"
 import { httpClient } from "../api/axios-config"
 
-export const autenticarUsuario = async (email: string, password: string): Promise<void> => {
+export const autenticarUsuario = async (email: string, password: string): Promise<string> => {
   validate.email(email)
   validate.password(password)
 
@@ -11,8 +11,7 @@ export const autenticarUsuario = async (email: string, password: string): Promis
 
   try {
     const response = await httpClient.post("/Usuario/Login", body)
-    const token = response.data.token
-    sessionStorage.setItem("token", token)
+    return response.data.token
   } catch (error: unknown) {
     if (axios.isAxiosError(error)) {
       if (error.response && error.response.status === 401) {
@@ -47,3 +46,5 @@ export const registrarUsuario = async (email: string, password: string, password
     }
   }
 }
+
+export const logoutUser = () => delete sessionStorage.token
