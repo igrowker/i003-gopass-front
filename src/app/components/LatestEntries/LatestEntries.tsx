@@ -1,6 +1,6 @@
 import Button from "../core/Button/Button"
 
-export default function UltimasEntradasComponent() {
+export default function LatestEntries() {
   return (
     <>
       <div className="flex justify-center p-2">

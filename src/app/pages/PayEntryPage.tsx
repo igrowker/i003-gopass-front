@@ -2,9 +2,9 @@ import { FaRegCalendarAlt } from "react-icons/fa"
 import { GiPositionMarker } from "react-icons/gi"
 
 import { Navbar } from "../components/UI/Navbar"
-import VendedorVerificado from "../components/UI/VendedorVerificado"
+import VerifiedSeller from "../components/UI/VerifiedSeller"
 
-export default function PagarEntrada() {
+export default function PayEntryPage() {
   return (
     <>
       <Navbar />
@@ -60,7 +60,7 @@ export default function PagarEntrada() {
           </span>
         </div>
         <hr className="my-5 w-[90%] border-t-4" />
-        <VendedorVerificado textButton="Pagar" />
+        <VerifiedSeller textButton="Pagar" />
       </div>
     </>
   )

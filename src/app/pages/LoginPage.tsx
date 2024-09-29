@@ -5,7 +5,7 @@ import InputField from "../components/core/InputField/InputField"
 import InputFieldPassword from "../components/core/InputFieldPassword/InputFieldPassword"
 import { IoIosMail } from "react-icons/io"
 
-import logic from "../../logic"
+import { autenticarUsuario } from "../../service/authService"
 import { SystemError } from "com/errors"
 
 export default function LoginSession() {
@@ -24,7 +24,7 @@ export default function LoginSession() {
     const password = target.password.value
 
     try {
-      await logic.autenticarUsuario(email, password)
+      await autenticarUsuario(email, password)
       navigate("/")
     } catch (error: any) {
       if (error instanceof SystemError) {

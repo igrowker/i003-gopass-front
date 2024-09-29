@@ -1,6 +1,6 @@
 import Button from '../core/Button/Button'
 
-function EntradaInvalida() {
+function InvalidEntry() {
   return (
     <>
       <section className="flex flex-col items-center p-4">
@@ -28,4 +28,4 @@ function EntradaInvalida() {
   )
 }
 
-export default EntradaInvalida
+export default InvalidEntry

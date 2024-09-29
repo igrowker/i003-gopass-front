@@ -6,13 +6,13 @@ import { LuBadgePercent } from "react-icons/lu"
 import { MdOutlineVerifiedUser } from "react-icons/md"
 
 import Avatar from "./Avatar"
-import logoutUser from "../../../privateRoutes/logoutUser"
+import logoutUser from "../../../service/logoutUser"
 
 export default function SideBarMenu({ isOpen }: { isOpen: boolean }) {
   const navigate = useNavigate()
 
   const handleLogout = () => {
-    logoutUser()
+    logic.logoutUser()
     navigate("/login")
   }
 
@@ -46,7 +46,7 @@ export default function SideBarMenu({ isOpen }: { isOpen: boolean }) {
                   Revender
                 </li>
               </Link>
-              <Link to="/">
+              <Link to="/verificar-entrada/">
                 <li className="flex cursor-pointer items-center gap-2">
                   <MdOutlineVerifiedUser />
                   Verificar
