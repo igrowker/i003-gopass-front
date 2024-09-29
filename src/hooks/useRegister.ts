@@ -8,9 +8,9 @@ export const useRegister = () => {
 
   const { alert } = useContext()
 
-  const register = async (email: string, password: string, passwordReapet: string): Promise<void> => {
+  const register = async (email: string, password: string, passwordRepeat: string): Promise<void> => {
     try {
-      await registrarUsuario(email, password, passwordReapet)
+      await registrarUsuario(email, password, passwordRepeat)
       navigate("/login")
     } catch (error: any) {
       if (error instanceof SystemError) {

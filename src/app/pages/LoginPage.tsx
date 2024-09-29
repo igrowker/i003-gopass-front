@@ -19,6 +19,8 @@ export default function LoginSession() {
     const password = target.password.value
 
     await login(email, password)
+
+    event.currentTarget.reset()
   }
 
   return (
