@@ -85,7 +85,7 @@ export default function UserProfile() {
           />
 
           <Button className="-z-10 mb-6 mt-4 bg-customGreen font-semibold text-white" type="submit">
-            Contactar
+            Guardar
           </Button>
         </form>
       </div>
