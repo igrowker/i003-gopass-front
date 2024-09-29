@@ -4,7 +4,6 @@ import InputField from "../components/core/InputField/InputField"
 import InputFieldPassword from "../components/core/InputFieldPassword/InputFieldPassword"
 import Checkbox from "../components/core/Checkbox/Checkbox"
 import { IoIosMail } from "react-icons/io"
-
 import { useRegister } from "../../hooks/useRegister"
 
 interface RegisterFormElements extends HTMLFormControlsCollection {
@@ -23,7 +22,8 @@ export default function Register() {
   const handleRegister = async (event: React.FormEvent<RegisterFormElement>) => {
     event.preventDefault()
 
-    const target = event.currentTarget.elements
+    const form = event.currentTarget
+    const target = form.elements
 
     const email: string = target.email.value
     const password: string = target.password.value
@@ -31,7 +31,7 @@ export default function Register() {
 
     await register(email, password, passwordRepeat)
 
-    event.currentTarget.reset()
+    form.reset()
   }
 
   return (
