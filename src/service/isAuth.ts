@@ -1,6 +1,5 @@
 const isAuthenticated = () => {
-   /* return !!sessionStorage.getItem("token") */ 
-   return true
+  return !!sessionStorage.getItem("token")
 }
 
 export default isAuthenticated

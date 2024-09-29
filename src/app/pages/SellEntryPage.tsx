@@ -16,7 +16,7 @@ export default function SellEntryPage() {
       <Navbar />
 
       <div className="flex flex-col items-center justify-center overflow-visible">
-        <div className="relative flex w-full flex-row justify-center text-2xl">
+        <div className="relative mt-20 flex w-full flex-row justify-center text-2xl">
           <h2 className="-z-20 m-5 text-center text-xl font-semibold">Revender</h2>
         </div>
 
@@ -101,7 +101,7 @@ export default function SellEntryPage() {
           </div>
 
           <Button className="-z-10 mb-6 mt-4 bg-customGreen font-semibold text-white" type="submit">
-            Contactar
+            Revender
           </Button>
         </form>
       </div>

@@ -6,7 +6,7 @@ import InputFieldPassword from "../components/core/InputFieldPassword/InputField
 import Checkbox from "../components/core/Checkbox/Checkbox"
 import { IoIosMail } from "react-icons/io"
 
-import logic from "../../logic"
+import { registrarUsuario } from "../../service/authService"
 
 interface RegisterFormElements extends HTMLFormControlsCollection {
   email: HTMLInputElement
@@ -31,10 +31,13 @@ export default function Register() {
     const passwordRepeat: string = target.password.value
 
     try {
-      await logic.registrarUsuario(email, password, passwordRepeat)
+      await registrarUsuario(email, password, passwordRepeat)
       navigate("/login")
-    } catch (error: unknown) {
-      if (error instanceof Error) alert(error.message)
+    } catch (error: any) {
+      if (error instanceof Error) {
+        alert(error.message)
+      }
+      alert(error.message)
     }
   }
 
