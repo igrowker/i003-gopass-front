@@ -9,7 +9,7 @@ import Ticket from "../app/pages/TicketPage"
 import LandingView from "../app/pages/LandingViewPage"
 import PrivateRoute from "./PrivateRoute"
 
-import isAuthenticated from "./isAuth"
+import isAuthenticated from "../service/isAuth"
 import VerifyEntryPage from "../app/pages/VerifyEntryPage"
 
 const PrivateRoutes: React.FC = () => {
