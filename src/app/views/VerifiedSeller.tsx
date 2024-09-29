@@ -1,6 +1,6 @@
-import Avatar from "./Avatar"
-import RatingCheck from "../core/RatingCheck/RatingCheck"
-import Button from "../core/Button/Button"
+import Avatar from "../components/UI/Avatar"
+import RatingCheck from "../components/core/RatingCheck"
+import Button from "../components/core/Button"
 
 export default function VerifiedSeller({ textButton }: { textButton: string }) {
   return (

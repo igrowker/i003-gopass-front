@@ -1,4 +1,4 @@
-import LoginLink from "../components/core/LoginLink/LoginLink"
+import LoginLink from "../components/core/LoginLink"
 
 import { FcGoogle } from "react-icons/fc"
 import { IoLogoApple } from "react-icons/io5"

@@ -1,5 +1,5 @@
 // import './Alert.css'
-import Button from '../core/Button/Button'
+import Button from '../core/Button'
 
 interface AlertProps {
   message: string

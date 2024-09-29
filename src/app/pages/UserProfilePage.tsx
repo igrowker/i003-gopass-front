@@ -1,6 +1,6 @@
 import { Navbar } from "../components/UI/Navbar"
-import Button from "../components/core/Button/Button"
-import InputField from "../components/core/InputField/InputField"
+import Button from "../components/core/Button"
+import InputField from "../components/core/InputField"
 import Avatar from "../components/UI/Avatar"
 
 export default function UserProfile() {
