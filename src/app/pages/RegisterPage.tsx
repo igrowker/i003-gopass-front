@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 import Button from "../components/core/Button/Button"
 import InputField from "../components/core/InputField/InputField"
@@ -19,8 +19,6 @@ interface RegisterFormElement extends HTMLFormElement {
 }
 
 export default function Register() {
-  const navigate = useNavigate()
-
   const handleRegister = async (event: React.FormEvent<RegisterFormElement>) => {
     event.preventDefault()
 
@@ -30,15 +28,7 @@ export default function Register() {
     const password: string = target.password.value
     const passwordRepeat: string = target.password.value
 
-    try {
-      await registrarUsuario(email, password, passwordRepeat)
-      navigate("/login")
-    } catch (error: any) {
-      if (error instanceof Error) {
-        alert(error.message)
-      }
-      alert(error.message)
-    }
+    await registrarUsuario(email, password, passwordRepeat)
   }
 
   return (
