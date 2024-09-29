@@ -2,19 +2,19 @@ import Swal from "sweetalert2"
 
 export const Confirm = async () => {
   const result = await Swal.fire({
-    title: "Are you sure?",
-    text: "You won't be able to revert this!",
+    title: "¿Estas seguro de que desea publicar una nueva entrada?",
+    text: "Esta acción no se puede deshacer.",
     icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
     cancelButtonColor: "#d33",
-    confirmButtonText: "Yes, delete it!"
+    confirmButtonText: "Publicar"
   })
 
   if (result.isConfirmed) {
     await Swal.fire({
-      title: "Deleted!",
-      text: "Your file has been deleted.",
+      title: "¡Publicada!",
+      text: "Tu entrada ha sido publicada.",
       icon: "success"
     })
   }
