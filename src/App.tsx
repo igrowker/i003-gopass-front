@@ -1,37 +1,33 @@
 import "./App.css"
 import { Routes, Route } from "react-router-dom"
+import { useState } from "react"
+import { AppWrapper } from "./context/AppWrapper"
 
-import VerificarEntradaComponent from "./components/view/VerificarEntradaComponent"
-import { LandingView } from "./components/view/LandingPage/LandingView"
-import SocialLogin from "./components/view/SocialLogin"
-import Login from "./components/view/Login"
-import Register from "./components/view/Register"
-import UserProfile from "./components/view/UserProfile"
-import ComprarEntrada from "./components/view/ComprarEntrada"
-import PagarEntrada from "./components/view/PagarEntrada"
-
-import Ticket from "./components/view/Ticket"
-import Contact from "./components/view/Contact"
-import VenderEntrada from "./components/view/VenderEntrada"
+import Alert from "./app/components/UI/Alert"
+import SocialLogin from "./app/pages/SocialLoginPage"
+import Login from "./app/pages/LoginPage"
+import Register from "./app/pages/RegisterPage"
+import PrivateRoutes from "./privateRoutes/PrivateRoutes"
 
 function App() {
+  const [message, setMessage] = useState<string | null>(null)
+  const handleMessage = (message: string) => setMessage(message)
+  const handleAlertAccepted = () => setMessage(null)
+
   return (
     <>
-      <Routes>
-        <Route path="/" element={<LandingView />} />
-        <Route path="/social-login" element={<SocialLogin />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/user-profile" element={<UserProfile />} />
+      <AppWrapper handleMessage={handleMessage}>
+        <Routes>
+          {/* Rutas públicas */}
+          <Route path="/social-login" element={<SocialLogin />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
 
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/ticket" element={<Ticket />} />
-
-        <Route path="/verificar-entrada" element={<VerificarEntradaComponent />} />
-        <Route path="/comprar-entrada" element={<ComprarEntrada />} />
-        <Route path="/vender-entrada" element={<VenderEntrada />} />
-        <Route path="/pagar-entrada" element={<PagarEntrada />} />
-      </Routes>
+          {/* Rutas privadas */}
+          <Route path="/*" element={<PrivateRoutes />} />
+        </Routes>
+        {message && <Alert message={message} onAccept={handleAlertAccepted} />}
+      </AppWrapper>
     </>
   )
 }

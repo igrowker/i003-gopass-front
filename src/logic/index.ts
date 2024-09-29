@@ -1,7 +1,9 @@
 import autenticarUsuario from "./login"
+import registrarUsuario from "./register"
 
 const logic = {
-  autenticarUsuario
+  autenticarUsuario,
+  registrarUsuario
 }
 
 export default logic
