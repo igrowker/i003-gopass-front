@@ -1,6 +1,6 @@
 import React from "react"
 import { Navigate } from "react-router-dom"
-import isAuthenticated from "./isAuth"
+import isAuthenticated from "../service/isAuth"
 
 interface PrivateRouteProps {
   element: React.ReactElement
