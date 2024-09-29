@@ -6,13 +6,13 @@ import { LuBadgePercent } from "react-icons/lu"
 import { MdOutlineVerifiedUser } from "react-icons/md"
 
 import Avatar from "./Avatar"
-import logoutUser from "../../../service/logoutUser"
+import { logoutUser } from "../../../service/authService"
 
 export default function SideBarMenu({ isOpen }: { isOpen: boolean }) {
   const navigate = useNavigate()
 
   const handleLogout = () => {
-    logic.logoutUser()
+    logoutUser()
     navigate("/login")
   }
 
