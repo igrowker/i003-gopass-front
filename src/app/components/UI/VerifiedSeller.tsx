@@ -2,7 +2,7 @@ import Avatar from "./Avatar"
 import RatingCheck from "../core/RatingCheck/RatingCheck"
 import Button from "../core/Button/Button"
 
-export default function VendedorVerificado({ textButton }: { textButton: string }) {
+export default function VerifiedSeller({ textButton }: { textButton: string }) {
   return (
     <>
       <div className="flex flex-col p-2">
