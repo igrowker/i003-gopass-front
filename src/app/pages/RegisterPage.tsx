@@ -1,12 +1,10 @@
 import { Link } from "react-router-dom"
-
 import Button from "../components/core/Button/Button"
 import InputField from "../components/core/InputField/InputField"
 import InputFieldPassword from "../components/core/InputFieldPassword/InputFieldPassword"
 import Checkbox from "../components/core/Checkbox/Checkbox"
 import { IoIosMail } from "react-icons/io"
-
-import { registrarUsuario } from "../../service/authService"
+import { useRegister } from "../../hooks/useRegister"
 
 interface RegisterFormElements extends HTMLFormControlsCollection {
   email: HTMLInputElement
@@ -19,16 +17,21 @@ interface RegisterFormElement extends HTMLFormElement {
 }
 
 export default function Register() {
+  const { register } = useRegister()
+
   const handleRegister = async (event: React.FormEvent<RegisterFormElement>) => {
     event.preventDefault()
 
-    const target = event.currentTarget.elements
+    const form = event.currentTarget
+    const target = form.elements
 
     const email: string = target.email.value
     const password: string = target.password.value
     const passwordRepeat: string = target.password.value
 
-    await registrarUsuario(email, password, passwordRepeat)
+    await register(email, password, passwordRepeat)
+
+    form.reset()
   }
 
   return (

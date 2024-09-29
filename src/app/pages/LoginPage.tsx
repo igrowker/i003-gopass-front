@@ -5,20 +5,31 @@ import Button from "../components/core/Button/Button"
 import InputField from "../components/core/InputField/InputField"
 import InputFieldPassword from "../components/core/InputFieldPassword/InputFieldPassword"
 
+interface LoginFormElements extends HTMLFormControlsCollection {
+  email: HTMLInputElement
+  password: HTMLInputElement
+  passwordRepeat: HTMLInputElement
+}
+
+interface LoginFormElement extends HTMLFormElement {
+  elements: LoginFormElements
+}
+
 export default function LoginSession() {
   const { login } = useLogin()
 
-  const handleLoginSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleLoginSubmit = async (event: React.FormEvent<LoginFormElement>) => {
     event.preventDefault()
 
-    const target = event.target as EventTarget & {
-      email: HTMLInputElement
-      password: HTMLInputElement
-    }
+    const form = event.currentTarget
+    const target = form.elements
+
     const email = target.email.value
     const password = target.password.value
 
     await login(email, password)
+
+    form.reset()
   }
 
   return (
