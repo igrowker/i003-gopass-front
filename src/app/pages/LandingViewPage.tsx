@@ -1,5 +1,5 @@
 import { Footer } from "../components/UI/Footer"
-import BannerMove from "../components/UI/BannerMove.tsx"
+import BannerMove from "../components/UI/BannerLanding.tsx"
 import { Navbar } from "../components/UI/Navbar"
 import Grid from "../components/UI/Grid.tsx"
 import LatestEntries from "../views/LatestEntries.tsx"
