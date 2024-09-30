@@ -30,7 +30,7 @@ export default function VerifiedSeller({ textButton }: { textButton: string }) {
           </p>
         </div>
         <span className="my-8 flex w-full justify-center">
-          <Button className="-z-20 w-[15rem] bg-customGreen text-2xl text-customWhite">{textButton}</Button>
+          <Button className="w-[15rem] bg-customGreen text-2xl text-customWhite">{textButton}</Button>
         </span>
       </div>
     </>

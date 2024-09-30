@@ -17,9 +17,7 @@ function InvalidEntry() {
         </div>
       </section>
       <section className="mt-8 flex flex-col items-center text-center">
-        <Button className="-z-10 mb-6 bg-customGreen font-semibold text-white" type="submit">
-          Verificar otra
-        </Button>
+        <Button className="mb-6 bg-customGreen font-semibold text-white">Verificar otra</Button>
       </section>
     </>
   )
