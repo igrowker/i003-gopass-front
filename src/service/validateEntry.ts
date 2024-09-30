@@ -3,13 +3,14 @@ import validate from "com/validate"
 import { SystemError, MatchError } from "com/errors"
 import { httpClient } from "../api/axios-config"
 
-export const validateEntry = async (qrCode: string) => {
-  validate.qrCode(qrCode)
+export const validateEntry = async (codigoQR: string) => {
+  validate.qrCode(codigoQR)
 
-  const body = { qrCode }
+  const body = { codigoQR }
 
   try {
     const response = await httpClient.post("/Ticket/verificar-entrada", body)
+
     if (response.status === 200) {
       return response.data
     }

@@ -1,16 +1,17 @@
 import Button from "../components/core/Button"
 import InputField from "../components/core/InputField"
 import { useValidateEntry } from "../../hooks/useValidateEntry"
+import { useState } from "react"
 
 interface ValidateFormElements extends HTMLFormControlsCollection {
-  qrCode: HTMLInputElement
+  codigoQR: HTMLInputElement
 }
 
 interface ValidateFormElement extends HTMLFormElement {
   elements: ValidateFormElements
 }
 
-function ValidateEntry() {
+function ValidateEntry({ onValidate }) {
   const { verified } = useValidateEntry()
 
   const handleSubmit = async (event: React.FormEvent<ValidateFormElement>) => {
@@ -18,9 +19,10 @@ function ValidateEntry() {
     const form = event.currentTarget
     const target = form.elements
 
-    const qrCode: string = target.qrCode.value
+    const codigoQR: string = target.codigoQR.value
 
-    await verified(qrCode)
+    await verified(codigoQR)
+    onValidate()
 
     form.reset()
   }
@@ -41,10 +43,10 @@ function ValidateEntry() {
           type="text"
           className="w-[22rem] rounded-md border-2 border-solid p-2"
           placeholder="Código alfanumérico debajo del QR"
-          id="qrCode"
+          id="codigoQR"
         />
-        <Button className="-z-10 mb-6 mt-12 bg-customGreen font-semibold text-white" type="submit">
-          Verificar otra
+        <Button className="mb-6 mt-12 bg-customGreen font-semibold text-white" type="submit">
+          Verificar
         </Button>
       </form>
     </>

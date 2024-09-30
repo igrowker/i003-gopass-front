@@ -1,17 +1,23 @@
-// import { useState } from 'react'
+import { useState } from "react"
 import { Navbar } from "../components/UI/Navbar"
-// import EntradaAutenticada from '../components/VerificarEntrada/EntradaAutenticada'
-// import EntradaInvalida from '../components/VerificarEntrada/EntradaInvalida'
-import ValidarEntrada from "../views/ValidateEntry"
+
+import ValidateEntry from "../views/ValidateEntry"
+import AuthenticatedEntry from "../views/AuthenticatedEntry"
+import InvalidEntry from "../views/InvalidEntry"
 
 export default function VerifyEntryPage() {
-  // const [entradaValida, setEntradaValida] = useState(true)
+  const [entradaValida, setEntradaValida] = useState(false)
+  const [showValidateEntry, setShowValidateEntry] = useState(true)
+
+  const handleValidate = () => {
+    setEntradaValida(!entradaValida)
+    setShowValidateEntry(!showValidateEntry)
+  }
 
   return (
     <>
       <Navbar />
-      <ValidarEntrada />
-      {/* {entradaValida ? <EntradaAutenticada /> : <EntradaInvalida />} */}
+      {showValidateEntry && <ValidateEntry onValidate={handleValidate} />}
     </>
   )
 }
