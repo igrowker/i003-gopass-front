@@ -40,15 +40,19 @@ export default function VerifyEntryPage() {
     setShowValidateEntry(false) // Oculta la vista de validación
   }
 
+  const handleVerifyAnother = () => {
+    setEntradaValida(null)
+    setShowValidateEntry(true) // Muestra la vista de validación
+  }
+
   return (
     <>
       <Navbar />
-      
+
       {showValidateEntry && <ValidateEntry onValidate={handleValidate} />}
 
-      {!showValidateEntry && (
-        entradaValida ? <AuthenticatedEntry /> : <InvalidEntry />
-      )}
+      {!showValidateEntry &&
+        (entradaValida ? <AuthenticatedEntry /> : <InvalidEntry onVerifyAnother={handleVerifyAnother} />)}
     </>
   )
 }
