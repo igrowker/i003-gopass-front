@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
 const initialState = {
-  entry: null as any
+  codigoQR: ""
 }
 
 const entrySlice = createSlice({
@@ -9,10 +9,10 @@ const entrySlice = createSlice({
   initialState,
   reducers: {
     setEntry(state, action: PayloadAction<any>) {
-      state.entry = action.payload
+      state.codigoQR = action.payload.codigoQR
     },
     clearEntry(state) {
-      state.entry = null
+      state.codigoQR = ""
     }
   }
 })
