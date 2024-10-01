@@ -5,18 +5,13 @@ interface ButtonProps {
   onClick?: () => void
 }
 
-export default function Button({
-  className,
-  onClick,
-  children,
-  type,
-}: ButtonProps) {
+export default function Button({ className, onClick, children, type }: ButtonProps) {
   return (
     <>
       <button
         onClick={onClick}
         type={type}
-        className={`btn glass ${className ? className : ''}`}
+        className={`btn glass bg-customRed hover:bg-customGreen ${className ? className : ""}`}
       >
         {children}
       </button>

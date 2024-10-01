@@ -1,6 +1,11 @@
 import Button from "../components/core/Button"
 
-function InvalidEntry() {
+function InvalidEntry({ onVerifyAnother }: { onVerifyAnother: () => void }) {
+  const handleVerifyAnother = () => {
+    // Implementa la navegación a la página de verificación de entradas
+    onVerifyAnother()
+  }
+
   return (
     <>
       <section className="flex flex-col items-center p-4">
@@ -17,7 +22,7 @@ function InvalidEntry() {
         </div>
       </section>
       <section className="mt-8 flex flex-col items-center text-center">
-        <Button className="-z-10 mb-6 bg-customGreen font-semibold text-white" type="submit">
+        <Button onClick={handleVerifyAnother} className="mb-6 bg-customGreen font-semibold text-white">
           Verificar otra
         </Button>
       </section>

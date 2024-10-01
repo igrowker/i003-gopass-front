@@ -78,7 +78,7 @@ export default function UserProfile() {
             label={t("dni")}
           />
 
-          <Button className="-z-10 mb-6 mt-4 bg-customGreen font-semibold text-white" type="submit">
+          <Button className="mb-6 mt-4 font-semibold text-white" type="submit">
             Guardar
           </Button>
         </form>
