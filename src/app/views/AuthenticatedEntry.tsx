@@ -2,6 +2,8 @@ import { useSelector, useDispatch } from "react-redux"
 import { RootState } from "../../store"
 import { clearEntry } from "../../store/entry/entrySlice"
 
+import QRCode from "react-qr-code"
+
 import { FaRegCalendarAlt } from "react-icons/fa"
 import { GiPositionMarker } from "react-icons/gi"
 import Button from "../components/core/Button"
@@ -27,7 +29,7 @@ function AuthenticatedEntry({ onVerifyAnother }: { onVerifyAnother: () => void }
           </div>
           <div className="pt-7 text-xl font-semibold">Real Madrid - Barcelona</div>
 
-          <div className="mt-8 p-1 pt-3 font-semibold">
+          <div className="mt-2 p-1 pt-3 font-semibold">
             <p>Sector: B - Entrada: 12 - Fila: 9 - Asiento: 48</p>
           </div>
           <div className="text flex flex-col gap-3 pt-6 text-xl">
@@ -41,12 +43,9 @@ function AuthenticatedEntry({ onVerifyAnother }: { onVerifyAnother: () => void }
           </div>
         </div>
       </section>
-      <section className="mt-8 flex flex-col items-center text-center">
+      <section className="mt-2 flex flex-col items-center text-center">
         <div>
-          <img
-            className="h-60 w-60"
-            src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Commons_QR_code.png"
-          ></img>
+          <QRCode className="h-[15rem] w-[15rem]" value={entry.codigoQR} />
         </div>
         <div>
           <p className="mt-4">
@@ -55,7 +54,7 @@ function AuthenticatedEntry({ onVerifyAnother }: { onVerifyAnother: () => void }
         </div>
         <Button
           onClick={handleVerifyAnother}
-          className="mb-6 bg-customGreen font-semibold text-white hover:bg-customLigthRed"
+          className="mb-6 mt-4 bg-customGreen font-semibold text-white hover:bg-customLigthRed"
         >
           Verificar otra
         </Button>
