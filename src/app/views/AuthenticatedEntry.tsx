@@ -1,8 +1,20 @@
+import { useSelector, useDispatch } from "react-redux"
+import { RootState } from "../../store"
+import { clearEntry } from "../../store/entry/entrySlice"
+
 import { FaRegCalendarAlt } from "react-icons/fa"
 import { GiPositionMarker } from "react-icons/gi"
 import Button from "../components/core/Button"
 
-function AuthenticatedEntry() {
+function AuthenticatedEntry({ onVerifyAnother }: { onVerifyAnother: () => void }) {
+  const dispatch = useDispatch()
+  const entry = useSelector((state: RootState) => state.entry.entry)
+
+  const handleVerifyAnother = () => {
+    dispatch(clearEntry())
+    onVerifyAnother()
+  }
+
   return (
     <>
       <section className="flex flex-col items-center p-4">
@@ -38,10 +50,13 @@ function AuthenticatedEntry() {
         </div>
         <div>
           <p className="mt-4">
-            <span className="font-semibold">Ref:</span> 78735287573928
+            <span className="font-semibold">Ref:</span> {entry.codigoQR}
           </p>
         </div>
-        <Button className="-z-10 mb-6 mt-12 bg-customGreen font-semibold text-white" type="submit">
+        <Button
+          onClick={handleVerifyAnother}
+          className="mb-6 bg-customGreen font-semibold text-white hover:bg-customLigthRed"
+        >
           Verificar otra
         </Button>
       </section>
