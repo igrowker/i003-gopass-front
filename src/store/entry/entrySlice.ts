@@ -1,7 +1,18 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
+interface Ticket {
+  image: string;
+  gameName: string;
+  description: string;
+  address: string;
+  eventDate: string;
+  codigoQR: string;
+  verificada: boolean;
+}
+
 const initialState = {
-  codigoQR: ""
+  codigoQR: "",
+  tickets: [] as Ticket[]
 }
 
 const entrySlice = createSlice({
@@ -13,9 +24,12 @@ const entrySlice = createSlice({
     },
     clearEntry(state) {
       state.codigoQR = ""
-    }
+    },
+    setTickets(state, action: PayloadAction<any>) {
+      state.tickets = action.payload
+    },
   }
 })
 
-export const { setEntry, clearEntry } = entrySlice.actions
+export const { setEntry, clearEntry, setTickets } = entrySlice.actions
 export default entrySlice.reducer
