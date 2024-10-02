@@ -10,7 +10,7 @@ import Button from "../components/core/Button"
 
 function AuthenticatedEntry({ onVerifyAnother }: { onVerifyAnother: () => void }) {
   const dispatch = useDispatch()
-  const entry = useSelector((state: RootState) => state.entry.entry)
+  const entry = useSelector((state: RootState) => state.entry)
 
   const handleVerifyAnother = () => {
     dispatch(clearEntry())
