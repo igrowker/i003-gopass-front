@@ -11,7 +11,7 @@ import LandingView from "../app/pages/LandingViewPage"
 import PrivateRoute from "./PrivateRoute"
 import VerifyEntryPage from "../app/pages/VerifyEntryPage"
 import { PageNotFound } from "../app/pages/PageNotFound"
-import { MyTickets } from "../app/pages/myTickets"
+import { MyTickets } from "../app/pages/MyTickets"
 
 const PrivateRoutes: React.FC = () => {
   return (
