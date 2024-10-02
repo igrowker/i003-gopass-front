@@ -1,14 +1,16 @@
+import { useEffect } from "react"
+import { useSelector } from "react-redux"
+import { RootState } from "../../../store"
+import { useGetAllTickets } from "../../../hooks/useGetAllTickets"
 import { Link } from "react-router-dom"
 
 export default function Grid() {
-  const images = [
-    "https://via.placeholder.com/150",
-    "https://via.placeholder.com/150",
-    "https://via.placeholder.com/150",
-    "https://via.placeholder.com/150",
-    "https://via.placeholder.com/150",
-    "https://via.placeholder.com/150"
-  ]
+  const { getAllTicketsData } = useGetAllTickets()
+  const tickets = useSelector((state: RootState) => state.entry.tickets)
+
+  useEffect(() => {
+    getAllTicketsData()
+  }, [])
 
   return (
     <>
@@ -25,11 +27,11 @@ export default function Grid() {
 
           {/* Grid de imágenes */}
           <div className="grid grid-cols-3 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {images.map((image, index) => (
+            {tickets.map((ticket, index) => (
               <div key={index} className="w-full">
-                <img src={image} alt={`Imagen ${index + 1}`} className="h-auto w-full rounded-md" />
+                <img src={ticket.image} alt={`Imagen ${index + 1}`} className="h-auto w-full rounded-md" />
                 <div>
-                  <p>Nombre de partido</p>
+                  <p className="text-center text-[0.8rem]">{ticket.gameName}</p>
                 </div>
               </div>
             ))}
