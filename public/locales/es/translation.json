@@ -1,12 +1,12 @@
 {
   "myAccount": "Mi Cuenta",
-  "entries": "Entradas",
+  "tickets": "Entradas",
+  "myTickets": "Mis Entradas",
   "resell": "Revender",
   "verify": "Verificar",
   "help": "Ayuda & Soporte",
   "about": "Sobre Nosotros",
   "signOut": "Cerrar sesión",
-
   "fullName": "Nombre Completo",
   "email": "Correo Electrónico",
   "password": "Contraseña",
@@ -15,7 +15,6 @@
   "country": "País",
   "dni": "DNI/NIE/Pasaporte",
   "save": "Guardar",
-
   "_commentLogin:": "Login Component",
   "loginTitle": "Inicia sesión",
   "emailPlaceholder": "Correo Electrónico",
@@ -24,7 +23,6 @@
   "loginButton": "Iniciar sesión",
   "noAccount": "¿Aún no tienes cuenta?",
   "register": "Regístrate",
-
   "_commentRegister:": "Register Component",
   "registerTitle": "Registro",
   "confirmPasswordPlaceholder": "Confirmar Contraseña",

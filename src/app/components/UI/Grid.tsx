@@ -6,7 +6,24 @@ import { Link } from "react-router-dom"
 
 export default function Grid() {
   const { getAllTicketsData } = useGetAllTickets()
-  const tickets = useSelector((state: RootState) => state.entry.tickets)
+  // const tickets = useSelector((state: RootState) => state.entry.tickets)
+
+  const tickets = [
+    {
+      gameName: "Team-A vs Team-B",
+      description: "Sector A - Entrada 10 - Fila 2 - Asiento 21",
+      image:
+        "https://images.unsplash.com/photo-1473976345543-9ffc928e648d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2FtcG8lMjBkZSUyMGZ1dGJvbCUyMGVzdGFkaW98ZW58MHx8MHx8fDI%3D",
+      address: "Estadio de Futbol",
+      eventDate: "2024-10-02T09:35:36.52",
+      codigoQR: "123456789",
+      verificada: true,
+      usuarioId: 6,
+      usuario: null,
+      reventa: null,
+      id: 1
+    }
+  ]
 
   useEffect(() => {
     getAllTicketsData()

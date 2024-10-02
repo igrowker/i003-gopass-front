@@ -11,6 +11,7 @@ import LandingView from "../app/pages/LandingViewPage"
 import PrivateRoute from "./PrivateRoute"
 import VerifyEntryPage from "../app/pages/VerifyEntryPage"
 import { PageNotFound } from "../app/pages/PageNotFound"
+import { MyTickets } from "../app/pages/myTickets"
 
 const PrivateRoutes: React.FC = () => {
   return (
@@ -23,7 +24,8 @@ const PrivateRoutes: React.FC = () => {
       <Route path="/ticket" element={<PrivateRoute element={<Ticket />} />} />
       <Route path="/verificar-entrada" element={<PrivateRoute element={<VerifyEntryPage />} />} />
       <Route path="/vender-entrada" element={<PrivateRoute element={<VenderEntrada />} />} />
-      <Route path="/page-not-found" element={<PrivateRoute element={<PageNotFound />} />} />
+      <Route path="/my-tickets" element={<PrivateRoute element={<MyTickets />} />} />
+      <Route path="*" element={<PageNotFound />} />
     </Routes>
   )
 }
