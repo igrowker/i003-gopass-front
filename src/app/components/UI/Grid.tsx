@@ -6,12 +6,12 @@ import { Link } from "react-router-dom"
 
 export default function Grid() {
   const { getAllTicketsData } = useGetAllTickets()
-  const tickets = useSelector((state: RootState) => state.entry.tickets);
+  const tickets = useSelector((state: RootState) => state.entry.tickets)
 
   useEffect(() => {
     getAllTicketsData()
   }, [])
-  
+
   return (
     <>
       <div className="flex w-full flex-col border-opacity-50">
@@ -31,7 +31,7 @@ export default function Grid() {
               <div key={index} className="w-full">
                 <img src={ticket.image} alt={`Imagen ${index + 1}`} className="h-auto w-full rounded-md" />
                 <div>
-                  <p>{ticket.gameName}</p>
+                  <p className="text-center text-[0.8rem]">{ticket.gameName}</p>
                 </div>
               </div>
             ))}

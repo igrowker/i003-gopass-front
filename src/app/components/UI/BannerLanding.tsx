@@ -21,7 +21,7 @@ export default function BannerLanding() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % imagesBanner.length)
-    }, 1000)
+    }, 5000)
 
     return () => clearInterval(interval)
   }, [])
