@@ -27,7 +27,7 @@ export default function Register() {
 
     const email: string = target.email.value
     const password: string = target.password.value
-    const passwordRepeat: string = target.password.value
+    const passwordRepeat: string = target.passwordRepeat.value
 
     await register(email, password, passwordRepeat)
 
