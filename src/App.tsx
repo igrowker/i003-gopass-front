@@ -8,6 +8,7 @@ import SocialLogin from "./app/pages/SocialLoginPage"
 import Login from "./app/pages/LoginPage"
 import Register from "./app/pages/RegisterPage"
 import PrivateRoutes from "./privateRoutes/PrivateRoutes"
+import { PageNotFound } from "./app/pages/PageNotFound"
 
 function App() {
   const [message, setMessage] = useState<string | null>(null)
@@ -25,6 +26,9 @@ function App() {
 
           {/* Rutas privadas */}
           <Route path="/*" element={<PrivateRoutes />} />
+
+          {/* Página no encontrada */}
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
         {message && <Alert message={message} onAccept={handleAlertAccepted} />}
       </AppWrapper>

@@ -39,7 +39,13 @@ export default function SideBarMenu({ isOpen }: { isOpen: boolean }) {
               <Link to="/">
                 <li className="flex cursor-pointer items-center gap-2">
                   <IoTicketOutline />
-                  <p>{t("entries")}</p>
+                  <p>{t("tickets")}</p>
+                </li>
+              </Link>
+              <Link to="/my-tickets">
+                <li className="flex cursor-pointer items-center gap-2">
+                  <IoTicketOutline />
+                  <p>{t("myTickets")}</p>
                 </li>
               </Link>
               <Link to="/vender-entrada">

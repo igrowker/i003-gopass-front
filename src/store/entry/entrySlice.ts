@@ -1,13 +1,14 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
-interface Ticket {
-  image: string;
-  gameName: string;
-  description: string;
-  address: string;
-  eventDate: string;
-  codigoQR: string;
-  verificada: boolean;
+export interface Ticket {
+  image: string
+  gameName: string
+  description: string
+  address: string
+  eventDate: string
+  codigoQR: string
+  verificada: boolean
+  entradaId: number
 }
 
 const initialState = {
@@ -27,7 +28,7 @@ const entrySlice = createSlice({
     },
     setTickets(state, action: PayloadAction<any>) {
       state.tickets = action.payload
-    },
+    }
   }
 })
 

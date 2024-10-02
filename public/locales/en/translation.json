@@ -1,13 +1,13 @@
 {
   "_commentSidebar:": "Sidebar Component",
   "myAccount": "My Account",
-  "entries": "Entries",
+  "tickets": "Tickets",
+  "myTickets": "My Tickets",
   "resell": "Resell",
   "verify": "Verify",
   "help": "Help & Support",
   "about": "About Us",
   "signOut": "Sign Out",
-
   "_commentProfile:": "Profile Component",
   "fullName": "Full Name",
   "email": "Email",
@@ -17,7 +17,6 @@
   "country": "Country",
   "dni": "ID/Passport",
   "save": "Save",
-
   "_commentLogin:": "Login Component",
   "loginTitle": "Log In",
   "emailPlaceholder": "Email",
@@ -26,7 +25,6 @@
   "loginButton": "Log In",
   "noAccount": "Don't have an account?",
   "register": "Register",
-
   "_commentRegister:": "Register Component",
   "registerTitle": "Register",
   "confirmPasswordPlaceholder": "Confirm Password",
