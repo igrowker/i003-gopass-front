@@ -38,9 +38,20 @@ const userSlice = createSlice({
       state.country = action.payload.country
       state.verificado = action.payload.verificado
       state.id = action.payload.id
+      return action.payload
+    },
+    updateUser(state, action: PayloadAction<Partial<User>>) {
+      // state.image = action.payload.image
+      // state.email = action.payload.email
+      // state.nombre = action.payload.nombre
+      // state.dni = action.payload.dni
+      // state.telefono = action.payload.telefono
+      // state.city = action.payload.city
+      // state.country = action.payload.country
+      return {...state, ...action.payload}
     }
   }
 })
 
-export const { setUser } = userSlice.actions
+export const { setUser, updateUser } = userSlice.actions
 export default userSlice.reducer
