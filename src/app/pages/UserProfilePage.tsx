@@ -4,14 +4,15 @@ import { useSelector } from "react-redux"
 import { RootState } from "../../store"
 import { useGetProfile } from "../../hooks/useGetProfile"
 import { Navbar } from "../components/UI/Navbar"
+import { updateProfile } from "../../service/updateProfile"
 import Button from "../components/core/Button"
 import InputField from "../components/core/InputField"
 import Avatar from "../components/UI/Avatar"
 
 interface UserProfileFormElements extends HTMLFormControlsCollection {
-  fullName: HTMLInputElement
+  nombre: HTMLInputElement
   email: HTMLInputElement
-  phone: HTMLInputElement
+  numeroTelefono: HTMLInputElement
   birthdate: HTMLInputElement
   city: HTMLInputElement
   country: HTMLInputElement
@@ -32,18 +33,22 @@ export default function UserProfile() {
     getProfileData()
   }, [])
 
-  const handleUpdateProfile = (event: React.FormEvent<UserProfileFormElement>) => {
+  const handleUpdateProfile = async (event: React.FormEvent<UserProfileFormElement>) => {
     event.preventDefault()
 
     const form = event.currentTarget
     const target = form.elements
 
-    const fullName: string = target.fullName.value
+    const nombre: string = target.nombre.value
     const email: string = target.email.value
-    const phone: string = target.phone.value
+    const numeroTelefono: string = target.numeroTelefono.value
     const city: string = target.city.value
     const country: string = target.country.value
     const dni: string = target.dni.value
+
+    const image: string = user.image
+
+    await updateProfile(nombre, dni, numeroTelefono, image, city, country)
   }
 
   return (
@@ -58,7 +63,7 @@ export default function UserProfile() {
         </div>
 
         <div className="Avatar">
-          <Avatar></Avatar>
+          <Avatar img={user.image}></Avatar>
         </div>
 
         <form
@@ -66,49 +71,60 @@ export default function UserProfile() {
           onSubmit={handleUpdateProfile}
         >
           <InputField
+            onChange={handleUpdateProfile}
             type="text"
             className="rounded-md border-2 border-solid p-2"
             value={user.nombre}
-            placeholder={t("user.fullName")}
-            id="fullName"
-            label={t("fullName")}
+            placeholder={t("user.nombre")}
+            id="nombre"
+            label={t("nombre")}
           />
 
           <InputField
+            onChange={handleUpdateProfile}
             type="email"
             className="rounded-md border-2 border-solid p-2"
+            value={user.email}
             placeholder={t("user.email")}
             id="email"
             label={t("email")}
           />
 
           <InputField
+            onChange={handleUpdateProfile}
             type="text"
             className="rounded-md border-2 border-solid p-2"
-            placeholder={t("user.phone")}
-            id="phone"
-            label={t("phone")}
+            value={user.telefono}
+            placeholder={t("user.numeroTelefono")}
+            id="numeroTelefono"
+            label={t("numeroTelefono")}
           />
 
           <InputField
+            onChange={handleUpdateProfile}
             type="text"
             className="rounded-md border-2 border-solid p-2"
+            value={user.city}
             placeholder={t("user.city")}
             id="city"
             label={t("city")}
           />
 
           <InputField
+            onChange={handleUpdateProfile}
             type="text"
             className="rounded-md border-2 border-solid p-2"
+            value={user.country}
             placeholder={t("user.country")}
             id="country"
             label={t("country")}
           />
 
           <InputField
+            onChange={handleUpdateProfile}
             type="text"
             className="rounded-md border-2 border-solid p-2"
+            value={user.dni}
             placeholder={t("user.dni")}
             id="dni"
             label={t("dni")}
