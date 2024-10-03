@@ -1,11 +1,45 @@
 import { Navbar } from "../components/UI/Navbar"
 import { useTranslation } from "react-i18next"
+import { useSelector, useDispatch } from "react-redux"
+import { RootState } from "../../store"
 import Button from "../components/core/Button"
 import InputField from "../components/core/InputField"
 import Avatar from "../components/UI/Avatar"
 
+interface UserProfileFormElements extends HTMLFormControlsCollection {
+  fullName: HTMLInputElement
+  email: HTMLInputElement
+  phone: HTMLInputElement
+  birthdate: HTMLInputElement
+  city: HTMLInputElement
+  country: HTMLInputElement
+  dni: HTMLInputElement
+}
+
+interface UserProfileFormElement extends HTMLFormElement {
+  elements: UserProfileFormElements
+}
+
 export default function UserProfile() {
   const { t } = useTranslation()
+
+  const user = useSelector((state: RootState) => state.user)
+  // const dispatch = useDispatch()
+
+  const handleUpdateProfile = (event: React.FormEvent<UserProfileFormElement>) => {
+    event.preventDefault()
+
+    const form = event.currentTarget
+    const target = form.elements
+
+    const fullName: string = target.fullName.value
+    const email: string = target.email.value
+    const phone: string = target.phone.value
+    const city: string = target.city.value
+    const country: string = target.country.value
+    const dni: string = target.dni.value
+  }
+
   return (
     <>
       <div>
@@ -21,10 +55,14 @@ export default function UserProfile() {
           <Avatar></Avatar>
         </div>
 
-        <form className="flex w-[20rem] flex-col gap-3 sm:w-[30rem] md:w-[30rem] lg:w-[40rem]">
+        <form
+          className="flex w-[20rem] flex-col gap-3 sm:w-[30rem] md:w-[30rem] lg:w-[40rem]"
+          onSubmit={handleUpdateProfile}
+        >
           <InputField
             type="text"
             className="rounded-md border-2 border-solid p-2"
+            value={user.nombre}
             placeholder={t("user.fullName")}
             id="fullName"
             label={t("fullName")}
@@ -39,19 +77,11 @@ export default function UserProfile() {
           />
 
           <InputField
-            type="password"
+            type="text"
             className="rounded-md border-2 border-solid p-2"
-            placeholder={t("user.password")}
-            id="password"
-            label={t("password")}
-          />
-
-          <InputField
-            type="date"
-            className="rounded-md border-2 border-solid p-2"
-            placeholder={t("user.birthdate")}
-            id="birthdate"
-            label={t("birthdate")}
+            placeholder={t("user.phone")}
+            id="phone"
+            label={t("phone")}
           />
 
           <InputField
