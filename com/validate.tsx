@@ -7,7 +7,8 @@ export const PASSWORD_REGEX = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,}$/
 export const CITY_REGEX = /^[a-zA-Z\u00C0-\u017F\s]+$/
 export const COUNTRY_REGEX = /^[a-zA-Z\u00C0-\u017F\s]+$/
 export const DOCUMENT_REGEX = /^[A-Z0-9]{5,20}$/
-export const QR_CODE_REGEX = /^[a-zA-Z0-9]{1,2953}$/;
+export const QR_CODE_REGEX =
+  /^[a-zA-Z0-9]{1,2953}$|^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$/
 
 function validateEmail(email: string) {
   if (!EMAIL_REGEX.test(email)) {
@@ -51,7 +52,7 @@ function validatePasswordsMatch(password: string, passwordRepeat: string) {
 
 function validateQrCode(qrCode: string) {
   if (!QR_CODE_REGEX.test(qrCode)) {
-    throw new Error("El código QR no es válido");
+    throw new Error("El código QR no es válido")
   }
 }
 
