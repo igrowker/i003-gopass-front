@@ -6,10 +6,8 @@ import { httpClient } from "../api/axios-config"
 export const validateEntry = async (codigoQR: string) => {
   validate.qrCode(codigoQR)
 
-  const body = { codigoQR }
-
   try {
-    const response = await httpClient.post("/Ticket/verificar-entrada", body)
+    const response = await httpClient.get("/Reventa/get-ticket-from-faker", { params: { codigoQR: codigoQR } })
 
     if (response.status === 200) {
       return response.data

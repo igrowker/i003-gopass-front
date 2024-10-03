@@ -10,7 +10,7 @@ import Button from "../components/core/Button"
 
 function AuthenticatedEntry({ onVerifyAnother }: { onVerifyAnother: () => void }) {
   const dispatch = useDispatch()
-  const entry = useSelector((state: RootState) => state.entry)
+  const entry = useSelector((state: RootState) => state.entry.tickets[0])
 
   const handleVerifyAnother = () => {
     dispatch(clearEntry())
@@ -27,18 +27,18 @@ function AuthenticatedEntry({ onVerifyAnother }: { onVerifyAnother: () => void }
           <div className="rounded-xl bg-customGreen p-2 text-center text-customWhite">
             <p>AUTENCIDAD VERIFICADA</p>
           </div>
-          <div className="pt-7 text-xl font-semibold">Real Madrid - Barcelona</div>
+          <div className="pt-7 text-xl font-semibold">{entry.gameName}</div>
 
           <div className="mt-2 p-1 pt-3 font-semibold">
-            <p>Sector: B - Entrada: 12 - Fila: 9 - Asiento: 48</p>
+            <p>{entry.description}</p>
           </div>
           <div className="text flex flex-col gap-3 pt-6 text-xl">
             <div className="flex flex-row">
               <FaRegCalendarAlt className="text-2xl text-customLigthRed" />
-              <p className="ml-2">28 de octubre 2024</p>
+              <p className="ml-2">{entry.eventDate}</p>
             </div>
             <div className="flex flex-row">
-              <GiPositionMarker className="text-2xl text-customLigthRed" /> <p className="ml-2">Camp Nou</p>
+              <GiPositionMarker className="text-2xl text-customLigthRed" /> <p className="ml-2">{entry.address}</p>
             </div>
           </div>
         </div>

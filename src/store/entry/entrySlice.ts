@@ -20,11 +20,13 @@ const entrySlice = createSlice({
   name: "entry",
   initialState,
   reducers: {
-    setEntry(state, action: PayloadAction<any>) {
+    setEntry(state, action: PayloadAction<Ticket>) {
       state.codigoQR = action.payload.codigoQR
+      state.tickets = [action.payload]
     },
     clearEntry(state) {
       state.codigoQR = ""
+      state.tickets = []
     },
     setTickets(state, action: PayloadAction<any>) {
       state.tickets = action.payload
