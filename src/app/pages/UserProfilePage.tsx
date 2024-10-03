@@ -1,7 +1,9 @@
-import { Navbar } from "../components/UI/Navbar"
+import { useEffect } from "react"
 import { useTranslation } from "react-i18next"
-import { useSelector, useDispatch } from "react-redux"
+import { useSelector } from "react-redux"
 import { RootState } from "../../store"
+import { useGetProfile } from "../../hooks/useGetProfile"
+import { Navbar } from "../components/UI/Navbar"
 import Button from "../components/core/Button"
 import InputField from "../components/core/InputField"
 import Avatar from "../components/UI/Avatar"
@@ -23,8 +25,12 @@ interface UserProfileFormElement extends HTMLFormElement {
 export default function UserProfile() {
   const { t } = useTranslation()
 
+  const { getProfileData } = useGetProfile()
   const user = useSelector((state: RootState) => state.user)
-  // const dispatch = useDispatch()
+
+  useEffect(() => {
+    getProfileData()
+  }, [])
 
   const handleUpdateProfile = (event: React.FormEvent<UserProfileFormElement>) => {
     event.preventDefault()
