@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { registrarUsuario } from "../service/authService"
 import { SystemError } from "com/errors"
 import useContext from "../context/useContext"
-import { Confirm } from "../app/components/UI/Confirm"
+import { EmailConfirm } from "../app/components/UI/EmailConfirm"
 
 export const useRegister = () => {
   const navigate = useNavigate()
@@ -11,11 +11,11 @@ export const useRegister = () => {
 
   const register = async (email: string, password: string, passwordRepeat: string): Promise<void> => {
     try {
-      const isConfirmed = await Confirm()
-      if (!isConfirmed) return
-
       await registrarUsuario(email, password, passwordRepeat)
       navigate("/login")
+
+      const isConfirmed = await EmailConfirm()
+      if (!isConfirmed) return
     } catch (error: any) {
       if (error instanceof SystemError) {
         alert(error.message)
