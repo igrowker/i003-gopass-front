@@ -9,6 +9,7 @@ export const useGetProfile = () => {
     try {
       const profile = await getProfile()
       dispatch(setUser(profile))
+      console.log(profile)
     } catch (error) {
       console.error("Error al obtener perfil", error)
     }

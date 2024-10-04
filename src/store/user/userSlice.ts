@@ -30,15 +30,9 @@ const userSlice = createSlice({
   reducers: {
     setUser(state, action: PayloadAction<User>) {
       return { ...state, ...action.payload }
-    },
-    updateUser(state, action: PayloadAction<Partial<User>>) {
-      return { ...state, ...action.payload }
-    },
-    logoutUser(_state) {
-      return initialState
     }
   }
 })
 
-export const { setUser, updateUser, logoutUser } = userSlice.actions
+export const { setUser } = userSlice.actions
 export default userSlice.reducer

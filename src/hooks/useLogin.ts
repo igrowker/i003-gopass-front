@@ -16,10 +16,9 @@ export const useLogin = () => {
     try {
       const token: string = await autenticarUsuario(email, password)
       sessionStorage.setItem("token", token)
-      navigate("/")
-
       const userData = await getProfile()
       dispatch(setUser(userData))
+      navigate("/")
     } catch (error: any) {
       if (error instanceof SystemError) {
         alert(error.message)

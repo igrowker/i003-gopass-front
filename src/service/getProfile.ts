@@ -4,7 +4,11 @@ import { SystemError } from "com/errors"
 
 export const getProfile = async () => {
   try {
-    const response = await httpClient.get("/Usuario/user-credentials")
+    const response = await httpClient.get("/Usuario/user-credentials", {
+      headers: {
+        Authorization: `Bearer ${sessionStorage.getItem("token")}`
+      }
+    })
     return response.data
   } catch (error: unknown) {
     if (axios.isAxiosError(error)) {

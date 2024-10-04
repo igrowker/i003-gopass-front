@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useTranslation } from "react-i18next"
 
 import { IoSettingsOutline } from "react-icons/io5"
@@ -7,12 +7,16 @@ import { LuBadgePercent } from "react-icons/lu"
 import { MdOutlineVerifiedUser } from "react-icons/md"
 
 import Avatar from "./Avatar"
-import { useLogout } from "../../../hooks/useLogout"
+import { logoutUser } from "../../../service/authService"
 
 export default function SideBarMenu({ isOpen }: { isOpen: boolean }) {
   const { t } = useTranslation()
+  const navigate = useNavigate()
 
-  const { handleLogout } = useLogout()
+  const handleLogout = () => {
+    logoutUser()
+    navigate("/login")
+  }
 
   return (
     <div className="fixed inset-0 z-10 flex items-start justify-start bg-black bg-opacity-30">
