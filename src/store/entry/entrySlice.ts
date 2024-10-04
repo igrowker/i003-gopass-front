@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
 export interface Ticket {
+  placeName: any
   image: string
   gameName: string
   description: string
