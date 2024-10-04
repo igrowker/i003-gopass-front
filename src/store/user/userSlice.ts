@@ -5,23 +5,23 @@ export interface User {
   email: string
   nombre: string
   dni: string
-  telefono: string
+  numeroTelefono: string
   city: string
   country: string
   verificado: boolean
-  id: number
+  id: string
 }
 
-const initialState = {
+const initialState: User = {
   image: "",
   email: "",
   nombre: "",
   dni: "",
-  telefono: "",
+  numeroTelefono: "",
   city: "",
   country: "",
   verificado: false,
-  id: 0
+  id: ""
 }
 
 const userSlice = createSlice({
@@ -29,29 +29,16 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     setUser(state, action: PayloadAction<User>) {
-      state.image = action.payload.image
-      state.email = action.payload.email
-      state.nombre = action.payload.nombre
-      state.dni = action.payload.dni
-      state.telefono = action.payload.telefono
-      state.city = action.payload.city
-      state.country = action.payload.country
-      state.verificado = action.payload.verificado
-      state.id = action.payload.id
-      return action.payload
+      return { ...state, ...action.payload }
     },
     updateUser(state, action: PayloadAction<Partial<User>>) {
-      // state.image = action.payload.image
-      // state.email = action.payload.email
-      // state.nombre = action.payload.nombre
-      // state.dni = action.payload.dni
-      // state.telefono = action.payload.telefono
-      // state.city = action.payload.city
-      // state.country = action.payload.country
-      return {...state, ...action.payload}
+      return { ...state, ...action.payload }
+    },
+    logoutUser(_state) {
+      return initialState
     }
   }
 })
 
-export const { setUser, updateUser } = userSlice.actions
+export const { setUser, updateUser, logoutUser } = userSlice.actions
 export default userSlice.reducer
