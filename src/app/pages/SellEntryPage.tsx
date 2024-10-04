@@ -1,14 +1,34 @@
 import { useState } from "react"
+import { useSelector, useDispatch } from "react-redux"
+import { RootState } from "../../store"
+
 import { Navbar } from "../components/UI/Navbar"
 import InputField from "../components/core/InputField"
 import Button from "../components/core/Button"
 import TextArea from "../components/core/TextArea"
 
-export default function SellEntryPage() {
-  const [isVerified, setIsVerified] = useState(false)
+import { userVerifyTicket } from "../../hooks/useVerifyTicket"
 
-  const handleVerified = () => {
-    setIsVerified(!isVerified)
+interface ValidateFormElements extends HTMLFormControlsCollection {
+  codigoQR: HTMLInputElement
+}
+
+interface ValidateFormElement extends HTMLFormElement {
+  elements: ValidateFormElements
+}
+
+export default function SellEntryPage() {
+  const { verifiedTicket } = userVerifyTicket()
+
+  const handleVerifySubmitTicket = async (event: React.FormEvent<ValidateFormElement>) => {
+    event.preventDefault()
+    const form = event.currentTarget
+    const target = form.elements
+
+    const codigoQR: string = target.codigoQR.value
+
+    await verifiedTicket(codigoQR)
+    alert("Ticket verificado")
   }
 
   return (
@@ -19,6 +39,22 @@ export default function SellEntryPage() {
         <div className="relative mt-20 flex w-full flex-row justify-center text-2xl">
           <h2 className="-z-20 m-5 text-center text-xl font-semibold">Revender</h2>
         </div>
+
+        <form
+          className="flex w-[20rem] flex-col gap-3 sm:w-[30rem] md:w-[30rem] lg:w-[40rem]"
+          onSubmit={handleVerifySubmitTicket}
+        >
+          <InputField
+            type="text"
+            className="rounded-md border-2 border-solid p-2"
+            placeholder="Verificar autenticidad de la entrada"
+            id="codigoQR"
+            label="Verificar Ticket"
+          />
+          <Button className="mb-6 mt-12 bg-customGreen font-semibold text-white" type="submit">
+            Verificar Ticket
+          </Button>
+        </form>
 
         <form className="flex w-[20rem] flex-col gap-3 sm:w-[30rem] md:w-[30rem] lg:w-[40rem]">
           <InputField
@@ -66,21 +102,6 @@ export default function SellEntryPage() {
             label="Explica por qué revendes esta entrada"
             id="message"
           ></TextArea>
-
-          <InputField
-            type="text"
-            className="rounded-md border-2 border-solid p-2"
-            placeholder="Verificar autenticidad de la entrada"
-            id="country"
-            label="Verificar autenticidad de la entrada"
-          />
-
-          <div
-            onClick={handleVerified}
-            className={`rounded-xl p-2 text-customWhite ${isVerified ? "bg-customGreen" : "bg-customLigthRed"}`}
-          >
-            <p>AUTENCIDAD {isVerified ? "VERIFICADA" : "NO VERIFICADA"}</p>
-          </div>
 
           <InputField
             type="text"

@@ -7,8 +7,8 @@ type InputFieldProps = {
   label?: string
   className?: string
   type?: any
-  value: any
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  value?: any
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 export default function InputField({
