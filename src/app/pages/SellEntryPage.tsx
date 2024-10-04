@@ -38,7 +38,6 @@ export default function SellEntryPage() {
     const codigoQR: string = target.codigoQR.value
 
     await verifiedTicket(codigoQR)
-    alert("Ticket verificado")
   }
 
   const handleSubmitTicket = async (event: React.FormEvent<ValidateFormElement>) => {
@@ -91,7 +90,7 @@ export default function SellEntryPage() {
             placeholder="Nombre del evento"
             id="eventName"
             label="Nombre del evento"
-            value={entry?.gameName}
+            value={entry?.gameName || ""}
           />
 
           <InputField
