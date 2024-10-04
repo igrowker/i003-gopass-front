@@ -27,14 +27,14 @@ export default function Grid() {
 
           {/* Grid de imágenes */}
           <div className="grid grid-cols-3 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {tickets.map((ticket, index) => (
+            {/* {tickets.map((ticket, index) => (
               <div key={index} className="w-full">
                 <img src={ticket.image} alt={`Imagen ${index + 1}`} className="h-auto w-full rounded-md" />
                 <div>
                   <p className="text-center text-[0.8rem]">{ticket.gameName}</p>
                 </div>
               </div>
-            ))}
+            ))} */}
           </div>
         </div>
       </div>

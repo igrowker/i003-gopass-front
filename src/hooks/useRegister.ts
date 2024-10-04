@@ -13,7 +13,6 @@ export const useRegister = () => {
     try {
       await registrarUsuario(email, password, passwordRepeat)
       navigate("/login")
-
       const isConfirmed = await EmailConfirm()
       if (!isConfirmed) return
     } catch (error: any) {

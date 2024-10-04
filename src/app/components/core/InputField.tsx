@@ -1,4 +1,4 @@
-import { ReactElement } from "react"
+import React, { ReactElement } from "react"
 
 type InputFieldProps = {
   placeholder: string
@@ -7,16 +7,34 @@ type InputFieldProps = {
   label?: string
   className?: string
   type?: any
+  value: any
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-export default function InputField({ placeholder, id, icon, label, className, type }: InputFieldProps) {
+export default function InputField({
+  placeholder,
+  id,
+  icon,
+  label,
+  className,
+  type,
+  value,
+  onChange
+}: InputFieldProps) {
   return (
     <>
       <label className="block font-semibold" htmlFor={id}>
         {label && label}
       </label>
-      <div className="input p-0 flex items-center gap-2 rounded-lg border-[2px] bg-customWhite">
-        <input type={type} className={`grow ${className ? className : ""}`} placeholder={placeholder} id={id} />
+      <div className="input flex items-center gap-2 rounded-lg border-[2px] bg-customWhite p-0">
+        <input
+          type={type}
+          className={`grow ${className ? className : ""}`}
+          placeholder={placeholder}
+          id={id}
+          value={value}
+          onChange={onChange}
+        />
         {icon && <div className="mr-8 h-7 w-7 cursor-pointer text-3xl text-black opacity-70">{icon}</div>}
       </div>
     </>

@@ -24,7 +24,7 @@ export default function SideBarMenu({ isOpen }: { isOpen: boolean }) {
         className={`h-screen w-1/2 rounded-r-lg bg-gradient-to-r from-black to-gray-800 p-2 pb-14 text-customWhite ${isOpen ? "animate-slide-in" : "animate-slide-out"} `}
       >
         <div className="flex flex-col items-center gap-4">
-          <Avatar />
+          <Avatar img="" />
           <h2 className="font-azonix">FRANCO</h2>
           <p>franquito@email.com</p>
           <hr className="w-full border-2" />
