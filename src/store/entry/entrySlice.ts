@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
 export interface Ticket {
-  placeName: any
   image: string
   gameName: string
   description: string
@@ -27,7 +26,15 @@ const entrySlice = createSlice({
     },
     clearEntry(state) {
       state.codigoQR = ""
-      state.tickets = []
+      state.tickets = state.tickets.map((ticket) => ({
+        ...ticket,
+        image: "",
+        gameName: "",
+        description: "",
+        address: "",
+        eventDate: "",
+        codigoQR: ""
+      }))
     },
     setTickets(state, action: PayloadAction<any>) {
       state.tickets = action.payload

@@ -6,11 +6,9 @@ import AuthenticatedEntry from "../views/AuthenticatedEntry"
 import InvalidEntry from "../views/InvalidEntry"
 
 export default function VerifyEntryPage() {
-  // Estado para saber si la entrada es válida o no
   const [entradaValida, setEntradaValida] = useState<boolean | null>(null)
   const [showValidateEntry, setShowValidateEntry] = useState(true)
 
-  // Función para manejar el resultado de la validación
   const handleValidate = (isValid: boolean) => {
     setEntradaValida(isValid)
     setShowValidateEntry(false) // Oculta la vista de validación
