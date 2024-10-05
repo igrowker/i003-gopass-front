@@ -25,9 +25,8 @@ export const sellTicket = async (
     throw new MatchError(`Error en la verificación: ${response.statusText}`)
   } catch (error: unknown) {
     if (axios.isAxiosError(error)) {
-      throw new NotFoundError(error.message)
-    } else {
-      throw new SystemError("Error de conexión")
+      throw new NotFoundError("Error en la conexión")
     }
+    throw new SystemError("Error en la conexión")
   }
 }

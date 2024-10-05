@@ -1,6 +1,6 @@
 import axios from "axios"
 import validate from "com/validate"
-import { SystemError, CredentialsError } from "com/errors"
+import { SystemError, CredentialsError, ContentError } from "com/errors"
 import { httpClient } from "../api/axios-config"
 
 export const autenticarUsuario = async (email: string, password: string): Promise<string> => {
@@ -40,10 +40,9 @@ export const registrarUsuario = async (email: string, password: string, password
     throw new SystemError(`Error en el registro: ${response.statusText}`)
   } catch (error: unknown) {
     if (axios.isAxiosError(error)) {
-      throw new SystemError(error.message)
-    } else {
-      throw new SystemError("Error de conexión")
+      throw new ContentError(error.message)
     }
+    throw new SystemError("Error de conexión")
   }
 }
 
