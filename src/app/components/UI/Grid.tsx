@@ -1,12 +1,12 @@
 import { useEffect } from "react"
-import { useSelector } from "react-redux"
-import { RootState } from "../../../store"
+// import { useSelector } from "react-redux"
+// import { RootState } from "../../../store"
 import { useGetAllTickets } from "../../../hooks/useGetAllTickets"
 import { Link } from "react-router-dom"
 
 export default function Grid() {
   const { getAllTicketsData } = useGetAllTickets()
-  const tickets = useSelector((state: RootState) => state.entry.tickets)
+  // const tickets = useSelector((state: RootState) => state.entry.tickets)
 
   useEffect(() => {
     getAllTicketsData()
@@ -20,9 +20,11 @@ export default function Grid() {
           <div className="mb-4 flex items-center justify-between">
             <h2 className="text-xl font-bold">Entradas de reventa</h2>
             {/* Botón que lleva a todas las imágenes */}
-            <Link to="/all-images">
+
+            <Link to="/all-tickets">
               <span className="cursor-pointer rounded-md px-4 py-2 text-customRed">Ver más</span>
             </Link>
+
           </div>
 
           {/* Grid de imágenes */}
