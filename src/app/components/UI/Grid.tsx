@@ -19,16 +19,14 @@ export default function Grid({ viewType }: GridProps) {
 
   // Aseguramos que el estado tenga el tipo correcto
   const [filteredTickets, setFilteredTickets] = useState<Ticket[]>([])
-  const [searchQuery, setSearchQuery] = useState('')
+  const [searchQuery, setSearchQuery] = useState("")
 
   useEffect(() => {
     getAllTicketsData(currentPage, ticketsPerPage)
   }, [currentPage, ticketsPerPage])
 
   useEffect(() => {
-    const filtered = tickets.filter((ticket) =>
-      ticket.gameName.toLowerCase().includes(searchQuery.toLowerCase())
-    )
+    const filtered = tickets.filter((ticket) => ticket.gameName.toLowerCase().includes(searchQuery.toLowerCase()))
     setFilteredTickets(filtered)
   }, [tickets, searchQuery])
 
@@ -63,6 +61,7 @@ export default function Grid({ viewType }: GridProps) {
               </a>
             )}
           </div>
+          <SearchBar onSearch={handleSearch} />
 
           {/* Grid de imágenes */}
           <div className={`grid grid-cols-3 gap-4`}>
@@ -79,8 +78,6 @@ export default function Grid({ viewType }: GridProps) {
           {/* Paginación solo para la vista allTickets */}
           {viewType === "allTickets" && (
             <>
-              <SearchBar onSearch={handleSearch} />
-
               <div className="mt-4 flex justify-between">
                 <button
                   onClick={handlePrevPage}

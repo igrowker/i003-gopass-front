@@ -1,7 +1,5 @@
 import { useSelector } from "react-redux"
 import { RootState } from "../../store"
-import { useEffect } from "react"
-
 import { Navbar } from "../components/UI/Navbar"
 import InputField from "../components/core/InputField"
 import Button from "../components/core/Button"
