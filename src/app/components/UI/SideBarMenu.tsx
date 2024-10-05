@@ -8,10 +8,14 @@ import { MdOutlineVerifiedUser } from "react-icons/md"
 
 import Avatar from "./Avatar"
 import { logoutUser } from "../../../service/authService"
+import { useSelector } from "react-redux"
+import { RootState } from "../../../store/"
 
 export default function SideBarMenu({ isOpen }: { isOpen: boolean }) {
   const { t } = useTranslation()
   const navigate = useNavigate()
+
+  const user = useSelector((state: RootState) => state.user)
 
   const handleLogout = () => {
     logoutUser()
@@ -24,9 +28,9 @@ export default function SideBarMenu({ isOpen }: { isOpen: boolean }) {
         className={`h-screen w-1/2 rounded-r-lg bg-gradient-to-r from-black to-gray-800 p-2 pb-14 text-customWhite ${isOpen ? "animate-slide-in" : "animate-slide-out"} `}
       >
         <div className="flex flex-col items-center gap-4">
-          <Avatar img="" />
-          <h2 className="font-azonix">FRANCO</h2>
-          <p>franquito@email.com</p>
+          <Avatar img={user?.image} />
+          <h2 className="font-azonix">{user?.nombre}</h2>
+          <p>{user?.email}</p>
           <hr className="w-full border-2" />
           <div>
             <ul className="my-2 flex flex-col gap-5">
