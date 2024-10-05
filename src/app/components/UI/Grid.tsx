@@ -1,34 +1,60 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { useSelector } from "react-redux"
 import { RootState } from "../../../store"
 import { useGetAllTickets } from "../../../hooks/useGetAllTickets"
-import { Link } from "react-router-dom"
 
-export default function Grid() {
+type GridProps = {
+  viewType: "landing" | "allTickets"
+}
+
+export default function Grid({ viewType }: GridProps) {
   const { getAllTicketsData } = useGetAllTickets()
   const tickets = useSelector((state: RootState) => state.entry.tickets)
+  const [currentPage, setCurrentPage] = useState(1)
+  const ticketsPerPage = viewType === "allTickets" ? 15 : 6 // 3x10 para allTickets, 3x3 para landing
+  const navigate = useNavigate()
 
   useEffect(() => {
-    getAllTicketsData()
-  }, [])
+    getAllTicketsData(currentPage, ticketsPerPage)
+  }, [currentPage, ticketsPerPage])
+
+  useEffect(() => {
+    console.log("Total tickets:", tickets.length)
+  }, [tickets])
+
+  const handleNextPage = () => {
+    setCurrentPage((prev) => prev + 1)
+  }
+
+  const handlePrevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage((prev) => prev - 1)
+    }
+  }
+
+  const handleTicketClick = (ticketId: number) => {
+    navigate(`/comprar-entrada/${ticketId}`) // Redirigir con el ID del ticket
+  }
 
   return (
     <>
-      <div className="flex w-full flex-col border-opacity-50">
-        <div className="p-4">
+      <div className={`flex w-full flex-col border-opacity-50`}>
+        <div className={`p-4 ${viewType === "landing" ? "" : "mt-24"}`}>
           {/* Contenedor del título y botón */}
           <div className="mb-4 flex items-center justify-between">
             <h2 className="text-xl font-bold">Entradas de reventa</h2>
-            {/* Botón que lleva a todas las imágenes */}
-            <Link to="/all-images">
-              <span className="cursor-pointer rounded-md px-4 py-2 text-customRed">Ver más</span>
-            </Link>
+            {viewType === "landing" && (
+              <a href="/all-tickets">
+                <span className="cursor-pointer rounded-md px-4 py-2 text-customRed">Ver más</span>
+              </a>
+            )}
           </div>
 
           {/* Grid de imágenes */}
-          <div className="grid grid-cols-3 gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className={`grid grid-cols-3 gap-4`}>
             {tickets.map((ticket, index) => (
-              <div key={index} className="w-full">
+              <div key={index} className="w-full cursor-pointer" onClick={() => handleTicketClick(ticket.entradaId)}>
                 <img src={ticket.image} alt={`Imagen ${index + 1}`} className="h-auto w-full rounded-md" />
                 <div>
                   <p className="text-center text-[0.8rem]">{ticket.gameName}</p>
@@ -36,6 +62,26 @@ export default function Grid() {
               </div>
             ))}
           </div>
+
+          {/* Paginación solo para la vista allTickets */}
+          {viewType === "allTickets" && (
+            <div className="mt-4 flex justify-between">
+              <button
+                onClick={handlePrevPage}
+                disabled={currentPage === 1}
+                className="rounded bg-gray-200 px-4 py-2 disabled:opacity-50"
+              >
+                Anterior
+              </button>
+              <button
+                onClick={handleNextPage}
+                disabled={tickets.length < ticketsPerPage}
+                className="rounded bg-gray-200 px-4 py-2 disabled:opacity-50"
+              >
+                Siguiente
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </>
