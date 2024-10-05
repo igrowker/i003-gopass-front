@@ -1,6 +1,6 @@
-import { useState } from "react"
-import { useSelector, useDispatch } from "react-redux"
+import { useSelector } from "react-redux"
 import { RootState } from "../../store"
+import { useEffect } from "react"
 
 import { Navbar } from "../components/UI/Navbar"
 import InputField from "../components/core/InputField"
@@ -8,8 +8,18 @@ import Button from "../components/core/Button"
 import TextArea from "../components/core/TextArea"
 
 import { userVerifyTicket } from "../../hooks/useVerifyTicket"
+import { useSellTicket } from "../../hooks/useSellTicket"
+import { useDispatch } from "react-redux"
+import { clearEntry } from "../../store/entry/entrySlice"
 
 interface ValidateFormElements extends HTMLFormControlsCollection {
+  eventName: any
+  eventDate: any
+  placeName: any
+  address: any
+  details: any
+  message: any
+  price: any
   codigoQR: HTMLInputElement
 }
 
@@ -18,7 +28,11 @@ interface ValidateFormElement extends HTMLFormElement {
 }
 
 export default function SellEntryPage() {
+  const dispatch = useDispatch()
   const { verifiedTicket } = userVerifyTicket()
+  const { sellTicketPost } = useSellTicket()
+  const codigoQR = useSelector((state: RootState) => state.entry.ticketToResell?.codigoQR)
+  const entry = useSelector((state: RootState) => state.entry.ticketToResell)
 
   const handleVerifySubmitTicket = async (event: React.FormEvent<ValidateFormElement>) => {
     event.preventDefault()
@@ -28,7 +42,22 @@ export default function SellEntryPage() {
     const codigoQR: string = target.codigoQR.value
 
     await verifiedTicket(codigoQR)
-    alert("Ticket verificado")
+  }
+
+  const handleSubmitTicket = async (event: React.FormEvent<ValidateFormElement>) => {
+    event.preventDefault()
+    const form = event.currentTarget
+    const target = form.elements
+
+    const eventName = target.eventName.value
+    const eventDate = target.eventDate.value
+    const address = target.address.value
+    const details = target.details.value
+    const message = target.message.value
+    const price = target.price.value
+
+    await sellTicketPost(codigoQR, eventName, eventDate, address, details, message, price)
+    dispatch(clearEntry())
   }
 
   return (
@@ -56,45 +85,44 @@ export default function SellEntryPage() {
           </Button>
         </form>
 
-        <form className="flex w-[20rem] flex-col gap-3 sm:w-[30rem] md:w-[30rem] lg:w-[40rem]">
+        <form
+          onSubmit={handleSubmitTicket}
+          className="flex w-[20rem] flex-col gap-3 sm:w-[30rem] md:w-[30rem] lg:w-[40rem]"
+        >
           <InputField
             type="text"
             className="rounded-md border-2 border-solid p-2"
             placeholder="Nombre del evento"
-            id="fullName"
+            id="eventName"
             label="Nombre del evento"
+            value={entry?.gameName || ""}
           />
 
           <InputField
-            type="date"
+            type="text"
             className="rounded-md border-2 border-solid p-2"
             placeholder=""
-            id="birthdate"
+            id="eventDate"
             label="Fecha"
+            value={entry?.eventDate}
           />
 
           <InputField
             type="text"
             className="rounded-md border-2 border-solid p-2"
             placeholder="Nombre del lugar del evento"
-            id="fullName"
-            label="Nombre del lugar del evento"
-          />
-
-          <InputField
-            type="text"
-            className="rounded-md border-2 border-solid p-2"
-            placeholder="Dirección del evento"
             id="address"
             label="Dirección del evento"
+            value={entry?.address}
           />
 
           <InputField
             type="text"
             className="rounded-md border-2 border-solid p-2"
             placeholder="Detalles de la entrada"
-            id="city"
+            id="details"
             label="Detalles de la entrada"
+            value={entry?.description}
           />
 
           <TextArea
@@ -107,12 +135,12 @@ export default function SellEntryPage() {
             type="text"
             className="rounded-md border-2 border-solid p-2"
             placeholder="Precio de reventa"
-            id="country"
+            id="price"
             label="Precio de reventa"
           />
 
           <div className="mt-4 flex w-auto items-start px-4">
-            <input type="checkbox" className="mt-1 h-6 w-6" />
+            <input type="checkbox" required className="mt-1 h-6 w-6" />
             <p className="ml-2 w-full">
               Declaro que soy consciente de que estoy realizando una reventa de entradas y que toda la información
               proporcionada en este formulario es verídica. Entiendo que la venta de entradas falsificadas, duplicadas o
