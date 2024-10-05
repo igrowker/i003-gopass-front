@@ -8,7 +8,6 @@ export const useGetAllTickets = () => {
   const getAllTicketsData = async (pageNumber: number, pageSize: number): Promise<void> => {
     try {
       const data = await getAllTickets(pageNumber, pageSize)
-      console.log(data.length, data)
       dispatch(setTickets(data))
     } catch (error) {
       console.error("Error al obtener tickets", error)

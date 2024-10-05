@@ -2,18 +2,18 @@ import { Navbar } from "../components/UI/Navbar"
 import { CardMyTickets } from "../components/UI/cardMyTickets"
 import { useSelector } from "react-redux"
 import { RootState } from "../../store"
-import { useMyTickets } from "../../hooks/useMyTickets"
+import { useGetUserTickets } from "../../hooks/useGetUserTickets"
 import { useEffect } from "react"
 import { Ticket } from "../../store/entry/entrySlice"
 
 export const MyTickets: React.FC = () => {
   const tickets = useSelector((state: RootState) => state.entry.tickets)
 
-  const { getTickets } = useMyTickets()
+  const { getUserTicketsData } = useGetUserTickets()
 
   useEffect(() => {
     const fetchTickets = async () => {
-      await getTickets()
+      await getUserTicketsData()
     }
     fetchTickets()
   }, [])
