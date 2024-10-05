@@ -9,7 +9,7 @@ export const LandingView = () => {
     <>
       <Navbar />
       <BannerMove />
-      <Grid />
+      <Grid viewType="landing" />
       <div className="flex w-full justify-center">
         <hr className="w-[95%] border bg-customBlack" />
       </div>

@@ -1,16 +1,17 @@
-import { getAllTickets } from "../service/getAllTickets";
+import { getAllTickets } from "../service/getAllTickets"
 import { useDispatch } from "react-redux"
-import { setTickets } from "../store/entry/entrySlice";
+import { setTickets } from "../store/entry/entrySlice"
 
 export const useGetAllTickets = () => {
   const dispatch = useDispatch()
 
-  const getAllTicketsData = async (): Promise<void> => {
+  const getAllTicketsData = async (pageNumber: number, pageSize: number): Promise<void> => {
     try {
-      const tickets = await getAllTickets()
-      dispatch(setTickets(tickets))
+      const data = await getAllTickets(pageNumber, pageSize)
+      console.log(data.length, data)
+      dispatch(setTickets(data))
     } catch (error) {
-      console.error("Error al obtener tickets", error);
+      console.error("Error al obtener tickets", error)
     }
   }
 
