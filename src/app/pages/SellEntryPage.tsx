@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux"
 import { RootState } from "../../store"
+import { useEffect } from "react"
 
 import { Navbar } from "../components/UI/Navbar"
 import InputField from "../components/core/InputField"
@@ -8,6 +9,8 @@ import TextArea from "../components/core/TextArea"
 
 import { userVerifyTicket } from "../../hooks/useVerifyTicket"
 import { useSellTicket } from "../../hooks/useSellTicket"
+import { useDispatch } from "react-redux"
+import { clearEntry } from "../../store/entry/entrySlice"
 
 interface ValidateFormElements extends HTMLFormControlsCollection {
   eventName: any
@@ -25,10 +28,11 @@ interface ValidateFormElement extends HTMLFormElement {
 }
 
 export default function SellEntryPage() {
+  const dispatch = useDispatch()
   const { verifiedTicket } = userVerifyTicket()
   const { sellTicketPost } = useSellTicket()
-  const codigoQR = useSelector((state: RootState) => state.entry.tickets[0]?.codigoQR)
-  const entry = useSelector((state: RootState) => state.entry.tickets[0])
+  const codigoQR = useSelector((state: RootState) => state.entry.ticketToResell?.codigoQR)
+  const entry = useSelector((state: RootState) => state.entry.ticketToResell)
 
   const handleVerifySubmitTicket = async (event: React.FormEvent<ValidateFormElement>) => {
     event.preventDefault()
@@ -53,6 +57,7 @@ export default function SellEntryPage() {
     const price = target.price.value
 
     await sellTicketPost(codigoQR, eventName, eventDate, address, details, message, price)
+    dispatch(clearEntry())
   }
 
   return (

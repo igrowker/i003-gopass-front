@@ -13,7 +13,15 @@ export interface Ticket {
 
 const initialState = {
   codigoQR: "",
-  tickets: [] as Ticket[]
+  tickets: [] as Ticket[],
+  ticketToResell: {
+    image: "",
+    gameName: "",
+    description: "",
+    address: "",
+    eventDate: "",
+    codigoQR: ""
+  } as Ticket
 }
 
 const entrySlice = createSlice({
@@ -22,19 +30,10 @@ const entrySlice = createSlice({
   reducers: {
     setEntry(state, action: PayloadAction<Ticket>) {
       state.codigoQR = action.payload.codigoQR
-      state.tickets = [action.payload]
+      state.ticketToResell = action.payload
     },
     clearEntry(state) {
-      state.codigoQR = ""
-      state.tickets = state.tickets.map((ticket) => ({
-        ...ticket,
-        image: "",
-        gameName: "",
-        description: "",
-        address: "",
-        eventDate: "",
-        codigoQR: ""
-      }))
+      state.ticketToResell = initialState.ticketToResell
     },
     setTickets(state, action: PayloadAction<any>) {
       state.tickets = action.payload
