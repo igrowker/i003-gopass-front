@@ -2,12 +2,9 @@ import { useNavigate } from "react-router-dom"
 import { sellTicket } from "../service/sellTicket"
 import { SystemError } from "com/errors"
 import useContext from "../context/useContext"
-import { useDispatch } from "react-redux"
-import { clearEntry } from "../store/entry/entrySlice"
 
 export const useSellTicket = () => {
   const navigate = useNavigate()
-  const dispatch = useDispatch()
 
   const { alert } = useContext()
 
@@ -23,7 +20,7 @@ export const useSellTicket = () => {
     try {
       await sellTicket(codigoQR, gameName, eventDate, address, description, resaleDetail, precio)
       navigate("/")
-      dispatch(clearEntry())
+      
     } catch (error: any) {
       if (error instanceof SystemError) {
         alert(error.message)
