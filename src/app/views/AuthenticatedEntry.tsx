@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux"
 import { RootState } from "../../store"
 import { clearEntry } from "../../store/entry/entrySlice"
+import { useTranslation } from "react-i18next"
 
 import QRCode from "react-qr-code"
 
@@ -9,6 +10,7 @@ import { GiPositionMarker } from "react-icons/gi"
 import Button from "../components/core/Button"
 
 function AuthenticatedEntry({ onVerifyAnother }: { onVerifyAnother: () => void }) {
+  const { t } = useTranslation()
   const dispatch = useDispatch()
   const entry = useSelector((state: RootState) => state.entry.tickets[0])
 
@@ -25,7 +27,7 @@ function AuthenticatedEntry({ onVerifyAnother }: { onVerifyAnother: () => void }
             <h1>Verificar una entrada</h1>
           </div>
           <div className="rounded-xl bg-customGreen p-2 text-center text-customWhite">
-            <p>AUTENCIDAD VERIFICADA</p>
+            <p>{t("authenticityVerified")}</p>
           </div>
           <div className="pt-7 text-xl font-semibold">{entry.gameName}</div>
 
@@ -56,7 +58,7 @@ function AuthenticatedEntry({ onVerifyAnother }: { onVerifyAnother: () => void }
           onClick={handleVerifyAnother}
           className="mb-6 mt-4 bg-customGreen font-semibold text-white hover:bg-customLigthRed"
         >
-          Verificar otra
+          {t("verifyAnother")}
         </Button>
       </section>
     </>
