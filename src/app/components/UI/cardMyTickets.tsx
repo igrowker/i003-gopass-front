@@ -8,14 +8,14 @@ export const CardMyTickets: React.FC<CardMyTicketsProps> = ({ ticket }) => {
   return (
     <div className="card bg-base-100 p-4 shadow-xl lg:card-side">
       <figure>
-        <img src={ticket.image} alt={ticket.gameName} />
+        <img src={ticket.entrada.image} alt={ticket.entrada.gameName} />
       </figure>
       <div className="card-body p-4">
-        <h2 className="card-title">{ticket.gameName}</h2>
-        <p>{ticket.description}</p>
-        <p>{ticket.address}</p>
-        <p>{ticket.eventDate}</p>
-        <p>Código QR: {ticket.codigoQR}</p>
+        <h2 className="card-title">{ticket.entrada.gameName}</h2>
+        <p>{ticket.entrada.description}</p>
+        <p>{ticket.entrada.address}</p>
+        <p>{ticket.entrada.eventDate}</p>
+        <p>Código QR: {ticket.entrada.codigoQR}</p>
         <div className="card-actions justify-end">
           <button className="btn btn-primary">Mostrar QR</button>
         </div>

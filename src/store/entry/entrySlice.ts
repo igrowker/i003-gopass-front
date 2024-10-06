@@ -9,6 +9,7 @@ export interface Ticket {
   codigoQR: string
   verificada: boolean
   entradaId: number
+  entrada: any
 }
 
 const initialState = {
