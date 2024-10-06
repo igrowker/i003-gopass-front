@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { useTranslation } from "react-i18next"
 
@@ -7,15 +8,23 @@ import { LuBadgePercent } from "react-icons/lu"
 import { MdOutlineVerifiedUser } from "react-icons/md"
 
 import Avatar from "./Avatar"
-import { logoutUser } from "../../../service/authService"
+
 import { useSelector } from "react-redux"
+import { logoutUser } from "../../../service/authService"
 import { RootState } from "../../../store/"
+
+import { useGetProfile } from "../../../hooks/useGetProfile"
 
 export default function SideBarMenu({ isOpen }: { isOpen: boolean }) {
   const { t } = useTranslation()
   const navigate = useNavigate()
+  const { getProfileData } = useGetProfile()
 
   const user = useSelector((state: RootState) => state.user)
+
+  useEffect(() => {
+    getProfileData()
+  }, [])
 
   const handleLogout = () => {
     logoutUser()

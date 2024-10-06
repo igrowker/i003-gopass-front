@@ -12,7 +12,7 @@ import Button from "../components/core/Button"
 function AuthenticatedEntry({ onVerifyAnother }: { onVerifyAnother: () => void }) {
   const { t } = useTranslation()
   const dispatch = useDispatch()
-  const entry = useSelector((state: RootState) => state.entry.tickets[0])
+  const entry = useSelector((state: RootState) => state.entry.ticketToResell)
 
   const handleVerifyAnother = () => {
     dispatch(clearEntry())
