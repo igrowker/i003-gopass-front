@@ -34,10 +34,7 @@ function ValidateEntry({ onValidate }: { onValidate: (isValid: boolean) => void 
     <>
       <section className="flex w-full flex-col items-center p-4">
         <div className="items-star m-4 flex flex-col">
-          {/* <div className="text-xl font-semibold">
-            <h1>{t("verifyAnEntry")}</h1>
-          </div> */}
-          <h1 className="mt-12 pt-7 text-xl font-semibold">{t("enterCode")}</h1>
+          <h2 className="mt-12 pt-7 text-xl font-semibold">{t("enterCode")}</h2>
           <div className="text flex flex-col gap-3 pt-6 text-xl"></div>
         </div>
       </section>

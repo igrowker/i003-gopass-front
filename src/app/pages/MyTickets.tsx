@@ -26,11 +26,11 @@ export const MyTickets: React.FC = () => {
       <div className="absolute mt-20">
         <h2 className="-z-20 m-5 text-center text-xl font-semibold">{t("myTickets")}</h2>
         <ul>
-          <li>
-            {tickets.map((ticket: Ticket) => (
-              <CardMyTickets key={ticket.entradaId} ticket={ticket} />
-            ))}
-          </li>
+          {tickets.map((ticket: Ticket, index) => (
+            <li key={index}>
+              <CardMyTickets ticket={ticket} />
+            </li>
+          ))}
         </ul>
       </div>
     </>
