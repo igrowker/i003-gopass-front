@@ -1,6 +1,7 @@
 import Button from "../components/core/Button"
 import InputField from "../components/core/InputField"
 import { useValidateEntry } from "../../hooks/useValidateEntry"
+import { useTranslation } from "react-i18next"
 
 interface ValidateFormElements extends HTMLFormControlsCollection {
   codigoQR: HTMLInputElement
@@ -11,6 +12,7 @@ interface ValidateFormElement extends HTMLFormElement {
 }
 
 function ValidateEntry({ onValidate }: { onValidate: (isValid: boolean) => void }) {
+  const { t } = useTranslation()
   const { verified } = useValidateEntry()
 
   const handleSubmit = async (event: React.FormEvent<ValidateFormElement>) => {
@@ -33,9 +35,9 @@ function ValidateEntry({ onValidate }: { onValidate: (isValid: boolean) => void 
       <section className="flex w-full flex-col items-center p-4">
         <div className="items-star m-4 flex flex-col">
           <div className="text-xl font-semibold">
-            <h1>Verificar una entrada</h1>
+            <h1>{t("verifyAnEntry")}</h1>
           </div>
-          <div className="pt-7 text-xl font-semibold">Ingresa el código</div>
+          <div className="pt-7 text-xl font-semibold">{t("enterCode")}</div>
           <div className="text flex flex-col gap-3 pt-6 text-xl"></div>
         </div>
       </section>
@@ -43,11 +45,11 @@ function ValidateEntry({ onValidate }: { onValidate: (isValid: boolean) => void 
         <InputField
           type="text"
           className="w-[22rem] rounded-md border-2 border-solid p-2"
-          placeholder="Código alfanumérico debajo del QR"
+          placeholder={t("alphanumericCodeQR")}
           id="codigoQR"
         />
         <Button className="mb-6 mt-12 bg-customGreen font-semibold text-white" type="submit">
-          Verificar
+          {t("verify")}
         </Button>
       </form>
     </>

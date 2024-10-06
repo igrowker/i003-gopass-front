@@ -101,7 +101,7 @@ export default function UserProfile() {
             type="text"
             className="rounded-md border-2 border-solid p-2"
             value={userData.nombre}
-            placeholder="Nombre completo"
+            placeholder={t("fullName")}
             id="nombre"
             label={t("fullName")}
           />
@@ -110,7 +110,7 @@ export default function UserProfile() {
             onChange={handleChange}
             type="email"
             className="rounded-md border-2 border-solid p-2"
-            placeholder="Email"
+            placeholder={t("email")}
             id="email"
             value={userData.email}
             label={t("email")}
@@ -120,7 +120,7 @@ export default function UserProfile() {
             onChange={handleChange}
             type="text"
             className="rounded-md border-2 border-solid p-2"
-            placeholder="Teléfono"
+            placeholder={t("phone")}
             id="numeroTelefono"
             value={userData.numeroTelefono}
             label={t("phone")}
@@ -130,7 +130,7 @@ export default function UserProfile() {
             onChange={handleChange}
             type="text"
             className="rounded-md border-2 border-solid p-2"
-            placeholder="Ciudad"
+            placeholder={t("city")}
             id="city"
             value={userData.city}
             label={t("city")}
@@ -140,7 +140,7 @@ export default function UserProfile() {
             onChange={handleChange}
             type="text"
             className="rounded-md border-2 border-solid p-2"
-            placeholder="País"
+            placeholder={t("country")}
             id="country"
             value={userData.country}
             label={t("country")}
@@ -150,7 +150,7 @@ export default function UserProfile() {
             onChange={handleChange}
             type="text"
             className="rounded-md border-2 border-solid p-2"
-            placeholder="DNI"
+            placeholder={t("dni")}
             id="dni"
             value={userData.dni}
             label={t("dni")}
@@ -160,14 +160,14 @@ export default function UserProfile() {
             onChange={handleChange}
             type="text"
             className="rounded-md border-2 border-solid p-2"
-            placeholder="Imagen"
+            placeholder={t("image")}
             id="image"
             value={userData.image}
             label={t("image")}
           />
 
           <Button className="mb-6 mt-4 font-semibold text-white" type="submit">
-            Guardar
+            {t("save")}
           </Button>
         </form>
       </div>

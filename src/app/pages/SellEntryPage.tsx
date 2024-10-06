@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux"
 import { RootState } from "../../store"
+import { useTranslation } from "react-i18next"
 import { Navbar } from "../components/UI/Navbar"
 import InputField from "../components/core/InputField"
 import Button from "../components/core/Button"
@@ -26,6 +27,7 @@ interface ValidateFormElement extends HTMLFormElement {
 }
 
 export default function SellEntryPage() {
+  const { t } = useTranslation()
   const dispatch = useDispatch()
   const { verifiedTicket } = userVerifyTicket()
   const { sellTicketPost } = useSellTicket()
@@ -64,7 +66,7 @@ export default function SellEntryPage() {
 
       <div className="flex flex-col items-center justify-center overflow-visible">
         <div className="relative mt-20 flex w-full flex-row justify-center text-2xl">
-          <h2 className="-z-20 m-5 text-center text-xl font-semibold">Revender</h2>
+          <h2 className="-z-20 m-5 text-center text-xl font-semibold">{t("resell")}</h2>
         </div>
 
         <form
@@ -74,9 +76,9 @@ export default function SellEntryPage() {
           <InputField
             type="text"
             className="rounded-md border-2 border-solid p-2"
-            placeholder="Verificar autenticidad de la entrada"
+            placeholder={t("verifyAuthenticityEntry")}
             id="codigoQR"
-            label="Verificar Ticket"
+            label={t("checkTicket")}
           />
           <Button className="mb-6 mt-12 bg-customGreen font-semibold text-white" type="submit">
             Verificar Ticket
@@ -90,65 +92,60 @@ export default function SellEntryPage() {
           <InputField
             type="text"
             className="rounded-md border-2 border-solid p-2"
-            placeholder="Nombre del evento"
+            placeholder={t("eventName")}
             id="eventName"
-            label="Nombre del evento"
+            label={t("eventName")}
             value={entry?.gameName || ""}
           />
 
           <InputField
             type="text"
             className="rounded-md border-2 border-solid p-2"
-            placeholder=""
+            placeholder="dd/mm/yyyy"
             id="eventDate"
-            label="Fecha"
+            label={t("date")}
             value={entry?.eventDate}
           />
 
           <InputField
             type="text"
             className="rounded-md border-2 border-solid p-2"
-            placeholder="Nombre del lugar del evento"
+            placeholder={t("nameOfPlace")}
             id="address"
-            label="Dirección del evento"
+            label={t("eventAddress")}
             value={entry?.address}
           />
 
           <InputField
             type="text"
             className="rounded-md border-2 border-solid p-2"
-            placeholder="Detalles de la entrada"
+            placeholder={t("entryDetails")}
             id="details"
-            label="Detalles de la entrada"
+            label={t("entryDetails")}
             value={entry?.description}
           />
 
           <TextArea
             placeholder="Dejanos tu consulta o describe tu incidencia"
-            label="Explica por qué revendes esta entrada"
+            label={t("explainWhyResellingEntry")}
             id="message"
           ></TextArea>
 
           <InputField
             type="text"
             className="rounded-md border-2 border-solid p-2"
-            placeholder="Precio de reventa"
+            placeholder={t("resalePrice")}
             id="price"
-            label="Precio de reventa"
+            label={t("resalePrice")}
           />
 
           <div className="mt-4 flex w-auto items-start px-4">
             <input type="checkbox" required className="mt-1 h-6 w-6" />
-            <p className="ml-2 w-full">
-              Declaro que soy consciente de que estoy realizando una reventa de entradas y que toda la información
-              proporcionada en este formulario es verídica. Entiendo que la venta de entradas falsificadas, duplicadas o
-              inválidas puede acarrear sanciones legales y comprometer mi responsabilidad ante las autoridades y los
-              organizadores del evento.
-            </p>
+            <p className="ml-2 w-full">{t("declaration")}</p>
           </div>
 
           <Button className="mb-6 mt-4 font-semibold text-white" type="submit">
-            Revender
+            {t("resell")}
           </Button>
         </form>
       </div>

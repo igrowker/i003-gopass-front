@@ -1,14 +1,17 @@
 import Avatar from "../components/UI/Avatar"
 import RatingCheck from "../components/core/RatingCheck"
 import Button from "../components/core/Button"
+import { useTranslation } from "react-i18next"
 
 export default function VerifiedSeller({ textButton }: { textButton: string }) {
+  const { t } = useTranslation()
+
   return (
     <>
       <div className="flex flex-col p-2">
-        <p className="mb-2">Vendedor verificado:</p>
+        <p className="mb-2">{t("verifiedSeller")}</p>
         <div className="flex flex-row">
-          <Avatar size="5rem" />
+          <Avatar size="5rem" img="" />
           <div>
             <span className="flex gap-3">
               <p className="mb-2">Franco Lopez Maciel</p>
@@ -24,10 +27,7 @@ export default function VerifiedSeller({ textButton }: { textButton: string }) {
         </div>
         <div className="mt-4 flex w-auto items-start px-4">
           <input type="checkbox" className="mt-1 h-6 w-6" />
-          <p className="ml-2 w-[20rem]">
-            Entiendo que estoy adquiriendo una entrada a través de un tercero en reventa y que la plataforma garantiza
-            la autenticidad de la entrada en caso de que sea validada correctamente.
-          </p>
+          <p className="ml-2 w-[20rem]">"IUnderstandThatIAm..."</p>
         </div>
         <span className="my-8 flex w-full justify-center">
           <Button className="w-[15rem] bg-customGreen text-2xl text-customWhite">{textButton}</Button>

@@ -1,10 +1,12 @@
 import LoginLink from "../components/core/LoginLink"
-
+import { useTranslation } from "react-i18next"
 import { FcGoogle } from "react-icons/fc"
 import { IoLogoApple } from "react-icons/io5"
 import { SiFacebook } from "react-icons/si"
 
 export default function Login() {
+  const { t } = useTranslation()
+
   return (
     <div className="bg-login-image relative flex h-screen w-full justify-center">
       <div className="mb-36 flex w-full max-w-md flex-col items-center justify-center gap-4 p-2 sm:p-4 md:p-6">
@@ -18,18 +20,16 @@ export default function Login() {
         <LoginLink
           icon={<IoLogoApple />}
           url=""
-          children="Continue With Apple"
+          children={t("continueWithApple")}
           iconClassName="group-hover:text-white transition duration-500"
         />
-        <LoginLink icon={<SiFacebook />} url="" children="Continue With Facebook" iconClassName="text-blue-600" />
+        <LoginLink icon={<SiFacebook />} url="" children={t("continueWithFacebook")} iconClassName="text-blue-600" />
         <div className="flex flex-col items-center gap-4 text-[1.1rem] font-medium text-customWhite">
-          <p>Or</p>
-          <p>Skip For Now</p>
+          <p>{t("or")}</p>
+          <p>{t("skipForNow")}</p>
         </div>
         <footer className="absolute bottom-0 mb-6">
-          <p className="text-center font-medium text-customWhite">
-            I agree to the Terms & Conditions and Privacy Policy
-          </p>
+          <p className="text-center font-medium text-customWhite">{t("AgreeTermsAndConditions")}</p>
         </footer>
       </div>
     </div>
