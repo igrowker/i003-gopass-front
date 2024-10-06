@@ -5,9 +5,11 @@ import { RootState } from "../../store"
 import { useGetUserTickets } from "../../hooks/useGetUserTickets"
 import { useEffect } from "react"
 import { Ticket } from "../../store/entry/entrySlice"
+import { useTranslation } from "react-i18next"
 
 export const MyTickets: React.FC = () => {
   const tickets = useSelector((state: RootState) => state.entry.tickets)
+  const { t } = useTranslation()
 
   const { getUserTicketsData } = useGetUserTickets()
 
@@ -22,13 +24,13 @@ export const MyTickets: React.FC = () => {
     <>
       <Navbar />
       <div className="absolute mt-20">
-        <h2 className="-z-20 m-5 text-center text-xl font-semibold">My Tickets</h2>
+        <h2 className="-z-20 m-5 text-center text-xl font-semibold">{t("myTickets")}</h2>
         <ul>
-          <li>
-            {tickets.map((ticket: Ticket) => (
-              <CardMyTickets key={ticket.entradaId} ticket={ticket} />
-            ))}
-          </li>
+          {tickets.map((ticket: Ticket, index) => (
+            <li key={index}>
+              <CardMyTickets ticket={ticket} />
+            </li>
+          ))}
         </ul>
       </div>
     </>

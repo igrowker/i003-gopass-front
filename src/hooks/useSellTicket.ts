@@ -20,7 +20,6 @@ export const useSellTicket = () => {
     try {
       await sellTicket(codigoQR, gameName, eventDate, address, description, resaleDetail, precio)
       navigate("/")
-      
     } catch (error: any) {
       if (error instanceof SystemError) {
         alert(error.message)

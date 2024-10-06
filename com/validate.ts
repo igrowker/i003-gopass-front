@@ -1,4 +1,4 @@
-import { ContentError, MatchError } from "../com/errors.tsx"
+import { ContentError, MatchError } from '../com/errors.ts'
 
 export const EMAIL_REGEX =
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -12,47 +12,47 @@ export const QR_CODE_REGEX =
 
 function validateEmail(email: string) {
   if (!EMAIL_REGEX.test(email)) {
-    throw new ContentError("El correo electrónico no es válido")
+    throw new ContentError('El correo electrónico no es válido')
   }
 }
 
 function validateFullName(fullName: string) {
   if (!FULL_NAME_REGEX.test(fullName)) {
-    throw new ContentError("El nombre completo no es válido")
+    throw new ContentError('El nombre completo no es válido')
   }
 }
 
 function validatePassword(password: string) {
   if (!PASSWORD_REGEX.test(password)) {
-    throw new ContentError("La contraseña no es válida")
+    throw new ContentError('La contraseña no es válida')
   }
 }
 
 function validateCity(city: string) {
   if (!CITY_REGEX.test(city)) {
-    throw new ContentError("El nombre de la ciudad no es válido")
+    throw new ContentError('El nombre de la ciudad no es válido')
   }
 }
 function validateCountry(country: string) {
   if (!COUNTRY_REGEX.test(country)) {
-    throw new ContentError("El nombre del país no es válido")
+    throw new ContentError('El nombre del país no es válido')
   }
 }
 function validateDocument(document: string) {
   if (!DOCUMENT_REGEX.test(document)) {
-    throw new ContentError("El documento no es válido")
+    throw new ContentError('El documento no es válido')
   }
 }
 
 function validatePasswordsMatch(password: string, passwordRepeat: string) {
   if (password !== passwordRepeat) {
-    throw new MatchError("Contraseñas no coinciden")
+    throw new MatchError('Contraseñas no coinciden')
   }
 }
 
 function validateQrCode(qrCode: string) {
   if (!QR_CODE_REGEX.test(qrCode)) {
-    throw new Error("El código QR no es válido")
+    throw new Error('El código QR no es válido')
   }
 }
 
@@ -64,7 +64,7 @@ const validate = {
   country: validateCountry,
   document: validateDocument,
   passwordsMatch: validatePasswordsMatch,
-  qrCode: validateQrCode
+  qrCode: validateQrCode,
 }
 
 export default validate

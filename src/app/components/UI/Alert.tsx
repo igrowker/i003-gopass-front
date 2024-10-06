@@ -1,4 +1,3 @@
-// import './Alert.css'
 import Button from "../core/Button"
 
 interface AlertProps {

@@ -7,8 +7,8 @@ import Button from "../../app/components/core/Button"
 import TextArea from "../../app/components/core/TextArea"
 
 import { FaInstagramSquare } from "react-icons/fa"
-import { FaSquareXTwitter } from "react-icons/fa6"
-import { FaFacebookSquare } from "react-icons/fa"
+import { FaYoutubeSquare } from "react-icons/fa"
+import { FaLinkedin } from "react-icons/fa"
 
 export default function Contact() {
   const { t } = useTranslation()
@@ -58,14 +58,14 @@ export default function Contact() {
       <h2 className="m-5 text-center text-xl font-semibold">{t("followUsOnSocialMedia")}</h2>
 
       <section className="flex flex-row justify-center space-x-6 text-6xl text-customRed">
-        <Link to="">
+        <Link target="_blank" to="https://www.instagram.com/igrowker/">
           <FaInstagramSquare />
         </Link>
-        <Link to="">
-          <FaSquareXTwitter />
+        <Link target="_blank" to="https://www.youtube.com/@Igrowker">
+          <FaYoutubeSquare />
         </Link>
-        <Link to="">
-          <FaFacebookSquare />
+        <Link target="_blank" to="https://www.linkedin.com/company/igrowker/">
+          <FaLinkedin />
         </Link>
       </section>
     </>

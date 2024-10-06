@@ -5,12 +5,14 @@ import { RootState } from "../../../store"
 import { useGetAllTickets } from "../../../hooks/useGetAllTickets"
 import SearchBar from "./SearchBar"
 import { Ticket } from "../../../store/entry/entrySlice"
+import { useTranslation } from "react-i18next"
 
 type GridProps = {
   viewType: "landing" | "allTickets"
 }
 
 export default function Grid({ viewType }: GridProps) {
+  const { t } = useTranslation()
   const { getAllTicketsData } = useGetAllTickets()
   const tickets = useSelector((state: RootState) => state.entry.tickets)
   const [currentPage, setCurrentPage] = useState(1)
@@ -54,10 +56,10 @@ export default function Grid({ viewType }: GridProps) {
         <div className={`p-4 ${viewType === "landing" ? "" : "mt-24"}`}>
           {/* Contenedor del título y botón */}
           <div className="mb-4 flex items-center justify-between">
-            <h2 className="text-xl font-bold">Entradas de reventa</h2>
+            <h2 className="text-xl font-bold">{t("resaleTickets")}</h2>
             {viewType === "landing" && (
               <a href="/all-tickets">
-                <span className="cursor-pointer rounded-md px-4 py-2 text-customRed">Ver más</span>
+                <span className="cursor-pointer rounded-md px-4 py-2 text-customRed">{t("viewMore")}</span>
               </a>
             )}
           </div>

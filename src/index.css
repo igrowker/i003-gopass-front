@@ -15,4 +15,7 @@
     @apply w-full bg-customWhite;
     font-family: "Lato", sans-serif;
   }
+  h2 {
+    font-family: "Azonix", sans-serif;
+  }
 }

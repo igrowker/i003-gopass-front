@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useTranslation } from "react-i18next"
 
 type SearchBarProps = {
   onSearch: (query: string) => void
@@ -6,6 +7,7 @@ type SearchBarProps = {
 }
 
 export default function SearchBar({ onSearch }: SearchBarProps) {
+  const { t } = useTranslation()
   const [query, setQuery] = useState("")
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,7 +22,7 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
         value={query}
         type="text"
         onChange={handleChange}
-        placeholder="Buscar por nombre de equipo..."
+        placeholder={t("searchNameTeam")}
         className="w-full max-w-md rounded-3xl border border-gray-300 p-3 text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
     </div>

@@ -80,9 +80,10 @@ export default function SellEntryPage() {
             id="codigoQR"
             label={t("checkTicket")}
           />
-          <Button className="mb-6 mt-12 bg-customGreen font-semibold text-white" type="submit">
-            Verificar Ticket
+          <Button className="mt-4 bg-customGreen text-2xl font-semibold text-white" type="submit">
+            {t("verifyAnEntry")}
           </Button>
+          <hr className="mb-6 mt-6 border-2" />
         </form>
 
         <form
@@ -110,7 +111,7 @@ export default function SellEntryPage() {
           <InputField
             type="text"
             className="rounded-md border-2 border-solid p-2"
-            placeholder={t("nameOfPlace")}
+            placeholder={t("eventAddress")}
             id="address"
             label={t("eventAddress")}
             value={entry?.address}
@@ -126,8 +127,8 @@ export default function SellEntryPage() {
           />
 
           <TextArea
-            placeholder="Dejanos tu consulta o describe tu incidencia"
-            label={t("explainWhyResellingEntry")}
+            placeholder={t("explainTheReasonForSelling")}
+            label={t("explainWhyYouAreSelling")}
             id="message"
           ></TextArea>
 
@@ -137,6 +138,7 @@ export default function SellEntryPage() {
             placeholder={t("resalePrice")}
             id="price"
             label={t("resalePrice")}
+            style={{ backgroundColor: "white" }}
           />
 
           <div className="mt-4 flex w-auto items-start px-4">
@@ -144,7 +146,7 @@ export default function SellEntryPage() {
             <p className="ml-2 w-full">{t("declaration")}</p>
           </div>
 
-          <Button className="mb-6 mt-4 font-semibold text-white" type="submit">
+          <Button className="mb-6 mt-4 text-2xl font-semibold text-white" type="submit">
             {t("resell")}
           </Button>
         </form>

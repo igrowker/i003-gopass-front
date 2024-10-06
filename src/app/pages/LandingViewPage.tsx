@@ -16,7 +16,7 @@ export const LandingView = () => {
       <div className="flex w-full justify-center">
         <hr className="w-[95%] border bg-customBlack" />
       </div>
-      <h2 className="m-4 text-xl font-bold">{t("resaleTickets")}</h2>
+      <h2 className="m-4 text-xl font-bold">{t("latestTickets")}</h2>
       <section>
         <ul>
           <li>
