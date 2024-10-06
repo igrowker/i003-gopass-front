@@ -30,7 +30,7 @@ export default function Grid({ viewType }: GridProps) {
       ticket.entrada.gameName.toLowerCase().includes(searchQuery.toLowerCase())
     )
     setFilteredTickets(filtered)
-  }, [searchQuery])
+  }, [searchQuery, tickets])
 
   useEffect(() => {
     getAllTicketsData(currentPage, ticketsPerPage);
@@ -79,7 +79,7 @@ export default function Grid({ viewType }: GridProps) {
   
           {/* Grilla de imágenes */}
           <div className={`grid gap-4 grid-cols-2`}>
-            {filteredTickets.slice(0, viewType === "landing" ? 4 : 10).map((ticket, index) => (
+            {filteredTickets.slice(0, viewType === "landing" ? 4 : 5).map((ticket, index) => (
               <div key={index} className="w-full cursor-pointer" onClick={() => handleTicketClick(ticket.entradaId)}>
                 <img src={ticket.entrada.image} alt={`Imagen ${index + 1}`} className="h-auto w-full rounded-md" />
                 <div>
