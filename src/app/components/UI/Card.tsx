@@ -1,6 +1,9 @@
 import Button from "../core/Button"
+import { useTranslation } from "react-i18next"
 
 export default function Card() {
+  const { t } = useTranslation()
+
   return (
     <>
       <div className="flex justify-center p-2">
@@ -16,7 +19,9 @@ export default function Card() {
             <p className="text-[1.1rem] font-medium">18 Feb - 18:00 EN AVELLANEDA</p>
             <p className="text-[1.3rem] font-medium">$10</p>
             <div className="card-actions justify-end">
-              <Button className="btn btn-primary relative -mt-8 bg-customGreen hover:bg-customBlack">Comprar</Button>
+              <Button className="btn relative -mt-8 bg-customGreen text-2xl text-customWhite hover:bg-customBlack">
+                {t("buy")}
+              </Button>
             </div>
           </div>
         </div>

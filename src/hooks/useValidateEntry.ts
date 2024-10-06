@@ -11,7 +11,7 @@ export const useValidateEntry = () => {
       dispatch(setEntry(entryData))
 
       return true
-    } catch (error: any) {
+    } catch {
       return false
     }
   }

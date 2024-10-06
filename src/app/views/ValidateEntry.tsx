@@ -34,21 +34,21 @@ function ValidateEntry({ onValidate }: { onValidate: (isValid: boolean) => void 
     <>
       <section className="flex w-full flex-col items-center p-4">
         <div className="items-star m-4 flex flex-col">
-          <div className="text-xl font-semibold">
+          {/* <div className="text-xl font-semibold">
             <h1>{t("verifyAnEntry")}</h1>
-          </div>
-          <div className="pt-7 text-xl font-semibold">{t("enterCode")}</div>
+          </div> */}
+          <h1 className="mt-12 pt-7 text-xl font-semibold">{t("enterCode")}</h1>
           <div className="text flex flex-col gap-3 pt-6 text-xl"></div>
         </div>
       </section>
-      <form className="mt-8 flex flex-col items-center text-center" onSubmit={handleSubmit}>
+      <form className="flex flex-col items-center text-center" onSubmit={handleSubmit}>
         <InputField
           type="text"
           className="w-[22rem] rounded-md border-2 border-solid p-2"
           placeholder={t("alphanumericCodeQR")}
           id="codigoQR"
         />
-        <Button className="mb-6 mt-12 bg-customGreen font-semibold text-white" type="submit">
+        <Button className="mb-6 mt-12 bg-customGreen text-2xl font-semibold text-white" type="submit">
           {t("verify")}
         </Button>
       </form>

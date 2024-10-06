@@ -9,6 +9,7 @@ type InputFieldProps = {
   type?: any
   value?: any
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+  style?: any
 }
 
 export default function InputField({
@@ -19,7 +20,8 @@ export default function InputField({
   className,
   type,
   value,
-  onChange
+  onChange,
+  style
 }: InputFieldProps) {
   return (
     <>
@@ -34,6 +36,7 @@ export default function InputField({
           id={id}
           value={value}
           onChange={onChange}
+          style={style}
         />
         {icon && <div className="mr-8 h-7 w-7 cursor-pointer text-3xl text-black opacity-70">{icon}</div>}
       </div>

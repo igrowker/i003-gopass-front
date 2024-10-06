@@ -166,7 +166,7 @@ export default function UserProfile() {
             label={t("image")}
           />
 
-          <Button className="mb-6 mt-4 font-semibold text-white" type="submit">
+          <Button className="mb-6 mt-4 text-2xl font-semibold text-white" type="submit">
             {t("save")}
           </Button>
         </form>
