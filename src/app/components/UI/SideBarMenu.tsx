@@ -24,7 +24,7 @@ export default function SideBarMenu({ isOpen }: { isOpen: boolean }) {
 
   useEffect(() => {
     getProfileData()
-  })
+  }, [])
 
   const handleLogout = () => {
     logoutUser()
