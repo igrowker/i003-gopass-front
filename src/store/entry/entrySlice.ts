@@ -25,6 +25,7 @@ const initialState = {
   } as Ticket
 }
 
+
 const entrySlice = createSlice({
   name: "entry",
   initialState,
@@ -38,6 +39,19 @@ const entrySlice = createSlice({
     },
     setTickets(state, action: PayloadAction<any>) {
       state.tickets = action.payload
+    },
+    filtered(state, action: PayloadAction<any>) {
+      state.tickets = action.payload.map((item: any) => ({
+        image: item.entrada.image,
+        gameName: item.entrada.gameName,
+        description: item.entrada.description,
+        address: item.entrada.address,
+        eventDate: item.entrada.eventDate,
+        codigoQR: item.entrada.codigoQR,
+        verificada: item.entrada.verificada,
+        entradaId: item.entradaId,
+        entrada: item.entrada
+      }))
     }
   }
 })

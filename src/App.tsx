@@ -10,8 +10,6 @@ import Register from "./app/pages/RegisterPage"
 import PrivateRoutes from "./privateRoutes/PrivateRoutes"
 import { PageNotFound } from "./app/pages/PageNotFound"
 
-import AllTickets from "./app/pages/AllTickets"
-
 function App() {
   const [message, setMessage] = useState<string | null>(null)
   const handleMessage = (message: string) => setMessage(message)
@@ -25,8 +23,6 @@ function App() {
           <Route path="/social-login" element={<SocialLogin />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          
-          <Route path="/all-tickets" element={<AllTickets />} />
 
           {/* Rutas privadas */}
           <Route path="/*" element={<PrivateRoutes />} />
