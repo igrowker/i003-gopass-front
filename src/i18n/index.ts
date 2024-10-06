@@ -21,7 +21,7 @@ i18n
       caches: ["localStorage", "cookie"]
     },
     react: {
-      useSuspense: false // Opcional: desactiva el suspense de React
+      useSuspense: true
     }
   })
 
