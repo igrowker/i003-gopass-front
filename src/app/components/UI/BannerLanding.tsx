@@ -1,30 +1,21 @@
 import { useEffect, useState } from "react"
-
-const imagesBanner = [
-  "/bannerImg/b1.avif",
-  "/bannerImg/b2.avif",
-  "/bannerImg/b3.avif",
-  "/bannerImg/b4.avif",
-  "/bannerImg/b5.avif",
-  "/bannerImg/b6.avif",
-  "/bannerImg/b7.avif",
-  "/bannerImg/b8.avif",
-  "/bannerImg/b9.avif",
-  "/bannerImg/b10.avif",
-  "/bannerImg/b11.avif",
-  "/bannerImg/b12.avif"
-]
+import { useSelector } from "react-redux"
+import { RootState } from "../../../store"
 
 export default function BannerLanding() {
+  const tickets = useSelector((state: RootState) => state.entry.tickets)
+
+  const imagesBanner = tickets.map((ticket) => ticket.entrada.image)
+
   const [currentIndex, setCurrentIndex] = useState(0)
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % imagesBanner.length)
-    }, 5000)
+    }, 8000)
 
     return () => clearInterval(interval)
-  }, [])
+  }, [imagesBanner.length])
 
   return (
     <div className="flex justify-center">
