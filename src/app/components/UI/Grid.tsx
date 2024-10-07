@@ -57,6 +57,7 @@ export default function Grid({ viewType }: GridProps) {
 
   return (
     <>
+      <h2 className="text-xl font-bold">{t("resaleTickets")}</h2>
       <section>
         {tickets.length === 0 ? (
           <div className="flex flex-col items-center justify-center">
@@ -67,7 +68,7 @@ export default function Grid({ viewType }: GridProps) {
             <div className={`p-4 ${viewType === "landing" ? "" : "mt-24"}`}>
               {/* Contenedor del título y botón */}
               <div className="mb-4 flex items-center justify-between">
-                <h2 className="text-xl font-bold">{t("resaleTickets")}</h2>
+
                 {viewType === "landing" && (
                   <a href="/all-tickets">
                     <span className="cursor-pointer rounded-md px-4 py-2 text-customRed">{t("viewMore")}</span>

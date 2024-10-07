@@ -23,9 +23,19 @@ export default function LatestEntries(): JSX.Element {
 
   return (
     <>
-      {sortedTickets.map((ticket, index) => (
-        <Card key={index} ticket={ticket} />
-      ))}
+      <section className='SectionCard'>
+        {tickets.length === 0 ? (
+          <div>
+            <p className="text-xl font-semibold text-gray-500">No hay entradas disponibles</p>
+          </div>
+        ) : (
+          <>
+          {sortedTickets.map((ticket, index) => (
+            <Card key={index} ticket={ticket} />
+          ))}
+        </>
+        )}
+      </section>
     </>
   )
 }
