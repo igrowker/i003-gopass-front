@@ -25,7 +25,7 @@ export default function LatestEntries(): JSX.Element {
     <>
       <section className='SectionCard'>
         {tickets.length === 0 ? (
-          <div>
+          <div className="flex flex-col items-center justify-center">
             <p className="text-xl font-semibold text-gray-500">No hay entradas disponibles</p>
           </div>
         ) : (
