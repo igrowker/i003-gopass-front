@@ -59,8 +59,8 @@ export default function Grid({ viewType }: GridProps) {
     <>
       <section>
         {tickets.length === 0 ? (
-          <div>
-            <p className="EmptyTickets">No hay entradas disponibles</p>
+          <div className="flex flex-col items-center justify-center">
+            <p className="text-xl font-semibold text-gray-500">No hay entradas disponibles</p>
           </div>
         ) : (
           <div className={`flex w-full flex-col border-opacity-50`}>
