@@ -28,7 +28,9 @@ export default function Grid({ viewType }: GridProps) {
   }, [currentPage, ticketsPerPage])
 
   useEffect(() => {
-    const filtered = tickets.filter((ticket) => ticket.entrada.gameName.toLowerCase().includes(searchQuery.toLowerCase()))
+    const filtered = tickets.filter((ticket) =>
+      ticket.entrada.gameName.toLowerCase().includes(searchQuery.toLowerCase())
+    )
     setFilteredTickets(filtered)
   }, [tickets, searchQuery])
 
@@ -66,7 +68,7 @@ export default function Grid({ viewType }: GridProps) {
           <SearchBar onSearch={handleSearch} />
 
           {/* Grid de imágenes */}
-          <div className={`grid grid-cols-3 gap-4`}>
+          <div className={`grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8`}>
             {filteredTickets.map((ticket, index) => (
               <div key={index} className="w-full cursor-pointer" onClick={() => handleTicketClick(ticket.entradaId)}>
                 <img src={ticket?.entrada.image} alt={`Imagen ${index + 1}`} className="h-auto w-full rounded-md" />

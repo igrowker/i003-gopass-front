@@ -4,7 +4,7 @@ interface CardMyTicketsProps {
   ticket: Ticket
 }
 
-export const CardMyTickets: React.FC<CardMyTicketsProps> = ({ ticket }) => {
+export const MyTicketsCard: React.FC<CardMyTicketsProps> = ({ ticket }) => {
   return (
     <div className="card bg-base-100 p-4 shadow-xl lg:card-side">
       <figure>
