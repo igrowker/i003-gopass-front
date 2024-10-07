@@ -26,7 +26,7 @@ export const MyTickets: React.FC = () => {
   return (
     <>
       <Navbar />
-      <section className='SectionCard'>
+      <section className="mt-20 absolute">
         {tickets.length === 0 ? (
           <div>
             <p className="EmptyTickets">No hay entradas disponibles</p>

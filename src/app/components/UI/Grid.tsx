@@ -57,7 +57,7 @@ export default function Grid({ viewType }: GridProps) {
 
   return (
     <>
-      <section className='SectionCard'>
+      <section>
         {tickets.length === 0 ? (
           <div>
             <p className="EmptyTickets">No hay entradas disponibles</p>
