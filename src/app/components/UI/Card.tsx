@@ -18,7 +18,7 @@ export default function Card({ ticket }: CardProps) {
   const formattedDate = formatDate(ticket.entrada.eventDate)
 
   const handleGoToBy = () => {
-    dispatch(setSelectedEntradaId(ticket.entradaId))
+    dispatch(setSelectedEntradaId(ticket))
     navigate(`/comprar-entrada`)
   }
 

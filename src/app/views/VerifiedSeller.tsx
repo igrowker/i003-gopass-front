@@ -5,12 +5,12 @@ import Button from "../components/core/Button"
 import RatingCheck from "../components/core/RatingCheck"
 import Avatar from "../components/UI/Avatar"
 
-export default function VerifiedSeller({ textButton, entradaId }: { textButton: string; entradaId: number }) {
+export default function VerifiedSeller({ textButton, ticket }: { textButton: string }) {
   const { t } = useTranslation()
   const { buyResellTicket } = useBuyTicket()
 
   const handleBuyTicket = async () => {
-    await buyResellTicket(entradaId)
+    await buyResellTicket(ticket.entrada.id)
   }
 
   return (

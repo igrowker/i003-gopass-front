@@ -5,11 +5,13 @@ import { useSelector } from "react-redux"
 
 import { Navbar } from "../components/UI/Navbar"
 import VerifiedSeller from "../views/VerifiedSeller"
+import { RootState } from "../../store/"
 
 export default function BuyEntryPage() {
   const { t } = useTranslation()
 
-  const entradaId = useSelector((state) => state.ticket.selectedEntradaId)
+  const ticket = useSelector((state: RootState) => state.entry.ticketToResell)
+  console.log(ticket)
 
   return (
     <>
@@ -23,7 +25,7 @@ export default function BuyEntryPage() {
         <picture>
           <img
             className="h-[20rem] w-[20rem] rounded-lg object-cover shadow-custom-avatar"
-            src="https://i.pinimg.com/564x/53/f5/dd/53f5ddf910d3fe21698b238aefaf2cf9.jpg"
+            src={ticket?.entrada.image}
             alt={t("resaleEntry")}
           />
         </picture>
@@ -31,16 +33,16 @@ export default function BuyEntryPage() {
         <div className="mt-3 flex w-[22rem] justify-around gap-5">
           <span className="flex">
             <GiPositionMarker className="text-xl text-customLigthRed" />
-            <p>Camp Nou</p>
+            <p>{ticket?.entrada.description}</p>
           </span>
           <span className="flex gap-3">
             <FaRegCalendarAlt className="text-xl text-customLigthRed" />
-            <p> 28/10/2024</p>
+            <p> {ticket.address}</p>
           </span>
         </div>
         <h2 className="rounded-lg bg-customGreen p-1 text-[0.7rem] text-customWhite">{t("authenticityVerified")}</h2>
         <div className="w-[22rem]">
-          <h2 className="text-xl font-semibold">Real Madrid vs Barcelona</h2>
+          <h2 className="text-xl font-semibold">{ticket?.gameName}</h2>
           <sup className="text-left text-sm">{t("resaleEntry")}</sup>
         </div>
         <div className="flex w-[22rem] justify-between gap-3">
@@ -52,8 +54,8 @@ export default function BuyEntryPage() {
         </div>
         <hr className="my-2 w-[90%] border-t-4" />
         {/* Verificación para evitar pasar un undefined */}
-        {entradaId ? (
-          <VerifiedSeller textButton={t("buy")} entradaId={entradaId} />
+        {ticket ? (
+          <VerifiedSeller textButton={t("buy")} ticket={ticket} />
         ) : (
           <p>Loading</p> /* Muestra un mensaje o spinner si el `entradaId` no está listo */
         )}
