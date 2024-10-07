@@ -1,3 +1,6 @@
+import { Navbar } from "../components/UI/Navbar"
+import { MyTicketsCard } from "../components/UI/MyTicketsCard"
+
 import { useEffect } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
@@ -5,8 +8,7 @@ import { useSelector } from "react-redux"
 import { useGetUserTickets } from "../../hooks/useGetUserTickets"
 import { RootState } from "../../store"
 import { Ticket } from "../../store/entry/entrySlice"
-import { CardMyTickets } from "../components/UI/cardMyTickets"
-import { Navbar } from "../components/UI/Navbar"
+
 
 export const MyTickets: React.FC = () => {
   const tickets = useSelector((state: RootState) => state.entry.tickets)
@@ -29,7 +31,7 @@ export const MyTickets: React.FC = () => {
         <ul>
           {tickets.map((ticket: Ticket, index) => (
             <li key={index}>
-              <CardMyTickets ticket={ticket} />
+              <MyTicketsCard ticket={ticket} />
             </li>
           ))}
         </ul>

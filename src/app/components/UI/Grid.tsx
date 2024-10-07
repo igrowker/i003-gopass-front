@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react"
+
+import { useGetTicketsForSell } from "../../../hooks/useGetTicketsForSell"
+
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
-import { useGetAllTickets } from "../../../hooks/useGetAllTickets"
 import { RootState } from "../../../store"
 import { Ticket } from "../../../store/entry/entrySlice"
 import SearchBar from "./SearchBar"
@@ -14,7 +16,7 @@ type GridProps = {
 
 export default function Grid({ viewType }: GridProps) {
   const { t } = useTranslation()
-  const { getAllTicketsData } = useGetAllTickets()
+  const { getTicketsForSellData } = useGetTicketsForSell()
   const tickets = useSelector((state: RootState) => state.entry.tickets)
   const [currentPage, setCurrentPage] = useState(1)
   const ticketsPerPage = viewType === "allTickets" ? 15 : 6
@@ -25,11 +27,13 @@ export default function Grid({ viewType }: GridProps) {
   const [searchQuery, setSearchQuery] = useState("")
 
   useEffect(() => {
-    getAllTicketsData(currentPage, ticketsPerPage)
+    getTicketsForSellData(currentPage, ticketsPerPage)
   }, [currentPage, ticketsPerPage])
 
   useEffect(() => {
-    const filtered = tickets.filter((ticket) => ticket.gameName.toLowerCase().includes(searchQuery.toLowerCase()))
+    const filtered = tickets.filter((ticket) =>
+      ticket.entrada.gameName.toLowerCase().includes(searchQuery.toLowerCase())
+    )
     setFilteredTickets(filtered)
   }, [tickets, searchQuery])
 
@@ -67,12 +71,12 @@ export default function Grid({ viewType }: GridProps) {
           <SearchBar onSearch={handleSearch} />
 
           {/* Grid de imágenes */}
-          <div className={`grid grid-cols-3 gap-4`}>
+          <div className={`grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8`}>
             {filteredTickets.map((ticket, index) => (
               <div key={index} className="w-full cursor-pointer" onClick={() => handleTicketClick(ticket.entradaId)}>
-                <img src={ticket.image} alt={`Imagen ${index + 1}`} className="h-auto w-full rounded-md" />
+                <img src={ticket?.entrada.image} alt={`Imagen ${index + 1}`} className="h-auto w-full rounded-md" />
                 <div>
-                  <p className="text-center text-[0.8rem]">{ticket.gameName}</p>
+                  <p className="text-center text-[0.8rem]">{ticket?.entrada.gameName}</p>
                 </div>
               </div>
             ))}
