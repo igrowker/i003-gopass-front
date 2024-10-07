@@ -1,5 +1,5 @@
 import { Navbar } from "../components/UI/Navbar"
-import { CardMyTickets } from "../components/UI/cardMyTickets"
+import { MyTicketsCard } from "../components/UI/MyTicketsCard"
 import { useSelector } from "react-redux"
 import { RootState } from "../../store"
 import { useGetUserTickets } from "../../hooks/useGetUserTickets"
@@ -28,7 +28,7 @@ export const MyTickets: React.FC = () => {
         <ul>
           {tickets.map((ticket: Ticket, index) => (
             <li key={index}>
-              <CardMyTickets ticket={ticket} />
+              <MyTicketsCard ticket={ticket} />
             </li>
           ))}
         </ul>
