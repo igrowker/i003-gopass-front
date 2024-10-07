@@ -18,6 +18,7 @@ export interface Entrada {
   gameName: string
   address: string
   precio: string
+  eventDate: Date
 }
 
 const initialState = {

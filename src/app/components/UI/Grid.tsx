@@ -65,11 +65,11 @@ export default function Grid({ viewType }: GridProps) {
               </a>
             )}
           </div>
-          <SearchBar onSearch={handleSearch} />
+          {viewType === "allTickets" && <SearchBar onSearch={handleSearch} />}
 
           {/* Grid de imágenes */}
-          <div className={`grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8`}>
-            {filteredTickets.map((ticket, index) => (
+          <div className={`grid grid-cols-2 gap-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8`}>
+            {filteredTickets.slice(0, viewType === "landing" ? 4 : Infinity).map((ticket, index) => (
               <div key={index} className="w-full cursor-pointer" onClick={() => handleTicketClick(ticket.entradaId)}>
                 <img src={ticket?.entrada.image} alt={`Imagen ${index + 1}`} className="h-auto w-full rounded-md" />
                 <div>
