@@ -1,7 +1,8 @@
-import Avatar from "../components/UI/Avatar"
-import RatingCheck from "../components/core/RatingCheck"
-import Button from "../components/core/Button"
 import { useTranslation } from "react-i18next"
+
+import Button from "../components/core/Button"
+import RatingCheck from "../components/core/RatingCheck"
+import Avatar from "../components/UI/Avatar"
 
 export default function VerifiedSeller({ textButton }: { textButton: string }) {
   const { t } = useTranslation()

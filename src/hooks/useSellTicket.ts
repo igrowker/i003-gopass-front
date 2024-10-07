@@ -1,7 +1,8 @@
-import { useNavigate } from "react-router-dom"
-import { sellTicket } from "../service/sellTicket"
 import { SystemError } from "com/errors"
-import useContext from "../context/useContext"
+import { useNavigate } from "react-router-dom"
+
+import useContext from "../context/UseContext"
+import { sellTicket } from "../service/sellTicket"
 
 export const useSellTicket = () => {
   const navigate = useNavigate()

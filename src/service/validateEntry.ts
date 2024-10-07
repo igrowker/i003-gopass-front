@@ -1,6 +1,7 @@
 import axios from "axios"
+import { MatchError, NotFoundError, SystemError } from "com/errors"
 import validate from "com/validate"
-import { SystemError, MatchError, NotFoundError } from "com/errors"
+
 import { httpClient } from "../api/axios-config"
 
 export const validateEntry = async (codigoQR: string) => {

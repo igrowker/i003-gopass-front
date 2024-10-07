@@ -1,11 +1,12 @@
-import { Link } from "react-router-dom"
 import { useTranslation } from "react-i18next"
+import { IoIosMail } from "react-icons/io"
+import { Link } from "react-router-dom"
+
+import { useRegister } from "../../hooks/useRegister"
 import Button from "../components/core/Button"
+import Checkbox from "../components/core/Checkbox"
 import InputField from "../components/core/InputField"
 import InputFieldPassword from "../components/core/InputFieldPassword"
-import Checkbox from "../components/core/Checkbox"
-import { IoIosMail } from "react-icons/io"
-import { useRegister } from "../../hooks/useRegister"
 
 interface RegisterFormElements extends HTMLFormControlsCollection {
   email: HTMLInputElement

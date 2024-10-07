@@ -1,16 +1,15 @@
-import "./App.css"
-import { Routes, Route } from "react-router-dom"
 import { useState } from "react"
-import { AppWrapper } from "./context/AppWrapper"
+import { Route, Routes } from "react-router-dom"
 
+import "./App.css"
 import Alert from "./app/components/UI/Alert"
-import SocialLogin from "./app/pages/SocialLoginPage"
-import Login from "./app/pages/LoginPage"
-import Register from "./app/pages/RegisterPage"
-import PrivateRoutes from "./privateRoutes/PrivateRoutes"
-import { PageNotFound } from "./app/pages/PageNotFound"
-
 import AllTickets from "./app/pages/AllTickets"
+import Login from "./app/pages/LoginPage"
+import { PageNotFound } from "./app/pages/PageNotFound"
+import Register from "./app/pages/RegisterPage"
+import SocialLogin from "./app/pages/SocialLoginPage"
+import { AppWrapper } from "./context/AppWrapper"
+import PrivateRoutes from "./privateRoutes/PrivateRoutes"
 
 function App() {
   const [message, setMessage] = useState<string | null>(null)
@@ -25,7 +24,7 @@ function App() {
           <Route path="/social-login" element={<SocialLogin />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          
+
           <Route path="/all-tickets" element={<AllTickets />} />
 
           {/* Rutas privadas */}

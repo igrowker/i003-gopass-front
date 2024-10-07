@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
-import { RootState } from "../../store"
+
 import { useGetProfile } from "../../hooks/useGetProfile"
-import { Navbar } from "../components/UI/Navbar"
+import { useUpdateProfile } from "../../hooks/useUpdateProfile"
+import { RootState } from "../../store"
 import Button from "../components/core/Button"
 import InputField from "../components/core/InputField"
 import Avatar from "../components/UI/Avatar"
-import { useUpdateProfile } from "../../hooks/useUpdateProfile"
+import { Navbar } from "../components/UI/Navbar"
 
 interface UpdateFormElements extends HTMLFormControlsCollection {
   nombre: HTMLInputElement

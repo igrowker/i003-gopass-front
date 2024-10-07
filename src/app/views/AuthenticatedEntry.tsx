@@ -1,12 +1,11 @@
-import { useSelector, useDispatch } from "react-redux"
-import { RootState } from "../../store"
-import { clearEntry } from "../../store/entry/entrySlice"
 import { useTranslation } from "react-i18next"
-
-import QRCode from "react-qr-code"
-
 import { FaRegCalendarAlt } from "react-icons/fa"
 import { GiPositionMarker } from "react-icons/gi"
+import QRCode from "react-qr-code"
+import { useDispatch, useSelector } from "react-redux"
+
+import { RootState } from "../../store"
+import { clearEntry } from "../../store/entry/entrySlice"
 import Button from "../components/core/Button"
 
 function AuthenticatedEntry({ onVerifyAnother }: { onVerifyAnother: () => void }) {

@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
-import { useSelector } from "react-redux"
-import { RootState } from "../../../store"
+
 import { useGetTicketsForSell } from "../../../hooks/useGetTicketsForSell"
-import SearchBar from "./SearchBar"
-import { Ticket } from "../../../store/entry/entrySlice"
+
 import { useTranslation } from "react-i18next"
+import { useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom"
+
+import { RootState } from "../../../store"
+import { Ticket } from "../../../store/entry/entrySlice"
+import SearchBar from "./SearchBar"
 
 type GridProps = {
   viewType: "landing" | "allTickets"

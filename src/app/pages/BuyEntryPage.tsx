@@ -1,9 +1,8 @@
-import { Navbar } from "../components/UI/Navbar"
-
+import { useTranslation } from "react-i18next"
 import { FaRegCalendarAlt } from "react-icons/fa"
 import { GiPositionMarker } from "react-icons/gi"
-import { useTranslation } from "react-i18next"
 
+import { Navbar } from "../components/UI/Navbar"
 import VerifiedSeller from "../views/VerifiedSeller"
 
 export default function BuyEntryPage() {

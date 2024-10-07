@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom"
 import { useTranslation } from "react-i18next"
 import { IoIosMail } from "react-icons/io"
+import { Link } from "react-router-dom"
+
 import { useLogin } from "../../hooks/useLogin.ts"
 import Button from "../components/core/Button"
 import InputField from "../components/core/InputField"

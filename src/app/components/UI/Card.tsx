@@ -1,5 +1,6 @@
-import Button from "../core/Button"
 import { useTranslation } from "react-i18next"
+
+import Button from "../core/Button"
 import { Ticket } from "../../../store/entry/entrySlice"
 
 interface CardProps {

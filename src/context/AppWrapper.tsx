@@ -1,4 +1,4 @@
-import { Context } from "./useContext"
+import { Context } from "./UseContext"
 
 interface AppWrapperProps {
   children: React.ReactNode

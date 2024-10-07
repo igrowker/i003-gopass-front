@@ -1,8 +1,9 @@
-import LoginLink from "../components/core/LoginLink"
 import { useTranslation } from "react-i18next"
 import { FcGoogle } from "react-icons/fc"
 import { IoLogoApple } from "react-icons/io5"
 import { SiFacebook } from "react-icons/si"
+
+import LoginLink from "../components/core/LoginLink"
 
 export default function Login() {
   const { t } = useTranslation()

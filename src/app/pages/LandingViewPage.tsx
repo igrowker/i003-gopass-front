@@ -1,8 +1,9 @@
 import { useTranslation } from "react-i18next"
-import { Footer } from "../components/UI/Footer"
+
 import BannerMove from "../components/UI/BannerLanding.tsx"
-import { Navbar } from "../components/UI/Navbar"
+import { Footer } from "../components/UI/Footer"
 import Grid from "../components/UI/Grid.tsx"
+import { Navbar } from "../components/UI/Navbar"
 import LatestEntries from "../views/LatestEntries.tsx"
 
 export const LandingView = () => {

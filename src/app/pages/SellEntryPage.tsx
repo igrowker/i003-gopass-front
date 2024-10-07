@@ -1,15 +1,15 @@
-import { useSelector } from "react-redux"
-import { RootState } from "../../store"
 import { useTranslation } from "react-i18next"
-import { Navbar } from "../components/UI/Navbar"
-import InputField from "../components/core/InputField"
-import Button from "../components/core/Button"
-import TextArea from "../components/core/TextArea"
-
-import { userVerifyTicket } from "../../hooks/useVerifyTicket"
-import { useSellTicket } from "../../hooks/useSellTicket"
+import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux"
+
+import { useSellTicket } from "../../hooks/useSellTicket"
+import { userVerifyTicket } from "../../hooks/useVerifyTicket"
+import { RootState } from "../../store"
 import { clearEntry } from "../../store/entry/entrySlice"
+import Button from "../components/core/Button"
+import InputField from "../components/core/InputField"
+import TextArea from "../components/core/TextArea"
+import { Navbar } from "../components/UI/Navbar"
 
 interface ValidateFormElements extends HTMLFormControlsCollection {
   eventName: any
