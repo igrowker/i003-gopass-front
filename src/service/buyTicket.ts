@@ -10,7 +10,7 @@ export const buyTicket = async (entradaId: number) => {
   const body = { entradaId }
 
   try {
-    const response = await httpClient.post("/Reventa/comprar-entrada", body)
+    const response = await httpClient.put("/Reventa/comprar-entrada", body)
 
     if (response.status === 200) {
       return response.data
