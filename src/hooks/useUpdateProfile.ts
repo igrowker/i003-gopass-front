@@ -21,6 +21,7 @@ export const useUpdateProfile = () => {
     try {
       const userData = await updateProfile(nombre, dni, numeroTelefono, image, city, country)
       dispatch(updateUser(userData))
+      alert("Perfil actualizado correctamente")
     } catch (error: any) {
       if (error instanceof SystemError) {
         alert(error.message)

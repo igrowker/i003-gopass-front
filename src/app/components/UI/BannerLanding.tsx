@@ -5,8 +5,12 @@ import { RootState } from "../../../store"
 export default function BannerLanding() {
   const tickets = useSelector((state: RootState) => state.entry.tickets)
 
-  const imagesBanner = tickets.map((ticket) => ticket.entrada.image)
-
+  const imagesBanner =
+    tickets.length > 0
+      ? tickets.map((ticket) => ticket.entrada.image)
+      : [
+          "https://images.unsplash.com/photo-1569863959165-56dae551d4fc?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        ]
   const [currentIndex, setCurrentIndex] = useState(0)
 
   useEffect(() => {
