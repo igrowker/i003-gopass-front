@@ -37,7 +37,7 @@ export default function Card({ ticket }: CardProps) {
             <div className="card-actions justify-end">
               <Button
                 onClick={handleGoToBy}
-                className="btn relative -mt-8 bg-customGreen text-2xl text-customWhite hover:bg-customBlack"
+                className="btn relative my-2 bg-customRed text-2xl text-customWhite hover:bg-customBlack"
               >
                 {t("buy")}
               </Button>

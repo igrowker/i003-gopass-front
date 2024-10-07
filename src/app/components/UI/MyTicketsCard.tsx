@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next"
+
 import { Ticket } from "../../../store/entry/entrySlice"
 import { formatDate } from "../../utils/formatDate"
 
@@ -6,6 +8,7 @@ interface CardMyTicketsProps {
 }
 
 export const MyTicketsCard: React.FC<CardMyTicketsProps> = ({ ticket }) => {
+  const { t } = useTranslation()
   const formattedDate = formatDate(ticket.entrada.eventDate)
 
   return (
@@ -14,13 +17,14 @@ export const MyTicketsCard: React.FC<CardMyTicketsProps> = ({ ticket }) => {
         <img src={ticket.entrada.image} alt={ticket.entrada.gameName} />
       </figure>
       <div className="card-body p-4">
-        <h2 className="card-title">{ticket.entrada.gameName}</h2>
+        <h2 className="card-title text-2xl mt-2">{ticket.entrada.gameName}</h2>
         <p>{ticket.entrada.description}</p>
         <p>{ticket.entrada.address}</p>
         <p>{formattedDate}</p>
-        <p>Código QR: {ticket.entrada.codigoQR}</p>
+        <p className="mt-4">Código QR:</p>
+        <p>{ticket.entrada.codigoQR}</p>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">Mostrar QR</button>
+          <button className="btn bg-red-500 text-customWhite mt-4 px-10">QR</button>
         </div>
       </div>
     </div>

@@ -18,26 +18,26 @@ export default function BuyEntryPage() {
       <Navbar />
 
       <div className="flex flex-col items-center gap-3">
-        <span className="my-3 w-[22rem]">
+        <span className="my-3 mt-28 w-[22rem]">
           <h1 className="text-xl font-semibold">{t("resaleEntry")}</h1>
         </span>
 
         <picture>
           <img
-            className="h-[20rem] w-[20rem] rounded-lg object-cover shadow-custom-avatar"
+            className="h-[20rem] w-[22rem] rounded-lg object-cover shadow-custom-avatar"
             src={ticket?.entrada.image}
             alt={t("resaleEntry")}
           />
         </picture>
 
-        <div className="mt-3 flex w-[22rem] justify-around gap-5">
+        <div className="mt-3 flex justify-between w-[22rem]  gap-5">
           <span className="flex">
-            <GiPositionMarker className="text-xl text-customLigthRed" />
+            <GiPositionMarker className="text-xl mr-2 text-customLigthRed" />
             <p>{ticket?.entrada.description}</p>
           </span>
           <span className="flex gap-3">
-            <FaRegCalendarAlt className="text-xl text-customLigthRed" />
-            <p> {ticket?.entrada.address}</p>
+            <FaRegCalendarAlt className="text-xl mr-1 text-customLigthRed" />
+            <p>{ticket?.entrada.address}</p>
           </span>
         </div>
         <h2 className="rounded-lg bg-customGreen p-1 text-[0.7rem] text-customWhite">{t("authenticityVerified")}</h2>

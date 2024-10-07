@@ -65,12 +65,12 @@ export default function SellEntryPage() {
       <Navbar />
 
       <div className="flex flex-col items-center justify-center overflow-visible">
-        <div className="relative mt-20 flex w-full flex-row justify-center text-2xl">
+        <div className="relative mt-24 flex w-full flex-row justify-center text-2xl">
           <h2 className="-z-20 m-5 text-center text-xl font-semibold">{t("resell")}</h2>
         </div>
 
         <form
-          className="flex w-[20rem] flex-col gap-3 sm:w-[30rem] md:w-[30rem] lg:w-[40rem]"
+          className="flex w-[20rem] flex-col mt-6 gap-3 sm:w-[30rem] md:w-[30rem] lg:w-[40rem]"
           onSubmit={handleVerifySubmitTicket}
         >
           <InputField
@@ -83,7 +83,7 @@ export default function SellEntryPage() {
           <Button className="mt-4 bg-customGreen text-2xl font-semibold text-white" type="submit">
             {t("verifyAnEntry")}
           </Button>
-          <hr className="mb-6 mt-6 border-2" />
+          <hr className="my-8 border-2" />
         </form>
 
         <form
@@ -146,7 +146,7 @@ export default function SellEntryPage() {
             <p className="ml-2 w-full">{t("declaration")}</p>
           </div>
 
-          <Button className="mb-6 mt-4 text-2xl font-semibold text-white" type="submit">
+          <Button className="mb-6 mt-4 text-2xl bg-customGreen font-semibold text-white" type="submit">
             {t("resell")}
           </Button>
         </form>

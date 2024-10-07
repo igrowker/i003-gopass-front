@@ -11,7 +11,6 @@ export default function VerifiedSeller({ textButton, ticket }: { textButton: str
 
   const handleBuyTicket = async () => {
     await buyResellTicket(ticket.entrada.id)
-    console.log(ticket.entrada.id)
   }
 
   return (
@@ -19,7 +18,11 @@ export default function VerifiedSeller({ textButton, ticket }: { textButton: str
       <div className="flex flex-col p-2">
         <p className="mb-2">{t("verifiedSeller")}</p>
         <div className="flex flex-row">
-          <Avatar size="5rem" img="" />
+          {/* <Avatar size="5rem" img="" /> */}
+          <img
+            className="w-16 h-16 p-2 rounded-full border-2 border-inherit mr-2"
+            src="../../../public/bannerImg/seller.webp"
+          />
           <div>
             <span className="flex gap-3">
               <p className="mb-2">Franco Lopez Maciel</p>
@@ -35,7 +38,7 @@ export default function VerifiedSeller({ textButton, ticket }: { textButton: str
         </div>
         <div className="mt-4 flex w-auto items-start px-4">
           <input type="checkbox" className="mt-1 h-6 w-6" />
-          <p className="ml-2 w-[20rem]">"IUnderstandThatIAm..."</p>
+          <p className="ml-2 w-[20rem]">"Entiendo que estoy..."</p>
         </div>
         <span className="my-8 flex w-full justify-center">
           <Button onClick={handleBuyTicket} className="w-[15rem] bg-customGreen text-2xl text-customWhite">
