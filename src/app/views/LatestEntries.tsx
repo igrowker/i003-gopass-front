@@ -9,7 +9,7 @@ import { useGetTicketsForSell } from "../../hooks/useGetTicketsForSell"
 export default function LatestEntries(): JSX.Element {
   const tickets: Ticket[] = useSelector((state: RootState) => state.entry.tickets)
   const { getTicketsForSellData } = useGetTicketsForSell()
-  const ticketsPerPage = 3
+  const ticketsPerPage = tickets.length + 1
   const currentPage = 1
 
   useEffect(() => {
@@ -18,7 +18,7 @@ export default function LatestEntries(): JSX.Element {
 
   const sortedTickets = tickets
     .slice()
-    .sort((a, b) => new Date(b.fechaReventa).getTime() - new Date(a.fechaReventa).getTime())
+    .sort((a, b) => new Date(b.entrada.eventDate).getTime() - new Date(a.entrada.eventDate).getTime())
     .slice(0, 3)
 
   return (
