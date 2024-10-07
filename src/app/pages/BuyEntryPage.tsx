@@ -1,12 +1,15 @@
 import { useTranslation } from "react-i18next"
 import { FaRegCalendarAlt } from "react-icons/fa"
 import { GiPositionMarker } from "react-icons/gi"
+import { useSelector } from "react-redux"
 
 import { Navbar } from "../components/UI/Navbar"
 import VerifiedSeller from "../views/VerifiedSeller"
 
 export default function BuyEntryPage() {
   const { t } = useTranslation()
+
+  const entradaId = useSelector((state) => state.ticket.selectedEntradaId)
 
   return (
     <>
@@ -48,7 +51,12 @@ export default function BuyEntryPage() {
           <h3 className="p-1 pl-10 text-3xl font-semibold">$100</h3>
         </div>
         <hr className="my-2 w-[90%] border-t-4" />
-        <VerifiedSeller textButton={t("buy")} />
+        {/* Verificación para evitar pasar un undefined */}
+        {entradaId ? (
+          <VerifiedSeller textButton={t("buy")} entradaId={entradaId} />
+        ) : (
+          <p>Loading</p> /* Muestra un mensaje o spinner si el `entradaId` no está listo */
+        )}
       </div>
     </>
   )

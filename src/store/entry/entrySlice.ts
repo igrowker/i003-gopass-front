@@ -59,9 +59,12 @@ const entrySlice = createSlice({
     },
     setSellTickets(state, action: PayloadAction<any>) {
       state.tickets = action.payload
+    },
+    setSelectedEntradaId(state, action: PayloadAction<number>) {
+      state.ticketToResell.entradaId = action.payload
     }
   }
 })
 
-export const { setEntry, clearEntry, setTickets, setSellTickets } = entrySlice.actions
+export const { setEntry, clearEntry, setTickets, setSellTickets, setSelectedEntradaId } = entrySlice.actions
 export default entrySlice.reducer

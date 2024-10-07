@@ -1,11 +1,17 @@
 import { useTranslation } from "react-i18next"
 
+import { useBuyTicket } from "../../hooks/useBuyTicket"
 import Button from "../components/core/Button"
 import RatingCheck from "../components/core/RatingCheck"
 import Avatar from "../components/UI/Avatar"
 
-export default function VerifiedSeller({ textButton }: { textButton: string }) {
+export default function VerifiedSeller({ textButton, entradaId }: { textButton: string; entradaId: number }) {
   const { t } = useTranslation()
+  const { buyResellTicket } = useBuyTicket()
+
+  const handleBuyTicket = async () => {
+    await buyResellTicket(entradaId)
+  }
 
   return (
     <>
@@ -31,7 +37,9 @@ export default function VerifiedSeller({ textButton }: { textButton: string }) {
           <p className="ml-2 w-[20rem]">"IUnderstandThatIAm..."</p>
         </div>
         <span className="my-8 flex w-full justify-center">
-          <Button className="w-[15rem] bg-customGreen text-2xl text-customWhite">{textButton}</Button>
+          <Button onClick={handleBuyTicket} className="w-[15rem] bg-customGreen text-2xl text-customWhite">
+            {textButton}
+          </Button>
         </span>
       </div>
     </>
