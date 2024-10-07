@@ -26,8 +26,8 @@ export const MyTickets: React.FC = () => {
   return (
     <>
       <Navbar />
-      <div className="flex flex-col items-center justify-center">
-        <section className="mt-20 absolute">
+      <div className="flex w-full h-screen flex-col items-center justify-center">
+        <section className="mt-20 relative">
           {tickets.length === 0 ? (
             <div>
               <p className="text-xl font-semibold text-gray-500">No hay entradas disponibles</p>
