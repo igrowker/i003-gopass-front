@@ -2,7 +2,7 @@ import { getTicketsForSell } from "../service/getTicketsForSell"
 import { useDispatch } from "react-redux"
 import { setSellTickets } from "../store/entry/entrySlice"
 import { SystemError } from "com/errors"
-import useContext from "../context/useContext"
+import useContext from "../context/UseContext"
 
 export const useGetTicketsForSell = () => {
   const { alert } = useContext()

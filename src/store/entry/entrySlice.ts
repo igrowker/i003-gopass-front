@@ -5,7 +5,7 @@ export interface Ticket {
   gameName: string
   description: string
   address: string
-  eventDate: string
+  eventDate: Date
   codigoQR: string
   verificada: boolean
   entradaId: number
@@ -19,6 +19,8 @@ export interface Entrada {
   address: string
   precio: string
   eventDate: Date
+  description: string
+  codigoQR: string
 }
 
 const initialState = {
@@ -29,7 +31,7 @@ const initialState = {
     gameName: "",
     description: "",
     address: "",
-    eventDate: "",
+    eventDate: new Date(),
     codigoQR: "",
     verificada: false,
     entradaId: 0,

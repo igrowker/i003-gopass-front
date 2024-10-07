@@ -3,12 +3,16 @@ import { useTranslation } from "react-i18next"
 import Button from "../core/Button"
 import { Ticket } from "../../../store/entry/entrySlice"
 
+import { formatDate } from "../../utils/formatDate"
+
 interface CardProps {
   ticket: Ticket
 }
 
 export default function Card({ ticket }: CardProps) {
   const { t } = useTranslation()
+
+  const formattedDate = formatDate(ticket.entrada.eventDate)
 
   return (
     <>
@@ -19,7 +23,7 @@ export default function Card({ ticket }: CardProps) {
           </figure>
           <div className="card-body pb-4">
             <h2 className="card-title text-xl font-bold">{ticket?.entrada.gameName}</h2>
-            <p className="text-[1.1rem] font-medium">{ticket?.entrada.eventDate}</p>
+            <p className="text-[1.1rem] font-medium">{formattedDate}</p>
             <p className="text-[1.3rem] font-medium">{ticket?.entrada.precio}</p>
             <div className="card-actions justify-end">
               <Button className="btn relative -mt-8 bg-customGreen text-2xl text-customWhite hover:bg-customBlack">
