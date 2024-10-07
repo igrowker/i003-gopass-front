@@ -1,8 +1,9 @@
-import { getProfile } from "../service/getProfile"
-import { useDispatch } from "react-redux"
-import { setUser } from "../store/user/userSlice"
 import { SystemError } from "com/errors"
-import useContext from "../context/useContext"
+import { useDispatch } from "react-redux"
+
+import useContext from "../context/UseContext"
+import { getProfile } from "../service/getProfile"
+import { setUser } from "../store/user/userSlice"
 
 export const useGetProfile = () => {
   const { alert } = useContext()

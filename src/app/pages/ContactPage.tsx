@@ -1,14 +1,13 @@
-import { Link } from "react-router-dom"
-import { Navbar } from "../components/UI/Navbar"
 import { useTranslation } from "react-i18next"
-import InputField from "../../app/components/core/InputField"
-
-import Button from "../../app/components/core/Button"
-import TextArea from "../../app/components/core/TextArea"
-
 import { FaInstagramSquare } from "react-icons/fa"
 import { FaYoutubeSquare } from "react-icons/fa"
 import { FaLinkedin } from "react-icons/fa"
+import { Link } from "react-router-dom"
+
+import Button from "../../app/components/core/Button"
+import InputField from "../../app/components/core/InputField"
+import TextArea from "../../app/components/core/TextArea"
+import { Navbar } from "../components/UI/Navbar"
 
 export default function Contact() {
   const { t } = useTranslation()

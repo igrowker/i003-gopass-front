@@ -1,7 +1,8 @@
+import { useTranslation } from "react-i18next"
+
+import { useValidateEntry } from "../../hooks/useValidateEntry"
 import Button from "../components/core/Button"
 import InputField from "../components/core/InputField"
-import { useValidateEntry } from "../../hooks/useValidateEntry"
-import { useTranslation } from "react-i18next"
 
 interface ValidateFormElements extends HTMLFormControlsCollection {
   codigoQR: HTMLInputElement

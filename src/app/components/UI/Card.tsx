@@ -1,5 +1,6 @@
-import Button from "../core/Button"
 import { useTranslation } from "react-i18next"
+
+import Button from "../core/Button"
 
 export default function Card() {
   const { t } = useTranslation()

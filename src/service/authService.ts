@@ -1,6 +1,7 @@
 import axios from "axios"
+import { ContentError, CredentialsError, SystemError } from "com/errors"
 import validate from "com/validate"
-import { SystemError, CredentialsError, ContentError } from "com/errors"
+
 import { httpClient } from "../api/axios-config"
 
 export const autenticarUsuario = async (email: string, password: string): Promise<string> => {

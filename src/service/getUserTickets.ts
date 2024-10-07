@@ -1,6 +1,7 @@
 import axios from "axios"
-import { httpClient } from "../api/axios-config"
 import { SystemError } from "com/errors"
+
+import { httpClient } from "../api/axios-config"
 
 export const getUserTickets = async () => {
   try {

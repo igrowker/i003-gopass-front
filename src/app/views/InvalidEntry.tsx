@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next"
+
 import Button from "../components/core/Button"
 
 function InvalidEntry({ onVerifyAnother }: { onVerifyAnother: () => void }) {

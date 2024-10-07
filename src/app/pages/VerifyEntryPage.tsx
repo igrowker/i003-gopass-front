@@ -1,9 +1,9 @@
 import { useState } from "react"
-import { Navbar } from "../components/UI/Navbar"
 
-import ValidateEntry from "../views/ValidateEntry"
+import { Navbar } from "../components/UI/Navbar"
 import AuthenticatedEntry from "../views/AuthenticatedEntry"
 import InvalidEntry from "../views/InvalidEntry"
+import ValidateEntry from "../views/ValidateEntry"
 
 export default function VerifyEntryPage() {
   const [entradaValida, setEntradaValida] = useState<boolean | null>(null)

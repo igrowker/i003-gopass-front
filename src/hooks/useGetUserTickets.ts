@@ -1,8 +1,9 @@
-import { getUserTickets } from "../service/getUserTickets"
-import { useDispatch } from "react-redux"
-import { setTickets } from "../store/entry/entrySlice"
 import { SystemError } from "com/errors"
-import useContext from "../context/useContext"
+import { useDispatch } from "react-redux"
+
+import useContext from "../context/UseContext"
+import { getUserTickets } from "../service/getUserTickets"
+import { setTickets } from "../store/entry/entrySlice"
 
 export const useGetUserTickets = () => {
   const { alert } = useContext()

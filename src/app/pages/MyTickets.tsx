@@ -1,11 +1,12 @@
-import { Navbar } from "../components/UI/Navbar"
-import { CardMyTickets } from "../components/UI/cardMyTickets"
-import { useSelector } from "react-redux"
-import { RootState } from "../../store"
-import { useGetUserTickets } from "../../hooks/useGetUserTickets"
 import { useEffect } from "react"
-import { Ticket } from "../../store/entry/entrySlice"
 import { useTranslation } from "react-i18next"
+import { useSelector } from "react-redux"
+
+import { useGetUserTickets } from "../../hooks/useGetUserTickets"
+import { RootState } from "../../store"
+import { Ticket } from "../../store/entry/entrySlice"
+import { CardMyTickets } from "../components/UI/cardMyTickets"
+import { Navbar } from "../components/UI/Navbar"
 
 export const MyTickets: React.FC = () => {
   const tickets = useSelector((state: RootState) => state.entry.tickets)

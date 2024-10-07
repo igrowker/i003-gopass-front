@@ -1,17 +1,17 @@
 import React from "react"
-import { Routes, Route } from "react-router-dom"
-import UserProfile from "../app/pages/UserProfilePage"
+import { Route, Routes } from "react-router-dom"
+
 import ComprarEntrada from "../app/pages/BuyEntryPage"
+import Contact from "../app/pages/ContactPage"
+import LandingView from "../app/pages/LandingViewPage"
+import { MyTickets } from "../app/pages/MyTickets"
+import { PageNotFound } from "../app/pages/PageNotFound"
 import PagarEntrada from "../app/pages/PayEntryPage"
 import VenderEntrada from "../app/pages/SellEntryPage"
-import Contact from "../app/pages/ContactPage"
 import Ticket from "../app/pages/TicketPage"
-import LandingView from "../app/pages/LandingViewPage"
-
-import PrivateRoute from "./PrivateRoute"
+import UserProfile from "../app/pages/UserProfilePage"
 import VerifyEntryPage from "../app/pages/VerifyEntryPage"
-import { PageNotFound } from "../app/pages/PageNotFound"
-import { MyTickets } from "../app/pages/MyTickets"
+import PrivateRoute from "./PrivateRoute"
 
 const PrivateRoutes: React.FC = () => {
   return (

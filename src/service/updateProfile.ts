@@ -1,6 +1,7 @@
 import axios from "axios"
-import { httpClient } from "../api/axios-config"
 import { ContentError, SystemError } from "com/errors"
+
+import { httpClient } from "../api/axios-config"
 
 export const updateProfile = async (
   nombre: string,

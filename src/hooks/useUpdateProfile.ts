@@ -1,8 +1,9 @@
-import { useDispatch } from "react-redux"
 import { SystemError } from "com/errors"
-import { updateUser } from "../store/user/userSlice"
+import { useDispatch } from "react-redux"
+
+import useContext from "../context/UseContext"
 import { updateProfile } from "../service/updateProfile"
-import useContext from "../context/useContext"
+import { updateUser } from "../store/user/userSlice"
 
 export const useUpdateProfile = () => {
   const { alert } = useContext()

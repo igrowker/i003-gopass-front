@@ -1,19 +1,16 @@
 import { useEffect } from "react"
-import { Link, useNavigate } from "react-router-dom"
 import { useTranslation } from "react-i18next"
-
 import { IoSettingsOutline } from "react-icons/io5"
 import { IoTicketOutline } from "react-icons/io5"
 import { LuBadgePercent } from "react-icons/lu"
 import { MdOutlineVerifiedUser } from "react-icons/md"
-
-import Avatar from "./Avatar"
-
 import { useSelector } from "react-redux"
-import { logoutUser } from "../../../service/authService"
-import { RootState } from "../../../store/"
+import { Link, useNavigate } from "react-router-dom"
 
 import { useGetProfile } from "../../../hooks/useGetProfile"
+import { logoutUser } from "../../../service/authService"
+import { RootState } from "../../../store/"
+import Avatar from "./Avatar"
 
 export default function SideBarMenu({ isOpen }: { isOpen: boolean }) {
   const { t } = useTranslation()

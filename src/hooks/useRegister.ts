@@ -1,8 +1,9 @@
-import { useNavigate } from "react-router-dom"
-import { registrarUsuario } from "../service/authService"
 import { SystemError } from "com/errors"
-import useContext from "../context/useContext"
+import { useNavigate } from "react-router-dom"
+
 import { EmailConfirm } from "../app/components/UI/EmailConfirm"
+import useContext from "../context/UseContext"
+import { registrarUsuario } from "../service/authService"
 
 export const useRegister = () => {
   const navigate = useNavigate()
