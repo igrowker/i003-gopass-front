@@ -9,6 +9,15 @@ export interface Ticket {
   codigoQR: string
   verificada: boolean
   entradaId: number
+  entrada: Entrada
+  fechaReventa: string
+}
+
+export interface Entrada {
+  image: string
+  gameName: string
+  address: string
+  precio: string
 }
 
 const initialState = {
@@ -20,10 +29,17 @@ const initialState = {
     description: "",
     address: "",
     eventDate: "",
-    codigoQR: ""
+    codigoQR: "",
+    verificada: false,
+    entradaId: 0,
+    entrada: {
+      image: "",
+      gameName: "",
+      address: "",
+      precio: ""
+    }
   } as Ticket
 }
-
 const entrySlice = createSlice({
   name: "entry",
   initialState,
@@ -37,9 +53,12 @@ const entrySlice = createSlice({
     },
     setTickets(state, action: PayloadAction<any>) {
       state.tickets = action.payload
+    },
+    setSellTickets(state, action: PayloadAction<any>) {
+      state.tickets = action.payload
     }
   }
 })
 
-export const { setEntry, clearEntry, setTickets } = entrySlice.actions
+export const { setEntry, clearEntry, setTickets, setSellTickets } = entrySlice.actions
 export default entrySlice.reducer
