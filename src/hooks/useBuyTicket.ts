@@ -1,11 +1,10 @@
 import { SystemError } from "com/errors"
+import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
 import useContext from "../context/UseContext"
 import { buyTicket } from "../service/buyTicket"
 import { setSelectedEntradaId } from "../store/entry/entrySlice"
-
-import { useDispatch } from "react-redux"
 
 export const useBuyTicket = () => {
   const navigate = useNavigate()
@@ -15,8 +14,8 @@ export const useBuyTicket = () => {
 
   const buyResellTicket = async (entradaId: number): Promise<void> => {
     try {
-      const buydata = await buyTicket(entradaId)
-      dispatch(setSelectedEntradaId(buydata))
+      await buyTicket(entradaId)
+      // dispatch(setSelectedEntradaId(buyData))
 
       navigate("/")
     } catch (error: any) {

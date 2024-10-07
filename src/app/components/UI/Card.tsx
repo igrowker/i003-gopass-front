@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next"
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
-import { setSelectedEntradaId } from "../../../store/entry/entrySlice"
+import { setSelectedTicket } from "../../../store/entry/entrySlice"
 import { formatDate } from "../../utils/formatDate"
 import Button from "../core/Button"
 
@@ -18,7 +18,8 @@ export default function Card({ ticket }: CardProps) {
   const formattedDate = formatDate(ticket.entrada.eventDate)
 
   const handleGoToBy = () => {
-    dispatch(setSelectedEntradaId(ticket))
+    dispatch(setSelectedTicket(ticket))
+    console.log("ticket", ticket)
     navigate(`/comprar-entrada`)
   }
 

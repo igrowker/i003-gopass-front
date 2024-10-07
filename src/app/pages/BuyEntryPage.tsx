@@ -3,9 +3,9 @@ import { FaRegCalendarAlt } from "react-icons/fa"
 import { GiPositionMarker } from "react-icons/gi"
 import { useSelector } from "react-redux"
 
+import { RootState } from "../../store/"
 import { Navbar } from "../components/UI/Navbar"
 import VerifiedSeller from "../views/VerifiedSeller"
-import { RootState } from "../../store/"
 
 export default function BuyEntryPage() {
   const { t } = useTranslation()
@@ -37,20 +37,15 @@ export default function BuyEntryPage() {
           </span>
           <span className="flex gap-3">
             <FaRegCalendarAlt className="text-xl text-customLigthRed" />
-            <p> {ticket.address}</p>
+            <p> {ticket?.entrada.address}</p>
           </span>
         </div>
         <h2 className="rounded-lg bg-customGreen p-1 text-[0.7rem] text-customWhite">{t("authenticityVerified")}</h2>
         <div className="w-[22rem]">
-          <h2 className="text-xl font-semibold">{ticket?.gameName}</h2>
-          <sup className="text-left text-sm">{t("resaleEntry")}</sup>
+          <h2 className="text-xl font-semibold">{ticket?.entrada.gameName}</h2>
         </div>
         <div className="flex w-[22rem] justify-between gap-3">
-          <h3 className="rounded-md border-4 border-customRed p-1 px-2 font-semibold text-customLigthRed">Barcelona</h3>
-          <h3 className="rounded-md border-4 border-customRed bg-customRed p-1 px-2 font-semibold text-customWhite">
-            Real Madrid
-          </h3>
-          <h3 className="p-1 pl-10 text-3xl font-semibold">$100</h3>
+          <h3 className="p-1 pl-10 text-3xl font-semibold">{`Price: ${ticket.precio}`}</h3>
         </div>
         <hr className="my-2 w-[90%] border-t-4" />
         {/* Verificación para evitar pasar un undefined */}

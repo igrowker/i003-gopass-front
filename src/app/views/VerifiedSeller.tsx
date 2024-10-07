@@ -11,6 +11,7 @@ export default function VerifiedSeller({ textButton, ticket }: { textButton: str
 
   const handleBuyTicket = async () => {
     await buyResellTicket(ticket.entrada.id)
+    console.log(ticket.entrada.id)
   }
 
   return (
