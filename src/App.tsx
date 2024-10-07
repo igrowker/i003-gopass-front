@@ -10,6 +10,7 @@ import Register from "./app/pages/RegisterPage"
 import SocialLogin from "./app/pages/SocialLoginPage"
 import { AppWrapper } from "./context/AppWrapper"
 import PrivateRoutes from "./privateRoutes/PrivateRoutes"
+import ForgotPassword from "./app/views/ForgotPassword"
 
 function App() {
   const [message, setMessage] = useState<string | null>(null)
@@ -24,6 +25,7 @@ function App() {
           <Route path="/social-login" element={<SocialLogin />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
 
           <Route path="/all-tickets" element={<AllTickets />} />
 

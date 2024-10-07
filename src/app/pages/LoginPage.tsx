@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next"
 import { IoIosMail } from "react-icons/io"
 import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 import { useLogin } from "../../hooks/useLogin.ts"
 import Button from "../components/core/Button"
@@ -20,6 +21,7 @@ interface LoginFormElement extends HTMLFormElement {
 export default function LoginSession() {
   const { login } = useLogin()
   const { t } = useTranslation()
+  const navigate = useNavigate()
 
   const handleLoginSubmit = async (event: React.FormEvent<LoginFormElement>) => {
     event.preventDefault()
@@ -33,6 +35,10 @@ export default function LoginSession() {
     await login(email, password)
 
     form.reset()
+  }
+
+  const handleForgotPassword = () => {
+    navigate("/forgot-password");
   }
 
   return (
@@ -58,9 +64,13 @@ export default function LoginSession() {
               icon={<IoIosMail />}
             />
             <InputFieldPassword placeholder={t("passwordPlaceholder")} id="password" />
-            <Link className="underline" to="">
+            <button
+              type="button"
+              onClick={handleForgotPassword}
+              className="text-sm text-blue-600 hover:text-blue-800"
+            >
               {t("forgotPassword")}
-            </Link>
+            </button>
             <Button type="submit" className="bg-black text-xl text-white hover:bg-customRed hover:text-black">
               {t("loginButton")}
             </Button>
