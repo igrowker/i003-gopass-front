@@ -26,16 +26,24 @@ export const MyTickets: React.FC = () => {
   return (
     <>
       <Navbar />
-      <div className="absolute mt-20">
-        <h2 className="-z-20 m-5 text-center text-xl font-semibold">{t("myTickets")}</h2>
-        <ul>
-          {tickets.map((ticket: Ticket, index) => (
-            <li key={index}>
-              <MyTicketsCard ticket={ticket} />
-            </li>
-          ))}
-        </ul>
-      </div>
+      <section className='SectionCard'>
+        {tickets.length === 0 ? (
+          <div>
+            <p className="EmptyTickets">No hay entradas disponibles</p>
+          </div>
+        ) : (
+          <div className="absolute mt-20">
+            <h2 className="-z-20 m-5 text-center text-xl font-semibold">{t("myTickets")}</h2>
+            <ul>
+              {tickets.map((ticket: Ticket, index) => (
+                <li key={index}>
+                  <MyTicketsCard ticket={ticket} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </section>
     </>
   )
 }

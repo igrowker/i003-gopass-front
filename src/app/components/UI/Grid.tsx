@@ -57,54 +57,62 @@ export default function Grid({ viewType }: GridProps) {
 
   return (
     <>
-      <div className={`flex w-full flex-col border-opacity-50`}>
-        <div className={`p-4 ${viewType === "landing" ? "" : "mt-24"}`}>
-          {/* Contenedor del título y botón */}
-          <div className="mb-4 flex items-center justify-between">
-            <h2 className="text-xl font-bold">{t("resaleTickets")}</h2>
-            {viewType === "landing" && (
-              <a href="/all-tickets">
-                <span className="cursor-pointer rounded-md px-4 py-2 text-customRed">{t("viewMore")}</span>
-              </a>
-            )}
+      <section className='SectionCard'>
+        {tickets.length === 0 ? (
+          <div>
+            <p className="EmptyTickets">No hay entradas disponibles</p>
           </div>
-          {viewType === "allTickets" && <SearchBar onSearch={handleSearch} />}
-
-          {/* Grid de imágenes */}
-          <div className={`grid grid-cols-2 gap-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8`}>
-            {filteredTickets.slice(0, viewType === "landing" ? 4 : Infinity).map((ticket, index) => (
-              <div key={index} className="w-full cursor-pointer" onClick={() => handleTicketClick(ticket.entradaId)}>
-                <img src={ticket?.entrada.image} alt={`Imagen ${index + 1}`} className="h-auto w-full rounded-md" />
-                <div>
-                  <p className="text-center text-[0.8rem]">{ticket?.entrada.gameName}</p>
-                </div>
+        ) : (
+          <div className={`flex w-full flex-col border-opacity-50`}>
+            <div className={`p-4 ${viewType === "landing" ? "" : "mt-24"}`}>
+              {/* Contenedor del título y botón */}
+              <div className="mb-4 flex items-center justify-between">
+                <h2 className="text-xl font-bold">{t("resaleTickets")}</h2>
+                {viewType === "landing" && (
+                  <a href="/all-tickets">
+                    <span className="cursor-pointer rounded-md px-4 py-2 text-customRed">{t("viewMore")}</span>
+                  </a>
+                )}
               </div>
-            ))}
+              {viewType === "allTickets" && <SearchBar onSearch={handleSearch} />}
+
+              {/* Grid de imágenes */}
+              <div className={`grid grid-cols-2 gap-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8`}>
+                {filteredTickets.slice(0, viewType === "landing" ? 4 : Infinity).map((ticket, index) => (
+                  <div key={index} className="w-full cursor-pointer" onClick={() => handleTicketClick(ticket.entradaId)}>
+                    <img src={ticket?.entrada.image} alt={`Imagen ${index + 1}`} className="h-auto w-full rounded-md" />
+                    <div>
+                      <p className="text-center text-[0.8rem]">{ticket?.entrada.gameName}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Paginación solo para la vista allTickets */}
+              {viewType === "allTickets" && (
+                <>
+                  <div className="mt-4 flex justify-between">
+                    <button
+                      onClick={handlePrevPage}
+                      disabled={currentPage === 1}
+                      className="rounded bg-gray-200 px-4 py-2 disabled:opacity-50"
+                    >
+                      Anterior
+                    </button>
+                    <button
+                      onClick={handleNextPage}
+                      disabled={tickets.length < ticketsPerPage}
+                      className="rounded bg-gray-200 px-4 py-2 disabled:opacity-50"
+                    >
+                      Siguiente
+                    </button>
+                  </div>
+                </>
+              )}
+            </div>
           </div>
-
-          {/* Paginación solo para la vista allTickets */}
-          {viewType === "allTickets" && (
-            <>
-              <div className="mt-4 flex justify-between">
-                <button
-                  onClick={handlePrevPage}
-                  disabled={currentPage === 1}
-                  className="rounded bg-gray-200 px-4 py-2 disabled:opacity-50"
-                >
-                  Anterior
-                </button>
-                <button
-                  onClick={handleNextPage}
-                  disabled={tickets.length < ticketsPerPage}
-                  className="rounded bg-gray-200 px-4 py-2 disabled:opacity-50"
-                >
-                  Siguiente
-                </button>
-              </div>
-            </>
-          )}
-        </div>
-      </div>
+        )}
+      </section>
     </>
   )
 }
