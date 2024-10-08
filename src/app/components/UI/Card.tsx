@@ -25,7 +25,7 @@ export default function Card({ ticket }: CardProps) {
             <h2 className="card-title text-xl font-bold">{ticket?.entrada.gameName}</h2>
             <p className="text-[1.1rem] font-medium">{formattedDate}</p>
             <p className="text-[1.3rem] font-medium">{ticket?.entrada.precio}</p>
-            <div className="card-actions justify-end">
+            <div className="card-actions justify-end pt-7">
               <Button className="btn relative -mt-8 bg-customGreen text-2xl text-customWhite hover:bg-customBlack">
                 {t("buy")}
               </Button>
