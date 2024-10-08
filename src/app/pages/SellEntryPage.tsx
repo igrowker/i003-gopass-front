@@ -11,8 +11,6 @@ import InputField from "../components/core/InputField"
 import TextArea from "../components/core/TextArea"
 import { Navbar } from "../components/UI/Navbar"
 
-import { formatDate } from "../utils/formatDate"
-
 interface ValidateFormElements extends HTMLFormControlsCollection {
   eventName: any
   eventDate: any
@@ -99,6 +97,15 @@ export default function SellEntryPage() {
             id="eventName"
             label={t("eventName")}
             value={entry?.gameName || ""}
+          />
+
+          <InputField
+            type="text"
+            className="rounded-md border-2 border-solid p-2 hidden"
+            placeholder="dd/mm/yyyy"
+            id="eventDateFake"
+            label={t("date")}
+            value={entry?.eventDate}
           />
 
           <InputField

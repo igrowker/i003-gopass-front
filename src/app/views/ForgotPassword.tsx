@@ -1,5 +1,4 @@
 import { useTranslation } from "react-i18next"
-import { Navbar } from "../components/UI/Navbar"
 import InputField from "../components/core/InputField"
 import { IoIosMail } from "react-icons/io"
 import Button from "../components/core/Button"

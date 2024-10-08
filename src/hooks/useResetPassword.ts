@@ -5,7 +5,7 @@ import useContext from "../context/UseContext"
 import { resetPassword } from "../service/resetPassword"
 
 interface UseResetPasswordReturn {
-  reset: (email: string, password: string) => Promise<void>
+  reset: (email: string, password: string, passwordRepeat: string) => Promise<void>
 }
 
 export const useResetPassword = (): UseResetPasswordReturn => {
@@ -13,10 +13,9 @@ export const useResetPassword = (): UseResetPasswordReturn => {
 
   const { alert } = useContext()
 
-  const reset = async (email: string, password: string): Promise<void> => {
+  const reset = async (email: string, password: string, passwordRepeat: string): Promise<void> => {
     try {
-      await resetPassword(email, password)
-
+      await resetPassword(email, password, passwordRepeat)
       navigate("/login")
     } catch (error: any) {
       if (error instanceof SystemError) {
