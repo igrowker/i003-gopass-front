@@ -1,26 +1,39 @@
 import { useTranslation } from "react-i18next"
 import { FaRegCalendarAlt } from "react-icons/fa"
 import { GiPositionMarker } from "react-icons/gi"
+import { useLocation } from "react-router-dom"
+
+import { formatDate } from "../utils/formatDate"
 
 import { Navbar } from "../components/UI/Navbar"
 import VerifiedSeller from "../views/VerifiedSeller"
+import Button from "../components/core/Button"
+
+import { useBuyTicket } from "../../hooks/useBuyTicket"
 
 export default function PayEntryPage() {
   const { t } = useTranslation()
+  const { buyResellTicket } = useBuyTicket()
+  const location = useLocation()
+  const { ticket } = location.state
+
+  const handlePayTicket = async () => {
+    await buyResellTicket(ticket.entradaId)
+  }
 
   return (
     <>
       <Navbar />
-      <div className="mt-3 flex w-full flex-col items-center">
-        <div className="flex w-full justify-start md:w-[20rem] md:justify-center">
+      <div className="flex w-full flex-col items-center">
+        <div className="mt-24 flex w-full justify-start md:w-[20rem] md:justify-center">
           <h1 className="ml-4 text-xl font-semibold md:ml-0">{t("checkout")}</h1>
         </div>
 
         <div className="my-1 flex w-full justify-center p-3">
-          <picture className="flex w-[11rem] justify-center">
+          <picture>
             <img
-              className="h-[15rem] w-full max-w-xs rounded-lg object-cover shadow-custom-avatar"
-              src="https://i.pinimg.com/564x/53/f5/dd/53f5ddf910d3fe21698b238aefaf2cf9.jpg"
+              className="h-[20rem] w-[22rem] rounded-lg object-cover shadow-custom-avatar"
+              src={ticket?.entrada.image}
               alt={t("resaleEntry")}
             />
           </picture>
@@ -28,24 +41,17 @@ export default function PayEntryPage() {
             <h2 className="rounded-lg bg-customGreen p-1 text-center text-[0.7rem] text-customWhite">
               {t("authenticityVerified")}
             </h2>
-            <h2 className="font-semibold">Real Madrid vs Barcelona</h2>
+            <h2 className="text-xl font-semibold">{ticket?.entrada.gameName}</h2>
             <sup className="text-left text-sm">{t("resaleEntry")}</sup>
             <span className="flex gap-3">
               <FaRegCalendarAlt className="text-xl text-customLigthRed" />
-              <p> 28/10/2024</p>
+              <p> {formatDate(ticket?.entrada.eventDate)}</p>
             </span>
             <span className="flex">
               <GiPositionMarker className="text-xl text-customLigthRed" />
-              <p>Camp Nou</p>
+              <p>{ticket?.entrada.address}</p>
             </span>
-            <div className="flex w-auto justify-start gap-3 text-[0.8rem]">
-              <h3 className="rounded-md border-4 border-customRed p-1 px-2 font-semibold text-customLigthRed">
-                Barcelona
-              </h3>
-              <h3 className="rounded-md border-4 border-customRed bg-customRed p-1 px-2 font-semibold text-customWhite">
-                Real Madrid
-              </h3>
-            </div>
+
             <span>
               <h3 className="p-1 text-3xl font-semibold">$100</h3>
             </span>
@@ -63,7 +69,13 @@ export default function PayEntryPage() {
           </span>
         </div>
         <hr className="my-5 w-[90%] border-t-4" />
-        <VerifiedSeller textButton={t("Pay")} />
+
+        <VerifiedSeller ticket={ticket} />
+        <span className="my-8 flex w-full justify-center">
+          <Button onClick={handlePayTicket} className="w-[15rem] bg-customGreen text-2xl text-customWhite">
+            {t("pay")}
+          </Button>
+        </span>
       </div>
     </>
   )

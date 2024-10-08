@@ -1,13 +1,14 @@
 import { useEffect } from "react"
 import { useSelector } from "react-redux"
+
+import { useGetTicketsForSell } from "../../hooks/useGetTicketsForSell"
 import { RootState } from "../../store"
 import { Ticket } from "../../store/entry/entrySlice"
-
 import Card from "../components/UI/Card"
-import { useGetTicketsForSell } from "../../hooks/useGetTicketsForSell"
 
 export default function LatestEntries(): JSX.Element {
   const tickets: Ticket[] = useSelector((state: RootState) => state.entry.tickets)
+
   const { getTicketsForSellData } = useGetTicketsForSell()
   const ticketsPerPage = tickets.length + 1
   const currentPage = 1

@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react"
-import { useGetTicketsForSell } from "../../../hooks/useGetTicketsForSell"
 import { useTranslation } from "react-i18next"
+import { IoIosArrowDropleft } from "react-icons/io"
+import { IoIosArrowDropright } from "react-icons/io"
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
+
+import notTicketsImage from "../../../assets/soldout.png"
+import { useGetTicketsForSell } from "../../../hooks/useGetTicketsForSell"
 import { RootState } from "../../../store"
 import { Ticket } from "../../../store/entry/entrySlice"
 import SearchBar from "./SearchBar"
-
-import { IoIosArrowDropleft } from "react-icons/io"
-import { IoIosArrowDropright } from "react-icons/io"
-
-import notTicketsImage from "../../../assets/soldout.png"
 
 type GridProps = {
   viewType: "landing" | "allTickets"
@@ -78,7 +77,7 @@ export default function Grid({ viewType }: GridProps) {
             <div className={`grid grid-cols-2 gap-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8`}>
               {filteredTickets.slice(0, viewType === "landing" ? 4 : Infinity).map((ticket, index) => (
                 <div key={index} className="w-full cursor-pointer" onClick={() => handleTicketClick(ticket.entradaId)}>
-                  <img src={ticket?.entrada.image} alt={`Imagen ${index + 1}`} className="h-auto w-full rounded-md" />
+                  <img src={ticket?.entrada.image} alt={`Imagen`} className="h-auto w-full rounded-md" />
                   <div>
                     <p className="text-center text-[0.8rem]">{ticket?.entrada.gameName}</p>
                   </div>

@@ -1,11 +1,10 @@
 import axios from "axios"
 import { SystemError } from "com/errors"
-
 import { httpClient } from "../api/axios-config"
 
-export const getProfile = async () => {
+export const getSellerInfo = async (vendedorId: number) => {
   try {
-    const response = await httpClient.get("/Usuario/user-credentials", {})
+    const response = await httpClient.get(`Reventa/get-seller-information?vendedorId=${vendedorId}`)
     return response.data
   } catch (error: unknown) {
     if (axios.isAxiosError(error)) {
