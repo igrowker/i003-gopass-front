@@ -6,6 +6,7 @@ import { Ticket } from "../../store/entry/entrySlice"
 import Card from "../components/UI/Card"
 import { useGetTicketsForSell } from "../../hooks/useGetTicketsForSell"
 
+
 export default function LatestEntries(): JSX.Element {
   const tickets: Ticket[] = useSelector((state: RootState) => state.entry.tickets)
   const { getTicketsForSellData } = useGetTicketsForSell()
@@ -16,7 +17,10 @@ export default function LatestEntries(): JSX.Element {
     getTicketsForSellData(currentPage, ticketsPerPage)
   }, [currentPage, ticketsPerPage])
 
-  const sortedTickets = tickets
+  // Filtrar entradas con compradorId !== 0
+  const filteredTickets = tickets.filter(ticket => ticket.entrada.compradorId !== 0)
+
+  const sortedTickets = filteredTickets
     .slice()
     .sort((a, b) => new Date(b.entrada.eventDate).getTime() - new Date(a.entrada.eventDate).getTime())
     .slice(0, 3)

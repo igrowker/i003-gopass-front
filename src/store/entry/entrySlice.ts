@@ -3,6 +3,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 export interface Ticket {
   image: string
   gameName: string
+  compradorId: number
   description: string
   address: string
   eventDate: string
@@ -16,6 +17,7 @@ export interface Ticket {
 export interface Entrada {
   image: string
   gameName: string
+  compradorId: number
   address: string
   precio: string
   eventDate: Date
@@ -30,6 +32,7 @@ const initialState = {
     image: "",
     gameName: "",
     description: "",
+    compradorId: 0,
     address: "",
     eventDate: "",
     codigoQR: "",
@@ -39,7 +42,7 @@ const initialState = {
       image: "",
       gameName: "",
       address: "",
-      precio: ""
+      precio: "",
     }
   } as Ticket
 }
