@@ -17,8 +17,6 @@ export default function PayEntryPage() {
   const location = useLocation()
   const { ticket } = location.state
 
-  console.log("ticket", ticket)
-
   const handlePayTicket = async () => {
     await buyResellTicket(ticket.entradaId)
   }
@@ -72,7 +70,7 @@ export default function PayEntryPage() {
         </div>
         <hr className="my-5 w-[90%] border-t-4" />
 
-        <VerifiedSeller />
+        <VerifiedSeller ticket={ticket} />
         <span className="my-8 flex w-full justify-center">
           <Button onClick={handlePayTicket} className="w-[15rem] bg-customGreen text-2xl text-customWhite">
             {t("pay")}

@@ -55,7 +55,7 @@ export default function BuyEntryPage() {
         </div>
         <hr className="my-2 w-[90%] border-t-4" />
 
-        <VerifiedSeller />
+        <VerifiedSeller ticket={ticket} />
         <span className="my-8 flex w-full justify-center">
           <Button onClick={handleBuyClick} className="w-[15rem] bg-customGreen text-2xl text-customWhite">
             {t("buy")}

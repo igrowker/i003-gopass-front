@@ -18,7 +18,7 @@ export const buyTicket = async (entradaId: number) => {
     throw new MatchError(`Error en la verificación: ${response.statusText}`)
   } catch (error: unknown) {
     if (axios.isAxiosError(error)) {
-      throw new NotFoundError("La entrada ya ha sido comprada")
+      throw new NotFoundError(error.message)
     }
     throw new SystemError("Error en la conexión")
   }
