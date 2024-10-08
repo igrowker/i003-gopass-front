@@ -71,7 +71,13 @@ export default function Grid({ viewType }: GridProps) {
           <div className={`grid grid-cols-2 gap-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8`}>
             {filteredTickets.slice(0, viewType === "landing" ? 4 : 10).map((ticket, index) => (
               <div key={index} className="w-full cursor-pointer" onClick={() => handleTicketClick(ticket.entradaId)}>
-                <img src={ticket?.entrada.image} alt={`Imagen ${index + 1}`} className="h-auto w-full rounded-md" />
+                <div className="relative w-full h-48 overflow-hidden rounded-md">
+                  <img
+                    src={ticket?.entrada.image}
+                    alt={`Imagen ${index + 1}`}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
                 <div>
                   <p className="text-center text-[0.8rem]">{ticket?.entrada.gameName}</p>
                 </div>
