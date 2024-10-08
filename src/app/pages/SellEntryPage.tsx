@@ -11,6 +11,8 @@ import InputField from "../components/core/InputField"
 import TextArea from "../components/core/TextArea"
 import { Navbar } from "../components/UI/Navbar"
 
+import { formatDate } from "../utils/formatDate"
+
 interface ValidateFormElements extends HTMLFormControlsCollection {
   eventName: any
   eventDate: any
@@ -99,23 +101,25 @@ export default function SellEntryPage() {
             value={entry?.gameName || ""}
           />
 
-          <InputField
-            type="text"
-            className="rounded-md border-2 border-solid p-2 hidden"
-            placeholder="dd/mm/yyyy"
-            id="eventDateFake"
-            label={t("date")}
-            value={entry?.eventDate}
-          />
-
-          <InputField
-            type="text"
-            className="rounded-md border-2 border-solid p-2"
-            placeholder="dd/mm/yyyy"
-            id="eventDate"
-            label={t("date")}
-            value={entry?.eventDate}
-          />
+          <InputField type="text" className="hidden" placeholder="dd/mm/yyyy" id="eventDate" value={entry?.eventDate} />
+          <div className="-mt-[4.5rem]">
+            <InputField
+              type="text"
+              className="rounded-md border-2 border-solid p-2"
+              placeholder="dd/mm/yyyy hh:mm"
+              id="eventDateFake"
+              label={t("date")}
+              value={new Date(entry?.eventDate).toLocaleString("es-AR", {
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit",
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: false,
+                timeZone: "America/Argentina/Buenos_Aires"
+              })}
+            />
+          </div>
 
           <InputField
             type="text"

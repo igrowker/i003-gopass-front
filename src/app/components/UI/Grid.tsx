@@ -81,7 +81,6 @@ export default function Grid({ viewType }: GridProps) {
                   <div>
                     <p className="text-center text-[0.8rem]">{ticket?.entrada.gameName}</p>
                   </div>
-
                 </div>
               ))}
             </div>
