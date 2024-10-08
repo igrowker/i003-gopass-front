@@ -11,6 +11,8 @@ import InputField from "../components/core/InputField"
 import TextArea from "../components/core/TextArea"
 import { Navbar } from "../components/UI/Navbar"
 
+import { formatDate } from "../utils/formatDate"
+
 interface ValidateFormElements extends HTMLFormControlsCollection {
   eventName: any
   eventDate: any
@@ -70,7 +72,7 @@ export default function SellEntryPage() {
         </div>
 
         <form
-          className="flex w-[20rem] flex-col mt-6 gap-3 sm:w-[30rem] md:w-[30rem] lg:w-[40rem]"
+          className="mt-6 flex w-[20rem] flex-col gap-3 sm:w-[30rem] md:w-[30rem] lg:w-[40rem]"
           onSubmit={handleVerifySubmitTicket}
         >
           <InputField
@@ -146,7 +148,7 @@ export default function SellEntryPage() {
             <p className="ml-2 w-full">{t("declaration")}</p>
           </div>
 
-          <Button className="mb-6 mt-4 text-2xl bg-customGreen font-semibold text-white" type="submit">
+          <Button className="mb-6 mt-4 bg-customGreen text-2xl font-semibold text-white" type="submit">
             {t("resell")}
           </Button>
         </form>
