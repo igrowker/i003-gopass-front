@@ -1,12 +1,12 @@
-import { Link, useNavigate } from "react-router-dom"
-
-import Button from "../components/core/Button/Button"
-import InputField from "../components/core/InputField/InputField"
-import InputFieldPassword from "../components/core/InputFieldPassword/InputFieldPassword"
-import Checkbox from "../components/core/Checkbox/Checkbox"
+import { useTranslation } from "react-i18next"
 import { IoIosMail } from "react-icons/io"
+import { Link } from "react-router-dom"
 
-import logic from "../../logic"
+import { useRegister } from "../../hooks/useRegister"
+import Button from "../components/core/Button"
+import Checkbox from "../components/core/Checkbox"
+import InputField from "../components/core/InputField"
+import InputFieldPassword from "../components/core/InputFieldPassword"
 
 interface RegisterFormElements extends HTMLFormControlsCollection {
   email: HTMLInputElement
@@ -19,23 +19,22 @@ interface RegisterFormElement extends HTMLFormElement {
 }
 
 export default function Register() {
-  const navigate = useNavigate()
+  const { t } = useTranslation()
+  const { register } = useRegister()
 
   const handleRegister = async (event: React.FormEvent<RegisterFormElement>) => {
     event.preventDefault()
 
-    const target = event.currentTarget.elements
+    const form = event.currentTarget
+    const target = form.elements
 
     const email: string = target.email.value
     const password: string = target.password.value
-    const passwordRepeat: string = target.password.value
+    const passwordRepeat: string = target.passwordRepeat.value
 
-    try {
-      await logic.registrarUsuario(email, password, passwordRepeat)
-      navigate("/login")
-    } catch (error: unknown) {
-      if (error instanceof Error) alert(error.message)
-    }
+    await register(email, password, passwordRepeat)
+
+    form.reset()
   }
 
   return (
@@ -48,19 +47,25 @@ export default function Register() {
             <img src="/src/assets/isologo.png" alt="Logo" className="w-[15rem]" />
           </picture>
 
-          <form onSubmit={handleRegister} className="flex w-[90%] flex-col gap-5 rounded-2xl bg-[#e0e0e0e2] p-3">
-            <h1 className="-mb-5 pt-4 text-left text-2xl font-black">Registro</h1>
-            <InputField className="ml-4" type="email" placeholder="Email" id="email" icon={<IoIosMail />} />
-            <InputFieldPassword placeholder="Contraseña" id="password" />
-            <InputFieldPassword placeholder="Confirmar Contraseña" id="passwordRepeat" />
+          <form onSubmit={handleRegister} className="flex w-[90%] flex-col gap-5 rounded-2xl bg-[#e0e0e0e2] p-3 px-6">
+            <h1 className="-mb-5 pt-4 text-left text-2xl font-black">{t("registerTitle")}</h1>
+            <InputField
+              className="ml-4"
+              type="email"
+              placeholder={t("emailPlaceholder")}
+              id="email"
+              icon={<IoIosMail />}
+            />
+            <InputFieldPassword placeholder={t("passwordPlaceholder")} id="password" />
+            <InputFieldPassword placeholder={t("confirmPasswordPlaceholder")} id="passwordRepeat" />
             <Checkbox />
             <Button type="submit" className="bg-black text-xl text-white hover:bg-customRed hover:text-black">
-              Crear Cuenta
+              {t("createAccountButton")}
             </Button>
             <p className="text-center">
-              Ya tienes una cuenta?
+              {t("alreadyHaveAccount")}
               <Link to="/login" className="ml-2 font-bold underline">
-                Inicia Sesion
+                {t("login")}
               </Link>
             </p>
           </form>

@@ -1,15 +1,27 @@
-import { Link, useNavigate } from "react-router-dom"
-
+import { useEffect } from "react"
+import { useTranslation } from "react-i18next"
 import { IoSettingsOutline } from "react-icons/io5"
 import { IoTicketOutline } from "react-icons/io5"
 import { LuBadgePercent } from "react-icons/lu"
 import { MdOutlineVerifiedUser } from "react-icons/md"
+import { useSelector } from "react-redux"
+import { Link, useNavigate } from "react-router-dom"
 
+import { useGetProfile } from "../../../hooks/useGetProfile"
+import { logoutUser } from "../../../service/authService"
+import { RootState } from "../../../store/"
 import Avatar from "./Avatar"
-import logoutUser from "../../../privateRoutes/logoutUser"
 
 export default function SideBarMenu({ isOpen }: { isOpen: boolean }) {
+  const { t } = useTranslation()
   const navigate = useNavigate()
+  const { getProfileData } = useGetProfile()
+
+  const user = useSelector((state: RootState) => state.user)
+
+  useEffect(() => {
+    getProfileData()
+  }, [])
 
   const handleLogout = () => {
     logoutUser()
@@ -22,34 +34,40 @@ export default function SideBarMenu({ isOpen }: { isOpen: boolean }) {
         className={`h-screen w-1/2 rounded-r-lg bg-gradient-to-r from-black to-gray-800 p-2 pb-14 text-customWhite ${isOpen ? "animate-slide-in" : "animate-slide-out"} `}
       >
         <div className="flex flex-col items-center gap-4">
-          <Avatar />
-          <h2 className="font-azonix">FRANCO</h2>
-          <p>franquito@email.com</p>
+          <Avatar img={user?.image} />
+          <h2 className="font-azonix">{user?.nombre}</h2>
+          <p>{user?.email}</p>
           <hr className="w-full border-2" />
           <div>
             <ul className="my-2 flex flex-col gap-5">
               <Link to="/user-profile">
                 <li className="flex cursor-pointer items-center gap-2">
                   <IoSettingsOutline />
-                  Mi Cuenta
+                  <p>{t("myAccount")}</p>
                 </li>
               </Link>
               <Link to="/">
                 <li className="flex cursor-pointer items-center gap-2">
                   <IoTicketOutline />
-                  Entradas
+                  <p>{t("tickets")}</p>
+                </li>
+              </Link>
+              <Link to="/my-tickets">
+                <li className="flex cursor-pointer items-center gap-2">
+                  <IoTicketOutline />
+                  <p>{t("myTickets")}</p>
                 </li>
               </Link>
               <Link to="/vender-entrada">
                 <li className="flex cursor-pointer items-center gap-2">
                   <LuBadgePercent />
-                  Revender
+                  <p>{t("resell")}</p>
                 </li>
               </Link>
-              <Link to="/">
+              <Link to="/verificar-entrada/">
                 <li className="flex cursor-pointer items-center gap-2">
                   <MdOutlineVerifiedUser />
-                  Verificar
+                  <p>{t("verify")}</p>
                 </li>
               </Link>
             </ul>
@@ -57,10 +75,14 @@ export default function SideBarMenu({ isOpen }: { isOpen: boolean }) {
           <hr className="w-full border-2" />
           <div>
             <ul className="flex flex-col gap-5 pt-5 text-center">
-              <li className="cursor-pointer">Help & Support</li>
-              <li className="cursor-pointer">About Us</li>
+              <li className="cursor-pointer">
+                <p>{t("help")}</p>
+              </li>
+              <li className="cursor-pointer">
+                <p>{t("about")}</p>
+              </li>
               <li className="cursor-pointer" onClick={handleLogout}>
-                Sign Out
+                <p>{t("signOut")}</p>
               </li>
             </ul>
           </div>

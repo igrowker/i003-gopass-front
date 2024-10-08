@@ -1,50 +1,177 @@
-import { Navbar } from "../components/UI/Navbar"
-import Button from "../components/core/Button/Button"
-import InputField from "../components/core/InputField/InputField"
+import { useEffect, useState } from "react"
+import { useTranslation } from "react-i18next"
+import { useSelector } from "react-redux"
+
+import { useGetProfile } from "../../hooks/useGetProfile"
+import { useUpdateProfile } from "../../hooks/useUpdateProfile"
+import { RootState } from "../../store"
+import Button from "../components/core/Button"
+import InputField from "../components/core/InputField"
 import Avatar from "../components/UI/Avatar"
+import { Navbar } from "../components/UI/Navbar"
+
+interface UpdateFormElements extends HTMLFormControlsCollection {
+  nombre: HTMLInputElement
+  dni: HTMLInputElement
+  numeroTelefono: HTMLInputElement
+  city: HTMLInputElement
+  country: HTMLInputElement
+  email: HTMLInputElement
+  image: HTMLInputElement
+}
+
+interface UpdateFormElement extends HTMLFormElement {
+  elements: UpdateFormElements
+}
 
 export default function UserProfile() {
+  const { t } = useTranslation()
+  const { updatedProfile } = useUpdateProfile()
+  const { getProfileData } = useGetProfile()
+  const user = useSelector((state: RootState) => state.user)
+  const [userData, setUserData] = useState({
+    nombre: user.nombre || "",
+    dni: user.dni || "",
+    numeroTelefono: user.numeroTelefono || "",
+    image: user.image || "",
+    city: user.city || "",
+    country: user.country || "",
+    email: user.email || ""
+  })
+
+  useEffect(() => {
+    getProfileData()
+  }, [])
+
+  useEffect(() => {
+    setUserData({
+      nombre: user.nombre || "",
+      dni: user.dni || "",
+      numeroTelefono: user.numeroTelefono || "",
+      image: user.image || "",
+      city: user.city || "",
+      country: user.country || "",
+      email: user.email || ""
+    })
+  }, [user])
+
+  const handleUpdateProfile = async (event: React.FormEvent<UpdateFormElement>) => {
+    event.preventDefault()
+
+    const form = event.currentTarget
+    const target = form.elements
+
+    const nombre = target.nombre.value
+    const dni = target.dni.value
+    const numeroTelefono = target.numeroTelefono.value
+    const image = target.image.value
+    const city = target.city.value
+    const country = target.country.value
+
+    await updatedProfile(nombre, dni, numeroTelefono, image, city, country)
+  }
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { id, value } = e.target
+    setUserData((prevUser) => ({
+      ...prevUser,
+      [id]: value
+    }))
+  }
+
   return (
     <>
       <div>
         <Navbar />
       </div>
 
-      <div className="flex flex-col items-center overflow-visible justify-center">
-
-        <div className="flex flex-row text-2xl w-full justify-center relative">
-
-          <h2 className="text-center">Mi cuenta</h2>
-
+      <div className="flex flex-col items-center justify-center overflow-visible">
+        <div className="relative mt-24 flex w-full flex-row justify-center text-2xl">
+          <h2 className="text-center">{t("myAccount")}</h2>
         </div>
 
         <div className="Avatar">
-          <Avatar></Avatar>
+          <Avatar img={userData.image}></Avatar>
         </div>
 
-        <form className="flex flex-col gap-3 w-[20rem] md:w-[30rem] sm:w-[30rem] lg:w-[40rem]">
+        <form
+          className="flex w-[20rem] flex-col gap-3 sm:w-[30rem] md:w-[30rem] lg:w-[40rem]"
+          onSubmit={handleUpdateProfile}
+        >
+          <InputField
+            onChange={handleChange}
+            type="text"
+            className="rounded-md border-2 border-solid p-2"
+            value={userData.nombre}
+            placeholder={t("fullName")}
+            id="nombre"
+            label={t("fullName")}
+          />
 
-          <InputField type="text" className="border-solid border-2 rounded-md p-2" placeholder="user.name" id="fullName" label="Nombre Completo" />
+          <InputField
+            onChange={handleChange}
+            type="email"
+            className="rounded-md border-2 border-solid p-2"
+            placeholder={t("email")}
+            id="email"
+            value={userData.email}
+            label={t("email")}
+          />
 
-          <InputField type="email" className="border-solid border-2 rounded-md p-2" placeholder="user.email" id="email" label="Email" />
+          <InputField
+            onChange={handleChange}
+            type="text"
+            className="rounded-md border-2 border-solid p-2"
+            placeholder={t("phone")}
+            id="numeroTelefono"
+            value={userData.numeroTelefono}
+            label={t("phone")}
+          />
 
-          <InputField type="password" className="border-solid border-2 rounded-md p-2" placeholder="Contraseña" id="password" label="Contraseña" />
+          <InputField
+            onChange={handleChange}
+            type="text"
+            className="rounded-md border-2 border-solid p-2"
+            placeholder={t("city")}
+            id="city"
+            value={userData.city}
+            label={t("city")}
+          />
 
-          <InputField type="date" className="border-solid border-2 rounded-md p-2" placeholder="user.birthdate" id="birthdate" label="Birthdate" />
+          <InputField
+            onChange={handleChange}
+            type="text"
+            className="rounded-md border-2 border-solid p-2"
+            placeholder={t("country")}
+            id="country"
+            value={userData.country}
+            label={t("country")}
+          />
 
-          <InputField type="text" className="border-solid border-2 rounded-md p-2" placeholder="user.address" id="address" label="Address" />
+          <InputField
+            onChange={handleChange}
+            type="text"
+            className="rounded-md border-2 border-solid p-2"
+            placeholder={t("dni")}
+            id="dni"
+            value={userData.dni}
+            label={t("dni")}
+          />
 
-          <InputField type="text" className="border-solid border-2 rounded-md p-2" placeholder="user.city" id="city" label="Ciudad" />
+          <InputField
+            onChange={handleChange}
+            type="text"
+            className="rounded-md border-2 border-solid p-2"
+            placeholder={t("image")}
+            id="image"
+            value={userData.image}
+            label={t("image")}
+          />
 
-          <InputField type="text" className="border-solid border-2 rounded-md p-2" placeholder="user.country" id="country" label="País" />
-
-          <InputField type="text" className="border-solid border-2 rounded-md p-2" placeholder="user.dni" id="dni" label="DNI/NIE/Pasaporte" />
-
-          <Button className="mt-4 mb-6 bg-customGreen text-white font-semibold -z-10" type="submit" >Contactar</Button>
+          <Button className="mb-6 mt-4 text-2xl font-semibold text-white" type="submit">
+            {t("save")}
+          </Button>
         </form>
-
       </div>
-
     </>
   )
 }
