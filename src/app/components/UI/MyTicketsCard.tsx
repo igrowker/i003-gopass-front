@@ -1,3 +1,4 @@
+import QRCode from "react-qr-code"
 import { useTranslation } from "react-i18next"
 
 import { Ticket } from "../../../store/entry/entrySlice"
@@ -16,16 +17,14 @@ export const MyTicketsCard: React.FC<CardMyTicketsProps> = ({ ticket }) => {
       <figure>
         <img src={ticket.entrada.image} alt={ticket.entrada.gameName} />
       </figure>
-      <div className="card-body p-4">
-        <h2 className="card-title text-2xl mt-2">{ticket.entrada.gameName}</h2>
+      <div className="card-body flex flex-col items-center p-4">
+        <h2 className="card-title">{ticket.entrada.gameName}</h2>
         <p>{ticket.entrada.description}</p>
         <p>{ticket.entrada.address}</p>
         <p>{formattedDate}</p>
-        <p className="mt-4">Código QR:</p>
-        <p>{ticket.entrada.codigoQR}</p>
-        <div className="card-actions justify-end">
-          <button className="btn bg-red-500 text-customWhite mt-4 px-10">QR</button>
-        </div>
+        <p className="text-sm font-semibold">Ref: {ticket.entrada.codigoQR}</p>
+        <div className="card-actions justify-end"></div>
+        <QRCode className="h-[15rem] w-[15rem]" value={ticket.entrada.codigoQR} />
       </div>
     </div>
   )

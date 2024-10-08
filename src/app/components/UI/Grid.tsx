@@ -177,12 +177,12 @@ export default function Grid({ viewType }: GridProps) {
     getTicketsForSellData(currentPage, ticketsPerPage)
   }, [currentPage, ticketsPerPage])
 
-  // useEffect(() => {
-  //   const filtered = tickets.filter((ticket) => {
-  //     return ticket.entrada.gameName.toLowerCase().includes(searchQuery.toLowerCase())
-  //   })
-  //   setFilteredTickets(filtered)
-  // }, [tickets, searchQuery])
+  useEffect(() => {
+    const filtered = tickets.filter(
+      (ticket) => ticket.compradorId === 0 && ticket.entrada.gameName.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+    setFilteredTickets(filtered)
+  }, [tickets, searchQuery])
 
   const handleNextPage = () => {
     setCurrentPage((prev) => prev + 1)
@@ -228,6 +228,7 @@ export default function Grid({ viewType }: GridProps) {
                   <div>
                     <p className="text-center text-[0.8rem]">{ticket?.entrada.gameName}</p>
                   </div>
+
                 </div>
               ))}
             </div>
