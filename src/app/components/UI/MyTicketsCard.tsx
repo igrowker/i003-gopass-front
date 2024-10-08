@@ -1,5 +1,5 @@
 import QRCode from "react-qr-code"
-import { useTranslation } from "react-i18next"
+
 
 import { Ticket } from "../../../store/entry/entrySlice"
 import { formatDate } from "../../utils/formatDate"
@@ -9,7 +9,6 @@ interface CardMyTicketsProps {
 }
 
 export const MyTicketsCard: React.FC<CardMyTicketsProps> = ({ ticket }) => {
-  const { t } = useTranslation()
   const formattedDate = formatDate(ticket.entrada.eventDate)
 
   return (

@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next"
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
-import { setSelectedTicket } from "../../../store/entry/entrySlice"
+import { setSelectedTicket, Ticket } from "../../../store/entry/entrySlice"
 import { formatDate } from "../../utils/formatDate"
 import Button from "../core/Button"
 
