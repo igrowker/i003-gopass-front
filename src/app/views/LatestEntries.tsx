@@ -16,7 +16,10 @@ export default function LatestEntries(): JSX.Element {
     getTicketsForSellData(currentPage, ticketsPerPage)
   }, [currentPage, ticketsPerPage])
 
-  const sortedTickets = tickets
+  // Filtrar entradas con compradorId !== 0
+  const filteredTickets = tickets.filter((ticket) => ticket.compradorId === 0)
+
+  const sortedTickets = filteredTickets
     .slice()
     .sort((a, b) => new Date(b.entrada.eventDate).getTime() - new Date(a.entrada.eventDate).getTime())
     .slice(0, 3)

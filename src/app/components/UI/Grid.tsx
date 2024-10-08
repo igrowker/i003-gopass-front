@@ -32,8 +32,8 @@ export default function Grid({ viewType }: GridProps) {
   }, [currentPage, ticketsPerPage])
 
   useEffect(() => {
-    const filtered = tickets.filter((ticket) =>
-      ticket.entrada.gameName.toLowerCase().includes(searchQuery.toLowerCase())
+    const filtered = tickets.filter(
+      (ticket) => ticket.compradorId === 0 && ticket.entrada.gameName.toLowerCase().includes(searchQuery.toLowerCase())
     )
     setFilteredTickets(filtered)
   }, [tickets, searchQuery])
