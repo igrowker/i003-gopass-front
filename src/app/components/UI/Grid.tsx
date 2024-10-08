@@ -10,6 +10,8 @@ import SearchBar from "./SearchBar"
 import { IoIosArrowDropleft } from "react-icons/io"
 import { IoIosArrowDropright } from "react-icons/io"
 
+import notTicketsImage from "../../../assets/soldout.png"
+
 type GridProps = {
   viewType: "landing" | "allTickets"
 }
@@ -68,22 +70,23 @@ export default function Grid({ viewType }: GridProps) {
           </div>
           {viewType === "allTickets" && <SearchBar onSearch={handleSearch} />}
 
-          <div className={`grid grid-cols-2 gap-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8`}>
-            {filteredTickets.slice(0, viewType === "landing" ? 4 : 10).map((ticket, index) => (
-              <div key={index} className="w-full cursor-pointer" onClick={() => handleTicketClick(ticket.entradaId)}>
-                <div className="relative w-full h-48 overflow-hidden rounded-md">
-                  <img
-                    src={ticket?.entrada.image}
-                    alt={`Imagen ${index + 1}`}
-                    className="h-full w-full object-cover"
-                  />
+          {filteredTickets.length === 0 ? (
+            <div className="flex justify-center">
+              <img src={notTicketsImage} alt="No hay entradas" className="h-auto w-full rounded-md" />
+            </div>
+          ) : (
+            <div className={`grid grid-cols-2 gap-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8`}>
+              {filteredTickets.slice(0, viewType === "landing" ? 4 : Infinity).map((ticket, index) => (
+                <div key={index} className="w-full cursor-pointer" onClick={() => handleTicketClick(ticket.entradaId)}>
+                  <img src={ticket?.entrada.image} alt={`Imagen ${index + 1}`} className="h-auto w-full rounded-md" />
+                  <div>
+                    <p className="text-center text-[0.8rem]">{ticket?.entrada.gameName}</p>
+                  </div>
+
                 </div>
-                <div>
-                  <p className="text-center text-[0.8rem]">{ticket?.entrada.gameName}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
 
           {viewType === "allTickets" && (
             <>
