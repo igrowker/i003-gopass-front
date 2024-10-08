@@ -1,8 +1,7 @@
 import QRCode from "react-qr-code"
-
-
 import { Ticket } from "../../../store/entry/entrySlice"
 import { formatDate } from "../../utils/formatDate"
+import { FaMapMarkerAlt, FaCalendarAlt } from "react-icons/fa"
 
 interface CardMyTicketsProps {
   ticket: Ticket
@@ -12,18 +11,25 @@ export const MyTicketsCard: React.FC<CardMyTicketsProps> = ({ ticket }) => {
   const formattedDate = formatDate(ticket.entrada.eventDate)
 
   return (
-    <div className="card bg-base-100 p-4 shadow-xl lg:card-side">
-      <figure>
-        <img src={ticket.entrada.image} alt={ticket.entrada.gameName} />
+    <div className="card overflow-hidden rounded-lg bg-white shadow-lg lg:flex lg:flex-row">
+      <figure className="lg:w-1/3">
+        <img className="h-full w-full object-cover" src={ticket.entrada.image} alt={ticket.entrada.gameName} />
       </figure>
-      <div className="card-body flex flex-col items-center p-4">
-        <h2 className="card-title">{ticket.entrada.gameName}</h2>
-        <p>{ticket.entrada.description}</p>
-        <p>{ticket.entrada.address}</p>
-        <p>{formattedDate}</p>
-        <p className="text-sm font-semibold">Ref: {ticket.entrada.codigoQR}</p>
-        <div className="card-actions justify-end"></div>
-        <QRCode className="h-[15rem] w-[15rem]" value={ticket.entrada.codigoQR} />
+      <div className="card-body p-6 lg:w-2/3">
+        <h2 className="card-title mb-2 text-2xl font-bold">{ticket.entrada.gameName}</h2>
+        <p className="mb-4 text-gray-700">{ticket.entrada.description}</p>
+        <div className="mb-2 flex items-center text-gray-600">
+          <FaMapMarkerAlt className="mr-2" />
+          <p>{ticket.entrada.address}</p>
+        </div>
+        <div className="mb-4 flex items-center text-gray-600">
+          <FaCalendarAlt className="mr-2" />
+          <p>{formattedDate}</p>
+        </div>
+        <p className="mb-4 text-sm font-semibold text-gray-500">Ref: {ticket.entrada.codigoQR}</p>
+        <div className="flex justify-center lg:justify-end">
+          <QRCode className="h-40 w-40" value={ticket.entrada.codigoQR} />
+        </div>
       </div>
     </div>
   )

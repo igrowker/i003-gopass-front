@@ -12,6 +12,7 @@ export interface Ticket {
   entradaId: number
   entrada: Entrada
   fechaReventa: string
+  precio: string
 }
 
 export interface Entrada {
@@ -23,6 +24,7 @@ export interface Entrada {
   eventDate: Date
   description: string
   codigoQR: string
+  entradaId: number
 }
 
 const initialState = {
@@ -42,7 +44,7 @@ const initialState = {
       image: "",
       gameName: "",
       address: "",
-      precio: "",
+      precio: ""
     }
   } as Ticket
 }

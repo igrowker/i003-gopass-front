@@ -3,6 +3,7 @@ interface ButtonProps {
   children: string
   type?: any
   onClick?: () => void
+  textButton?: string
 }
 
 export default function Button({ className, onClick, children, type }: ButtonProps) {
