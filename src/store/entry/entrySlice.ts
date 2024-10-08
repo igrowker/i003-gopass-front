@@ -14,6 +14,7 @@ export interface Ticket {
   fechaReventa: string
   precio: string
   resaleDetail: string
+  vendedorId: number
 }
 
 export interface Entrada {
@@ -22,7 +23,7 @@ export interface Entrada {
   compradorId: number
   address: string
   precio: string
-  eventDate: Date
+  eventDate: string
   description: string
   codigoQR: string
   entradaId: number

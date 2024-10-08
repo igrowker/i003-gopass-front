@@ -14,6 +14,10 @@ export const sellTicket = async (
   precio: number
 ) => {
   validate.qrCode(codigoQR)
+  validate.gameName(gameName)
+  validate.address(address)
+  validate.description(description)
+  validate.description(resaleDetail)
 
   const body = { codigoQR, gameName, eventDate, address, description, resaleDetail, precio }
 
