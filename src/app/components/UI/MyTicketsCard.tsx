@@ -9,7 +9,7 @@ interface CardMyTicketsProps {
 }
 
 export const MyTicketsCard: React.FC<CardMyTicketsProps> = ({ ticket }) => {
-  const formattedDate = formatDate(ticket.entrada.eventDate)
+  const formattedDate = formatDate(new Date(ticket.entrada.eventDate))
 
   return (
     <div className="card overflow-hidden rounded-lg bg-white shadow-lg lg:flex lg:flex-row">
