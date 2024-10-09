@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"
-import Pagination from "../core/Pagination"
+import { IoIosArrowDropleft } from "react-icons/io"
+import { IoIosArrowDropright } from "react-icons/io"
 import { useSelector, useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
@@ -32,7 +33,7 @@ export default function Grid({ viewType }: GridProps) {
 
   useEffect(() => {
     const filtered = tickets.filter(
-      (ticket) => ticket.compradorId === 0 && ticket.entrada.gameName.toLowerCase().includes(searchQuery.toLowerCase())
+      (ticket) => ticket.compradorId > 0 && ticket.entrada.gameName.toLowerCase().includes(searchQuery.toLowerCase())
     )
     setFilteredTickets(filtered)
   }, [tickets, searchQuery])
@@ -88,13 +89,25 @@ export default function Grid({ viewType }: GridProps) {
           )}
 
           {viewType === "allTickets" && (
-            <Pagination
-              currentPage={currentPage}
-              totalTickets={filteredTickets.length}
-              ticketsPerPage={ticketsPerPage}
-              onNext={handleNextPage}
-              onPrev={handlePrevPage}
-            />
+            <>
+              <div className="mt-4 flex w-full items-center justify-around">
+                <button
+                  onClick={handlePrevPage}
+                  disabled={currentPage === 1}
+                  className="flex items-center rounded bg-gray-200 px-4 py-2 disabled:opacity-50"
+                >
+                  <IoIosArrowDropleft className="mr-2 text-3xl" />
+                </button>
+                <span className="text-center">Página {currentPage}</span>
+                <button
+                  onClick={handleNextPage}
+                  disabled={tickets.length < ticketsPerPage}
+                  className="rounded bg-gray-200 px-4 py-2 disabled:opacity-50"
+                >
+                  <IoIosArrowDropright className="mr-2 text-3xl" />
+                </button>
+              </div>
+            </>
           )}
         </div>
       </div>

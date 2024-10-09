@@ -9,9 +9,9 @@ export const DOCUMENT_REGEX = /^[A-Z0-9]{5,20}$/
 export const QR_CODE_REGEX =
   /^[a-zA-Z0-9]{1,2953}$|^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$/
 export const PHONE_NUMBER_REGEX = /^[0-9]{7,15}$/
-export const GAMENAME_REGEX = /^[a-zA-Z0-9\s\.\-áéíóúÁÉÍÓÚñÑvs]+$/
+export const GAMENAME_REGEX = /^[a-zA-Z0-9\s\.\-áéíóúÁÉÍÓÚñÑãõÃÕvsÜü]+$/
 export const ADDRESS_REGEX = /^[a-zA-Z0-9\s,.\-áéíóúÁÉÍÓÚñÑ#]+$/
-export const DESCRIPTION_REGEX = /^[a-zA-Z0-9\s,.\-áéíóúÁÉÍÓÚñÑ:]+$/
+export const DESCRIPTION_REGEX = /^[a-zA-Z0-9\s,.\-áéíóúÁÉÍÓÚñÑãõÃÕvsÜü:]+$/
 
 function validateEmail(email: string) {
   if (!EMAIL_REGEX.test(email)) {
