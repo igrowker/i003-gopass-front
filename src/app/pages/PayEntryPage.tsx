@@ -34,6 +34,8 @@ export default function PayEntryPage() {
     navigate(`/ticket`, { state: { ticket } })
   }
 
+  const isCompradorVendedor = ticket.compradorId === ticket.vendedorId; 
+
   return (
     <>
       <Navbar />
@@ -84,10 +86,15 @@ export default function PayEntryPage() {
         <hr className="my-5 w-[90%] border-t-4" />
 
         <VerifiedSeller ticket={ticket} />
+
         <span className="my-8 flex w-full justify-center">
-          <Button onClick={handlePayTicket} className="w-[15rem] bg-customGreen text-2xl text-customWhite">
-            {t("pay")}
-          </Button>
+          {isCompradorVendedor ? (
+            <p className="text-lg font-semibold">{t("thisIsYourEntry")}</p> // Mensaje indicando que es su entrada
+          ) : (
+            <Button onClick={handlePayTicket} className="w-[15rem] bg-customGreen text-2xl text-customWhite">
+              {t("pay")}
+            </Button>
+          )}
         </span>
       </div>
     </>

@@ -47,8 +47,8 @@ export default function Grid({ viewType }: GridProps) {
     }
   }
 
-  const handleTicketClick = (ticketId: number) => {
-    navigate(`/comprar-entrada/${ticketId}`)
+  const handleTicketClick = () => {
+    navigate("/comprar-entrada/")
   }
 
   const handleSearch = (query: string) => {
@@ -76,7 +76,7 @@ export default function Grid({ viewType }: GridProps) {
           ) : (
             <div className={`grid grid-cols-2 gap-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8`}>
               {filteredTickets.slice(0, viewType === "landing" ? 4 : Infinity).map((ticket, index) => (
-                <div key={index} className="w-full cursor-pointer" onClick={() => handleTicketClick(ticket.entradaId)}>
+                <div key={index} className="w-full cursor-pointer" >
                   <img src={ticket?.entrada.image} alt={`Imagen`} className="h-auto w-full rounded-md" />
                   <div>
                     <p className="text-center text-[0.8rem]">{ticket?.entrada.gameName}</p>
