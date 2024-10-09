@@ -37,7 +37,7 @@ export default function PayEntryPage() {
   return (
     <>
       <Navbar />
-      <div className="flex w-full flex-col items-center">
+      <div className="mb-4 flex w-full flex-col items-center">
         <div className="mt-24 flex w-full justify-center">
           <h1 className="text-xl font-semibold">{t("pay")}</h1>
         </div>

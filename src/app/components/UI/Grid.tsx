@@ -33,7 +33,7 @@ export default function Grid({ viewType }: GridProps) {
 
   useEffect(() => {
     const filtered = tickets.filter(
-      (ticket) => ticket.compradorId === 0 && ticket.entrada.gameName.toLowerCase().includes(searchQuery.toLowerCase())
+      (ticket) => ticket.compradorId > 0 && ticket.entrada.gameName.toLowerCase().includes(searchQuery.toLowerCase())
     )
     setFilteredTickets(filtered)
   }, [tickets, searchQuery])
@@ -48,7 +48,7 @@ export default function Grid({ viewType }: GridProps) {
     }
   }
 
-  const handleTicketClick = (ticket) => {
+  const handleTicketClick = (ticket: any) => {
     navigate(`/comprar-entrada/`)
     dispatch(setSelectedTicket(ticket))
   }
