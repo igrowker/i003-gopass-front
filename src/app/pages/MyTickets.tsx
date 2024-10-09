@@ -32,7 +32,7 @@ export const MyTickets: React.FC = () => {
             </div>
           ) : (
             <div className="mt-20 w-[90%]">
-              <h2 className="m-5 text-center text-xl font-semibold">{t("myTickets")}</h2>
+              <h2 className="m-5 text-center text-xl font-semibold">{t("myTicketsPurchased")}</h2>
               <ul>
                 {tickets.map((ticket: Ticket, index) => (
                   <li className="mt-5" key={index}>

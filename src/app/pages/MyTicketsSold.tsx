@@ -28,11 +28,11 @@ export const MyTicketsSold: React.FC = () => {
         <section className="flex w-full flex-col items-center">
           {tickets.length === 0 ? (
             <div className="absolute flex h-full w-full items-center justify-center">
-              <p className="text-xl font-semibold text-gray-500">No hay entradas disponibles</p>
+              <p className="text-xl font-semibold text-gray-500">{t("noEntriesAvailable")}</p>
             </div>
           ) : (
             <div className="mt-20 w-[90%]">
-              <h2 className="m-5 text-center text-xl font-semibold">{t("myTickets")}</h2>
+              <h2 className="m-5 text-center text-xl font-semibold">{t("myTicketsSold")}</h2>
               <ul>
                 {tickets.map((ticket: Ticket, index) => (
                   <li className="mt-5" key={index}>
