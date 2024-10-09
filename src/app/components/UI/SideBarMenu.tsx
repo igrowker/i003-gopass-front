@@ -55,16 +55,16 @@ export default function SideBarMenu({ isOpen, onClose }: { isOpen: boolean; onCl
                   <p>{t("myAccount")}</p>
                 </li>
               </Link>
-              <Link to="/">
+              <Link to="/my-tickets">
                 <li className="flex cursor-pointer items-center gap-2">
                   <IoTicketOutline />
-                  <p>{t("tickets")}</p>
+                  <p>{t("buyTickets")}</p>
                 </li>
               </Link>
               <Link to="/my-tickets">
                 <li className="flex cursor-pointer items-center gap-2">
                   <IoTicketOutline />
-                  <p>{t("myTickets")}</p>
+                  <p>{t("sellTickets")}</p>
                 </li>
               </Link>
               <Link to="/vender-entrada">
