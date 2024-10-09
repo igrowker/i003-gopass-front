@@ -2,15 +2,12 @@ import { FaCalendarAlt, FaMapMarkerAlt } from "react-icons/fa"
 import QRCode from "react-qr-code"
 
 import { Ticket } from "../../../store/entry/entrySlice"
-import { formatDate } from "../../utils/formatDate"
 
 interface CardMyTicketsProps {
   ticket: Ticket
 }
 
 export const MyTicketsCard: React.FC<CardMyTicketsProps> = ({ ticket }) => {
-  const formattedDate = formatDate(new Date(ticket.entrada.eventDate))
-
   return (
     <div className="card overflow-hidden rounded-lg bg-white shadow-lg lg:flex lg:flex-row">
       <figure className="lg:w-1/3">
@@ -25,7 +22,7 @@ export const MyTicketsCard: React.FC<CardMyTicketsProps> = ({ ticket }) => {
         </div>
         <div className="mb-4 flex items-center text-gray-600">
           <FaCalendarAlt className="mr-2" />
-          <p>{formattedDate}</p>
+          <p>{}</p>
         </div>
         <p className="mb-4 text-sm font-semibold text-gray-500">Ref: {ticket.entrada.codigoQR}</p>
         <div className="flex justify-center lg:justify-end">

@@ -33,6 +33,7 @@ export interface Entrada {
 const initialState = {
   codigoQR: "",
   tickets: [] as Ticket[],
+  ticketsSold: [] as Ticket[],
   ticketToResell: {
     image: "",
     gameName: "",
@@ -66,7 +67,7 @@ const entrySlice = createSlice({
       state.tickets = action.payload
     },
     setTicketsSold(state, action: PayloadAction<any>) {
-      state.tickets = action.payload
+      state.ticketsSold = action.payload
     },
     setSellTickets(state, action: PayloadAction<any>) {
       state.tickets = action.payload
