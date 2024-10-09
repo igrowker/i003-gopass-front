@@ -11,6 +11,7 @@
     "start:json-server": "json-server --watch fakeApi/db.json --port 8000"
   },
   "dependencies": {
+    "@react-pdf/renderer": "^4.0.0",
     "@reduxjs/toolkit": "^2.2.7",
     "axios": "^1.7.7",
     "com": "file:com",

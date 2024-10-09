@@ -11,8 +11,6 @@ import InputField from "../components/core/InputField"
 import TextArea from "../components/core/TextArea"
 import { Navbar } from "../components/UI/Navbar"
 
-import { formatDate } from "../utils/formatDate"
-
 interface ValidateFormElements extends HTMLFormControlsCollection {
   eventName: any
   eventDate: any

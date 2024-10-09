@@ -1,4 +1,4 @@
-import { useState } from "react"
+import React from "react"
 import { useTranslation } from "react-i18next"
 import { FaRegCalendarAlt } from "react-icons/fa"
 import { GiPositionMarker } from "react-icons/gi"
@@ -7,43 +7,44 @@ import { useLocation } from "react-router-dom"
 import { formatDate } from "../utils/formatDate"
 import { Link } from "react-router-dom"
 import QRCode from "react-qr-code"
-
 import { Navbar } from "../components/UI/Navbar"
+import stylesPDF from '../utils/stylesPDF'
+import { Page, Text, View, Document, Image, PDFDownloadLink } from '@react-pdf/renderer'
+
+
+const TicketPDF: React.FC<{ ticket: any }> = ({ ticket }) => (
+  <Document>
+    <Page size="A4" style={stylesPDF.page}>
+      <View style={stylesPDF.section}>
+        <Text style={stylesPDF.header}>Entrada</Text>
+        <Text style={stylesPDF.text}>Evento: {ticket.entrada.gameName}</Text>
+        <Text style={stylesPDF.text}>Descripción: {ticket.entrada.description}</Text>
+        <Text style={stylesPDF.text}>Dirección: {ticket.entrada.address}</Text>
+        <Text style={stylesPDF.text}>Fecha: {formatDate(new Date(ticket.entrada.eventDate))}</Text>
+      </View>
+
+      <View style={stylesPDF.qrCode}>
+        <Text style={stylesPDF.text}>Código QR:</Text>
+        <Image
+          style={stylesPDF.qrImage}
+          src={`https://api.qrserver.com/v1/create-qr-code/?data=${ticket.entrada.codigoQR}&size=120x120`} // Aumento del tamaño
+        />
+        <Text style={stylesPDF.text}>{ticket.entrada.codigoQR}</Text>
+      </View>
+
+      <Text style={stylesPDF.footer}>Gracias por su compra!</Text>
+      <Text style={[stylesPDF.footer, stylesPDF.footerHighlight]}>
+        ¡Disfruta del partido!
+      </Text>
+    </Page>
+  </Document>
+);
 
 export default function Ticket() {
-  const { t } = useTranslation()
-  const location = useLocation()
-  // const { ticket } = location.state
-  const [isVerified, setIsVerified] = useState(false)
+  const { t } = useTranslation();
+  const location = useLocation();
+  const { ticket } = location.state
 
-  const ticket = 
-    {
-      "entradaId": 2,
-      "vendedorId": 5,
-      "compradorId": 6,
-      "fechaReventa": "2024-10-04T23:41:18.3529006",
-      "precio": 200,
-      "resaleDetail": "TEST",
-      "usuario": null,
-      "entrada": {
-        "gameName": "Partido 2: Equipo A vs Equipo B",
-        "description": "Descripción del partido 2",
-        "image": "https://media.airedesantafe.com.ar/p/1104be57d6bbde5daa49a8111ee3c158/adjuntos/268/imagenes/003/840/0003840291/1200x0/smart/argentina-espanapng.png",
-        "address": "Dirección 2, Ciudad 61",
-        "eventDate": "2025-02-02T14:56:16.3433932",
-        "codigoQR": "b44f7964-841d-42eb-bd80-b58e42265fc6",
-        "verificada": true,
-        "usuarioId": 5,
-        "usuario": null,
-        "reventa": null,
-        "id": 2
-      },
-      "id": 2
-    }
-
-  const handleVerified = () => {
-    setIsVerified(!isVerified)
-  }
 
   return (
     <>
@@ -94,13 +95,17 @@ export default function Ticket() {
             <p>
               {t("problems")} <Link className="underline underline-offset-1 text-blue-500" to="/contact">{t("contactUs")}</Link>
             </p>
-
-            <button className="text-4xl text-customLigthRed">
-              <HiDownload />
-            </button>
+            <PDFDownloadLink
+              document={<TicketPDF ticket={ticket} />}
+              fileName={`${ticket.entrada.codigoQR}-ticket.pdf`}
+            >
+              <button className="text-4xl text-customLigthRed">
+                <HiDownload />
+              </button>
+            </PDFDownloadLink>
           </div>
         </section>
       </div>
     </>
-  )
+  );
 }
