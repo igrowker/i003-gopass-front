@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"
-import { IoIosArrowDropleft } from "react-icons/io"
-import { IoIosArrowDropright } from "react-icons/io"
+import Pagination from "../core/Pagination"
 import { useSelector, useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
@@ -48,7 +47,7 @@ export default function Grid({ viewType }: GridProps) {
     }
   }
 
-  const handleTicketClick = (ticket) => {
+  const handleTicketClick = (ticket: any) => {
     navigate(`/comprar-entrada/`)
     dispatch(setSelectedTicket(ticket))
   }
@@ -89,25 +88,13 @@ export default function Grid({ viewType }: GridProps) {
           )}
 
           {viewType === "allTickets" && (
-            <>
-              <div className="mt-4 flex w-full items-center justify-around">
-                <button
-                  onClick={handlePrevPage}
-                  disabled={currentPage === 1}
-                  className="flex items-center rounded bg-gray-200 px-4 py-2 disabled:opacity-50"
-                >
-                  <IoIosArrowDropleft className="mr-2 text-3xl" />
-                </button>
-                <span className="text-center">Página {currentPage}</span>
-                <button
-                  onClick={handleNextPage}
-                  disabled={tickets.length < ticketsPerPage}
-                  className="rounded bg-gray-200 px-4 py-2 disabled:opacity-50"
-                >
-                  <IoIosArrowDropright className="mr-2 text-3xl" />
-                </button>
-              </div>
-            </>
+            <Pagination
+              currentPage={currentPage}
+              totalTickets={filteredTickets.length}
+              ticketsPerPage={ticketsPerPage}
+              onNext={handleNextPage}
+              onPrev={handlePrevPage}
+            />
           )}
         </div>
       </div>
