@@ -18,6 +18,10 @@ export const Navbar = () => {
     navigate(-1)
   }
 
+  const closeSideBar = () => {
+    setIsSideBarOpen(false)
+  }
+
   return (
     <div className="navbar fixed z-50 flex w-full items-center justify-center bg-customRed">
       <div className="absolute left-0">
@@ -51,7 +55,7 @@ export const Navbar = () => {
           </div>
         </div>
       </div>
-      {isSideBarOpen && <SideBarMenu isOpen={isSideBarOpen} />}
+      {isSideBarOpen && <SideBarMenu onClose={closeSideBar} isOpen={isSideBarOpen} />}
     </div>
   )
 }

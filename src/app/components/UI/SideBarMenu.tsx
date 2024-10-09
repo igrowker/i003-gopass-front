@@ -12,7 +12,7 @@ import { logoutUser } from "../../../service/authService"
 import { RootState } from "../../../store/"
 import Avatar from "./Avatar"
 
-export default function SideBarMenu({ isOpen }: { isOpen: boolean }) {
+export default function SideBarMenu({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const { getProfileData } = useGetProfile()
@@ -28,8 +28,17 @@ export default function SideBarMenu({ isOpen }: { isOpen: boolean }) {
     navigate("/login")
   }
 
+  const handleClickOutside = (event: React.MouseEvent) => {
+    if ((event.target as HTMLElement).closest(".sidebar-menu") === null) {
+      onClose()
+    }
+  }
+
   return (
-    <div className="fixed inset-0 z-10 flex items-start justify-start bg-black bg-opacity-30">
+    <div
+      onClick={handleClickOutside}
+      className="fixed inset-0 z-10 flex items-start justify-start bg-black bg-opacity-30"
+    >
       <div
         className={`h-screen w-1/2 rounded-r-lg bg-gradient-to-r from-black to-gray-800 p-2 pb-14 text-customWhite ${isOpen ? "animate-slide-in" : "animate-slide-out"} `}
       >
