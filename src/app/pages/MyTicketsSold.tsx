@@ -8,7 +8,7 @@ import { Ticket } from "../../store/entry/entrySlice"
 import { MyTicketsCard } from "../components/UI/MyTicketsCard"
 import { Navbar } from "../components/UI/Navbar"
 
-export const MyTickets: React.FC = () => {
+export const MyTicketsSold: React.FC = () => {
   const tickets = useSelector((state: RootState) => state.entry.tickets)
   const { t } = useTranslation()
 
