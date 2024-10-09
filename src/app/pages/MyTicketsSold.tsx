@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 
-import { useGetUserTickets } from "../../hooks/useGetUserTickets"
+import { useGetUserTicketsSold } from "../../hooks/useGetUserTicketsSold"
 import { RootState } from "../../store"
 import { Ticket } from "../../store/entry/entrySlice"
 import { MyTicketsCard } from "../components/UI/MyTicketsCard"
@@ -12,11 +12,11 @@ export const MyTickets: React.FC = () => {
   const tickets = useSelector((state: RootState) => state.entry.tickets)
   const { t } = useTranslation()
 
-  const { getUserTicketsData } = useGetUserTickets()
+  const { getUserTicketsDataSold } = useGetUserTicketsSold()
 
   useEffect(() => {
     const fetchTickets = async () => {
-      await getUserTicketsData()
+      await getUserTicketsDataSold()
     }
     fetchTickets()
   }, [])

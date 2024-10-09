@@ -19,7 +19,7 @@ export const MyTicketsCard: React.FC<CardMyTicketsProps> = ({ ticket }) => {
       <div className="card-body p-6 lg:w-2/3">
         <h2 className="card-title mb-2 text-2xl font-bold">{ticket.entrada.gameName}</h2>
         <p className="mb-4 text-gray-700">{ticket.entrada.description}</p>
-        <div className="mb-2 flex items-center text-gray-600">
+        {/* <div className="mb-2 flex items-center text-gray-600">
           <FaMapMarkerAlt className="mr-2" />
           <p>{ticket.entrada.address}</p>
         </div>
@@ -30,7 +30,7 @@ export const MyTicketsCard: React.FC<CardMyTicketsProps> = ({ ticket }) => {
         <p className="mb-4 text-sm font-semibold text-gray-500">Ref: {ticket.entrada.codigoQR}</p>
         <div className="flex justify-center lg:justify-end">
           <QRCode className="h-40 w-40" value={ticket.entrada.codigoQR} />
-        </div>
+        </div> */}
       </div>
     </div>
   )

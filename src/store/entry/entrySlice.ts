@@ -65,6 +65,9 @@ const entrySlice = createSlice({
     setTickets(state, action: PayloadAction<any>) {
       state.tickets = action.payload
     },
+    setTicketsSold(state, action: PayloadAction<any>) {
+      state.tickets = action.payload
+    },
     setSellTickets(state, action: PayloadAction<any>) {
       state.tickets = action.payload
     },
@@ -74,5 +77,6 @@ const entrySlice = createSlice({
   }
 })
 
-export const { setEntry, clearEntry, setTickets, setSellTickets, setSelectedTicket } = entrySlice.actions
+export const { setEntry, clearEntry, setTickets, setTicketsSold, setSellTickets, setSelectedTicket } =
+  entrySlice.actions
 export default entrySlice.reducer
