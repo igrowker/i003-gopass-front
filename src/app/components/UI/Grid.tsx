@@ -2,13 +2,13 @@ import { useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"
 import { IoIosArrowDropleft } from "react-icons/io"
 import { IoIosArrowDropright } from "react-icons/io"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
 import notTicketsImage from "../../../assets/soldout.png"
 import { useGetTicketsForSell } from "../../../hooks/useGetTicketsForSell"
 import { RootState } from "../../../store"
-import { Ticket } from "../../../store/entry/entrySlice"
+import { Ticket, setSelectedTicket } from "../../../store/entry/entrySlice"
 import SearchBar from "./SearchBar"
 
 type GridProps = {
@@ -17,6 +17,7 @@ type GridProps = {
 
 export default function Grid({ viewType }: GridProps) {
   const { t } = useTranslation()
+  const dispatch = useDispatch()
   const { getTicketsForSellData } = useGetTicketsForSell()
   const tickets = useSelector((state: RootState) => state.entry.tickets)
   const [currentPage, setCurrentPage] = useState(1)
@@ -47,8 +48,9 @@ export default function Grid({ viewType }: GridProps) {
     }
   }
 
-  const handleTicketClick = () => {
-    navigate("/comprar-entrada/")
+  const handleTicketClick = (ticket) => {
+    navigate(`/comprar-entrada/`)
+    dispatch(setSelectedTicket(ticket))
   }
 
   const handleSearch = (query: string) => {
@@ -76,7 +78,7 @@ export default function Grid({ viewType }: GridProps) {
           ) : (
             <div className={`grid grid-cols-2 gap-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8`}>
               {filteredTickets.slice(0, viewType === "landing" ? 4 : Infinity).map((ticket, index) => (
-                <div key={index} className="w-full cursor-pointer" >
+                <div key={index} className="w-full cursor-pointer" onClick={() => handleTicketClick(ticket)}>
                   <img src={ticket?.entrada.image} alt={`Imagen`} className="h-auto w-full rounded-md" />
                   <div>
                     <p className="text-center text-[0.8rem]">{ticket?.entrada.gameName}</p>

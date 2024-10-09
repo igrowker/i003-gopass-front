@@ -9,7 +9,7 @@ export interface User {
   city: string
   country: string
   verificado: boolean
-  id: string
+  id: number
 }
 
 const initialState: User = {
@@ -21,7 +21,7 @@ const initialState: User = {
   city: "",
   country: "",
   verificado: false,
-  id: ""
+  id: 0
 }
 
 const userSlice = createSlice({

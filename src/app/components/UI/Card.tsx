@@ -19,7 +19,6 @@ export default function Card({ ticket }: CardProps) {
 
   const handleGoToBy = () => {
     dispatch(setSelectedTicket(ticket))
-    console.log("ticket", ticket)
     navigate(`/comprar-entrada`)
   }
 

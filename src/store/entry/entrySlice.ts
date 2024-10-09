@@ -27,6 +27,7 @@ export interface Entrada {
   description: string
   codigoQR: string
   entradaId: number
+  usuarioId: number
 }
 
 const initialState = {
