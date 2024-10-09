@@ -5,7 +5,7 @@ import { useSelector } from "react-redux"
 import { useGetUserTicketsSold } from "../../hooks/useGetUserTicketsSold"
 import { RootState } from "../../store"
 import { Ticket } from "../../store/entry/entrySlice"
-import { MyTicketsCard } from "../components/UI/MyTicketsCard"
+import { MyTicketsCardSold } from "../components/UI/MyTicketsCardSold"
 import { Navbar } from "../components/UI/Navbar"
 
 export const MyTicketsSold: React.FC = () => {
@@ -36,7 +36,7 @@ export const MyTicketsSold: React.FC = () => {
               <ul>
                 {tickets.map((ticket: Ticket, index) => (
                   <li className="mt-5" key={index}>
-                    <MyTicketsCard ticket={ticket} />
+                    <MyTicketsCardSold ticket={ticket} />
                   </li>
                 ))}
               </ul>

@@ -8,7 +8,7 @@ interface CardMyTicketsProps {
   ticket: Ticket
 }
 
-export const MyTicketsCard: React.FC<CardMyTicketsProps> = ({ ticket }) => {
+export const MyTicketsCardSold: React.FC<CardMyTicketsProps> = ({ ticket }) => {
   // const formattedDate = formatDate(new Date(ticket.entrada.eventDate))
 
   return (
