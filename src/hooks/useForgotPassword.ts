@@ -13,7 +13,7 @@ export const useForgotPassword = () => {
     try {
       await forgotPassword(email)
 
-      navigate("/reset-password")
+      navigate("/login")
     } catch (error: any) {
       if (error instanceof SystemError) {
         alert(error.message)

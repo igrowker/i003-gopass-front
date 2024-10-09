@@ -23,26 +23,22 @@ export default function VerifiedSeller({ ticket }: { ticket: Ticket }) {
   return (
     <>
       <div className="flex flex-col p-2">
-        <p className="mb-2">{t("verifiedSeller")}</p>
+        <p className="mb-2 font-bold">{t("verifiedSeller")}</p>
         <div className="flex flex-row">
           <Avatar size="5rem" img={user.image} />
-          
+
           <div>
             <span className="flex gap-3">
-              <p className="mb-2">{user.nombre}</p>
+              <p className="mb-2 font-azonix">{user.nombre}</p>
               <RatingCheck />
             </span>
             <div className="flex flex-col">
-              <p className="mb-1">La vende por:</p>
+              <p className="mb-1 font-bold">La vende por:</p>
               <p>
                 <em>{ticket.resaleDetail}</em>
               </p>
             </div>
           </div>
-        </div>
-        <div className="mt-4 flex w-auto items-start px-4">
-          <input type="checkbox" className="mt-1 h-6 w-6" />
-          <p className="ml-2 w-[20rem]">"Entiendo que estoy..."</p>
         </div>
       </div>
     </>

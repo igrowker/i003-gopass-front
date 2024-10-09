@@ -5,9 +5,10 @@ import { ContentError, NotFoundError, SystemError } from "com/errors"
 
 import { httpClient } from "../api/axios-config"
 
-export const resetPassword = async (email: string, password: string) => {
+export const resetPassword = async (email: string, password: string, passwordRepeat: string) => {
   validate.email(email)
   validate.password(password)
+  validate.passwordsMatch(password, passwordRepeat)
 
   const body = { email, password }
 

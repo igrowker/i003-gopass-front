@@ -1,5 +1,6 @@
 export const formatDate = (dateString: Date) => {
-  return new Intl.DateTimeFormat([], {
+  return new Intl.DateTimeFormat("es-AR", {
+    timeZone: "America/Argentina/Buenos_Aires",
     year: "numeric",
     month: "long",
     day: "numeric",

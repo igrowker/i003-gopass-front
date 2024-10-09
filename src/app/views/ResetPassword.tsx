@@ -1,4 +1,3 @@
-import { Navbar } from "../components/UI/Navbar.tsx"
 import { useTranslation } from "react-i18next"
 import { IoIosMail } from "react-icons/io"
 
@@ -29,8 +28,9 @@ export default function ResetPassword() {
 
     const email = target.email.value
     const password = target.password.value
+    const passwordRepeat: string = target.passwordRepeat.value
 
-    await reset(email, password)
+    await reset(email, password, passwordRepeat)
   }
 
   return (
@@ -52,6 +52,7 @@ export default function ResetPassword() {
               icon={<IoIosMail />}
             />
             <InputFieldPassword placeholder={t("passwordPlaceholder")} id="password" />
+            <InputFieldPassword placeholder={t("confirmPasswordPlaceholder")} id="passwordRepeat" />
             <Button type="submit" className="bg-black text-xl text-white hover:bg-customRed hover:text-black">
               {t("Cambiar contraseña")}
             </Button>
