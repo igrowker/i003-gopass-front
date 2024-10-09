@@ -6,6 +6,7 @@ import ComprarEntrada from "../app/pages/BuyEntryPage"
 import Contact from "../app/pages/ContactPage"
 import LandingView from "../app/pages/LandingViewPage"
 import { MyTickets } from "../app/pages/MyTickets"
+import { MyTicketsSold } from "../app/pages/MyTicketsSold"
 import { PageNotFound } from "../app/pages/PageNotFound"
 import PagarEntrada from "../app/pages/PayEntryPage"
 import VenderEntrada from "../app/pages/SellEntryPage"
@@ -26,7 +27,7 @@ const PrivateRoutes: React.FC = () => {
       <Route path="/verificar-entrada" element={<PrivateRoute element={<VerifyEntryPage />} />} />
       <Route path="/vender-entrada" element={<PrivateRoute element={<VenderEntrada />} />} />
       <Route path="/my-tickets" element={<PrivateRoute element={<MyTickets />} />} />
-      <Route path="/my-tickets-sold" element={<PrivateRoute element={<MyTickets />} />} />
+      <Route path="/my-tickets-sold" element={<PrivateRoute element={<MyTicketsSold />} />} />
       <Route path="/all-tickets" element={<PrivateRoute element={<AllTickets />} />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
