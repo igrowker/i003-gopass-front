@@ -17,7 +17,7 @@ export default function SideBarMenu({ isOpen, onClose }: { isOpen: boolean; onCl
   const navigate = useNavigate()
   const { getProfileData } = useGetProfile()
 
-  const user = useSelector((state: RootState) => state.user)
+  const user = useSelector((state: RootState) => state.user.userProfile)
 
   useEffect(() => {
     getProfileData()

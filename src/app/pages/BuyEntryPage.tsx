@@ -16,10 +16,13 @@ export default function BuyEntryPage() {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const ticket = useSelector((state: RootState) => state.entry.ticketToResell)
-  const user = useSelector((state: RootState) => state.user)
+  const user = useSelector((state: RootState) => state.user.userProfile)
   const [isChecked, setIsChecked] = useState(false)
   const [warningMessage, setWarningMessage] = useState("")
   const isCompradorVendedor = ticket.vendedorId === user.id
+
+  console.log("Ticket vendedorId----> ", ticket.vendedorId)
+  console.log("User id----> ", user.id)
 
   const handleBuyClick = () => {
     if (!isChecked) {
@@ -85,10 +88,10 @@ export default function BuyEntryPage() {
         {warningMessage && <p className="mt-2 text-xl text-customRed">{warningMessage}</p>}
         <span className="my-8 flex w-full justify-center">
           {isCompradorVendedor ? (
-            <p className="text-lg font-semibold">{t("thisIsYourEntry")}</p> 
+            <p className="text-lg font-semibold">{t("thisIsYourEntry")}</p>
           ) : (
             <Button onClick={handleBuyClick} className="w-[15rem] bg-customGreen text-2xl text-customWhite">
-              {t("pay")}
+              {t("buy")}
             </Button>
           )}
         </span>
