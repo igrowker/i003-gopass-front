@@ -1,5 +1,4 @@
 import { useState } from "react"
-
 import { useTranslation } from "react-i18next"
 import { FaRegCalendarAlt } from "react-icons/fa"
 import { GiPositionMarker } from "react-icons/gi"
@@ -7,10 +6,10 @@ import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
 import { RootState } from "../../store/"
-import { Navbar } from "../components/UI/Navbar"
-import VerifiedSeller from "../views/VerifiedSeller"
 import Button from "../components/core/Button"
+import { Navbar } from "../components/UI/Navbar"
 import { formatDate } from "../utils/formatDate"
+import VerifiedSeller from "../views/VerifiedSeller"
 
 export default function BuyEntryPage() {
   const { t } = useTranslation()
@@ -85,7 +84,7 @@ export default function BuyEntryPage() {
         {warningMessage && <p className="mt-2 text-xl text-customRed">{warningMessage}</p>}
         <span className="my-8 flex w-full justify-center">
           {isCompradorVendedor ? (
-            <p className="text-lg font-semibold">{t("thisIsYourEntry")}</p>
+            <p className="text-lg font-semibold text-customLigthRed font-azonix">{t("thisIsYourEntry")}</p>
           ) : (
             <Button onClick={handleBuyClick} className="w-[15rem] bg-customGreen text-2xl text-customWhite">
               {t("buy")}
