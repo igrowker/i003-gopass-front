@@ -21,6 +21,8 @@ export const MyTicketsSold: React.FC = () => {
     fetchTickets()
   }, [])
 
+  console.log(tickets)
+
   return (
     <>
       <Navbar />

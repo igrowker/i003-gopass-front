@@ -2,13 +2,13 @@ import { useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"
 import { IoIosArrowDropleft } from "react-icons/io"
 import { IoIosArrowDropright } from "react-icons/io"
-import { useSelector, useDispatch } from "react-redux"
-import { useNavigate } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
+import { Link, useNavigate } from "react-router-dom"
 
 import notTicketsImage from "../../../assets/soldout.png"
 import { useGetTicketsForSell } from "../../../hooks/useGetTicketsForSell"
 import { RootState } from "../../../store"
-import { Ticket, setSelectedTicket } from "../../../store/entry/entrySlice"
+import { setSelectedTicket, Ticket } from "../../../store/entry/entrySlice"
 import SearchBar from "./SearchBar"
 
 type GridProps = {
@@ -64,9 +64,9 @@ export default function Grid({ viewType }: GridProps) {
           <div className="mb-4 flex items-center justify-between">
             <h2 className="text-xl font-bold">{t("resaleTickets")}</h2>
             {viewType === "landing" && (
-              <a href="/all-tickets">
+              <Link to="/all-tickets">
                 <span className="cursor-pointer rounded-md px-4 py-2 text-customRed">{t("viewMore")}</span>
-              </a>
+              </Link>
             )}
           </div>
           {viewType === "allTickets" && <SearchBar onSearch={handleSearch} />}
@@ -98,7 +98,9 @@ export default function Grid({ viewType }: GridProps) {
                 >
                   <IoIosArrowDropleft className="mr-2 text-3xl" />
                 </button>
-                <span className="text-center">Página {currentPage}</span>
+                <span className="text-center font-azonix">
+                  {t("page")} {currentPage}
+                </span>
                 <button
                   onClick={handleNextPage}
                   disabled={tickets.length < ticketsPerPage}
