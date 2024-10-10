@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux"
 
 import useContext from "../context/UseContext"
 import { getUserTickets } from "../service/getUserTickets"
-import { setTickets } from "../store/entry/entrySlice"
+import { setPurchasedTickets } from "../store/entry/entrySlice"
 
 export const useGetUserTickets = () => {
   const { alert } = useContext()
@@ -13,7 +13,7 @@ export const useGetUserTickets = () => {
   const getUserTicketsData = async (): Promise<void> => {
     try {
       const data = await getUserTickets()
-      dispatch(setTickets(data))
+      dispatch(setPurchasedTickets(data))
     } catch (error: any) {
       if (error instanceof SystemError) {
         alert(error.message)

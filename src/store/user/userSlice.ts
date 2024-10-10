@@ -10,6 +10,7 @@ export interface User {
   country: string
   verificado: boolean
   id: number
+  userProfile: User
 }
 
 const initialState: User = {
@@ -21,7 +22,8 @@ const initialState: User = {
   city: "",
   country: "",
   verificado: false,
-  id: 0
+  id: 0,
+  userProfile: {} as User
 }
 
 const userSlice = createSlice({
@@ -36,9 +38,12 @@ const userSlice = createSlice({
     },
     setUserSellerInfo(state, action: PayloadAction<User>) {
       return { ...state, ...action.payload }
+    },
+    setUserProfile(state, action: PayloadAction<User>) {
+      state.userProfile = action.payload
     }
   }
 })
 
-export const { setUser, updateUser, setUserSellerInfo } = userSlice.actions
+export const { setUser, updateUser, setUserSellerInfo, setUserProfile } = userSlice.actions
 export default userSlice.reducer

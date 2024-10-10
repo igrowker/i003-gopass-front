@@ -1,6 +1,7 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
 import { GoHome } from "react-icons/go"
+import { IoArrowBack } from "react-icons/io5"
 
 import LOGO from "../../../assets/isologo.svg"
 import SideBarMenu from "./SideBarMenu"
@@ -23,12 +24,24 @@ export const Navbar = () => {
     setIsSideBarOpen(false)
   }
 
+  const handleBack = () => {
+    if (location.pathname === "/comprar-entrada/") {
+      navigate("/all-tickets")
+    } else {
+      navigate("/")
+    }
+  }
+
   return (
     <div className="navbar fixed z-50 flex w-full items-center justify-center bg-customRed">
       <div className="absolute left-0">
         {location.pathname !== "/" && (
-          <button onClick={handleGoHome} className="btn btn-ghost">
-            <GoHome className="h-10 w-10 ml-2" />
+          <button onClick={handleBack} className="btn btn-ghost">
+            {location.pathname === "/comprar-entrada/" ? (
+              <IoArrowBack className="ml-2 h-10 w-10" />
+            ) : (
+              <GoHome className="ml-2 h-10 w-10" />
+            )}
           </button>
         )}
       </div>
@@ -50,6 +63,6 @@ export const Navbar = () => {
         </div>
       </div>
       {isSideBarOpen && <SideBarMenu onClose={closeSideBar} isOpen={isSideBarOpen} />}
-    </div >
+    </div>
   )
 }

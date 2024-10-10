@@ -28,7 +28,7 @@ export default function UserProfile() {
   const { t } = useTranslation()
   const { updatedProfile } = useUpdateProfile()
   const { getProfileData } = useGetProfile()
-  const user = useSelector((state: RootState) => state.user)
+  const user = useSelector((state: RootState) => state.user.userProfile)
   const [userData, setUserData] = useState({
     nombre: user.nombre || "",
     dni: user.dni || "",
@@ -85,7 +85,7 @@ export default function UserProfile() {
       </div>
 
       <div className="flex flex-col items-center justify-center overflow-visible">
-        <div className="relative mt-32 mb-2 flex w-full flex-row justify-center text-2xl">
+        <div className="relative mb-2 mt-32 flex w-full flex-row justify-center text-2xl">
           <h2 className="text-center">{t("myAccount")}</h2>
         </div>
 
@@ -94,7 +94,7 @@ export default function UserProfile() {
         </div>
 
         <form
-          className="flex mt-2 w-[20rem] flex-col gap-3 sm:w-[30rem] md:w-[30rem] lg:w-[40rem]"
+          className="mt-2 flex w-[20rem] flex-col gap-3 sm:w-[30rem] md:w-[30rem] lg:w-[40rem]"
           onSubmit={handleUpdateProfile}
         >
           <InputField
@@ -167,7 +167,7 @@ export default function UserProfile() {
             label={t("image")}
           />
 
-          <Button className="mb-6 mt-6 text-2xl bg-customGreen font-semibold text-white" type="submit">
+          <Button className="mb-6 mt-6 bg-customGreen text-2xl font-semibold text-white" type="submit">
             {t("save")}
           </Button>
         </form>
