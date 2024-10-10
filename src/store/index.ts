@@ -2,11 +2,13 @@ import { configureStore } from "@reduxjs/toolkit"
 
 import entryReducer from "./entry/entrySlice"
 import userReducer from "./user/userSlice"
+import ticketsPurchasedReducer from "./entry/purchasedTicketsSlice"
 
 const store = configureStore({
   reducer: {
     entry: entryReducer,
-    user: userReducer
+    user: userReducer,
+    ticketsPurchased: ticketsPurchasedReducer
   }
 })
 
