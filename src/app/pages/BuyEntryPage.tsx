@@ -21,9 +21,6 @@ export default function BuyEntryPage() {
   const [warningMessage, setWarningMessage] = useState("")
   const isCompradorVendedor = ticket.vendedorId === user.id
 
-  console.log("Ticket vendedorId----> ", ticket.vendedorId)
-  console.log("User id----> ", user.id)
-
   const handleBuyClick = () => {
     if (!isChecked) {
       setWarningMessage("Debes aceptar las condiciones")

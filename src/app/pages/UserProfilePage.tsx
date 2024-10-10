@@ -28,7 +28,7 @@ export default function UserProfile() {
   const { t } = useTranslation()
   const { updatedProfile } = useUpdateProfile()
   const { getProfileData } = useGetProfile()
-  const user = useSelector((state: RootState) => state.user)
+  const user = useSelector((state: RootState) => state.user.userProfile)
   const [userData, setUserData] = useState({
     nombre: user.nombre || "",
     dni: user.dni || "",
