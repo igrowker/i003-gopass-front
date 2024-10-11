@@ -93,7 +93,7 @@ const validate = {
   document: validateDocument,
   passwordsMatch: validatePasswordsMatch,
   qrCode: validateQrCode,
-  validatePhone: validatePhoneNumber,
+  phone: validatePhoneNumber,
   gameName: validateGameName,
   address: validateAddress,
   description: validateDescription,

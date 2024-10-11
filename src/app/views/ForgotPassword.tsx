@@ -1,8 +1,11 @@
+import { Link } from "react-router-dom"
 import { useTranslation } from "react-i18next"
 import InputField from "../components/core/InputField"
 import { IoIosMail } from "react-icons/io"
 import Button from "../components/core/Button"
 import { useForgotPassword } from "../../hooks/useForgotPassword"
+
+import { MdOutlineLogin } from "react-icons/md"
 
 interface ResetFormElements extends HTMLFormControlsCollection {
   email: HTMLInputElement
@@ -33,8 +36,11 @@ export default function ForgotPassword() {
     <>
       <img className="absolute -z-50 h-screen w-full" src="/public/ronaldinho.webp" />
 
+      <Link to="/login">
+        <MdOutlineLogin className="absolute right-0 m-4 cursor-pointer text-5xl font-extrabold text-customWhite" />
+      </Link>
       <div className="flex h-screen flex-col items-center justify-center">
-        <p className="mb-6 text-3xl font-black text-customWhite">Restablezca su contraseña.</p>
+        <p className="mb-6 text-3xl font-black text-customWhite">{t("resetPassword")}</p>
 
         <form onSubmit={handleLoginSubmit} className="flex w-[90%] flex-col gap-5 rounded-2xl bg-[#e0e0e0e2] p-4">
           <InputField

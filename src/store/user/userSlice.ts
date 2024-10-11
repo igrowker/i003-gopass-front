@@ -11,6 +11,7 @@ export interface User {
   verificado: boolean
   id: number
   userProfile: User
+  verificadoSms?: boolean
 }
 
 const initialState: User = {
