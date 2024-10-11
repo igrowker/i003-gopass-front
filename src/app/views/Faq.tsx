@@ -16,8 +16,8 @@ export const Faq = () => {
       <div className="faq mb-6">
         <h3 className="text-xl font-medium text-gray-700 mb-2">¿Qué tipo de entradas puedo verificar?</h3>
         <p className="text-gray-600">
-          Actualmente, puedes verificar entradas para conciertos, deportes, festivales y teatro emitidos por nuestros
-          proveedores oficiales.
+          Actualmente, puedes verificar entradas para eventos deportivos. Estamos trabajando para expandir nuestra base
+          de datos y ofrecer más opciones en el futuro.
         </p>
       </div>
 
