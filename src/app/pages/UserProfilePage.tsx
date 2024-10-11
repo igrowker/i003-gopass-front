@@ -4,6 +4,7 @@ import { useSelector } from "react-redux"
 
 import { useGetProfile } from "../../hooks/useGetProfile"
 import { useUpdateProfile } from "../../hooks/useUpdateProfile"
+import { useVerifyPhone } from "../../hooks/useVerifyPhone"
 import { RootState } from "../../store"
 import Button from "../components/core/Button"
 import InputField from "../components/core/InputField"
@@ -26,8 +27,11 @@ interface UpdateFormElement extends HTMLFormElement {
 
 export default function UserProfile() {
   const { t } = useTranslation()
+
   const { updatedProfile } = useUpdateProfile()
   const { getProfileData } = useGetProfile()
+  const { verifiedPhone } = useVerifyPhone()
+
   const user = useSelector((state: RootState) => state.user.userProfile)
   const [userData, setUserData] = useState({
     nombre: user.nombre || "",
@@ -36,7 +40,8 @@ export default function UserProfile() {
     image: user.image || "",
     city: user.city || "",
     country: user.country || "",
-    email: user.email || ""
+    email: user.email || "",
+    verificadoSms: user.verificadoSms || false
   })
 
   useEffect(() => {
@@ -51,7 +56,8 @@ export default function UserProfile() {
       image: user.image || "",
       city: user.city || "",
       country: user.country || "",
-      email: user.email || ""
+      email: user.email || "",
+      verificadoSms: user.verificadoSms || false
     })
   }, [user])
 
@@ -78,6 +84,13 @@ export default function UserProfile() {
     }))
   }
 
+  const handleValidatePhoneNumber = async (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault()
+
+    const numeroTelefono = userData.numeroTelefono
+
+    await verifiedPhone(numeroTelefono)
+  }
   return (
     <>
       <div>
@@ -116,16 +129,29 @@ export default function UserProfile() {
             value={userData.email}
             label={t("email")}
           />
-
-          <InputField
-            onChange={handleChange}
-            type="text"
-            className="rounded-md border-2 border-solid p-2"
-            placeholder={t("phone")}
-            id="numeroTelefono"
-            value={userData.numeroTelefono}
-            label={t("phone")}
-          />
+          <div className="relative">
+            <InputField
+              onChange={handleChange}
+              type="text"
+              className="w-full rounded-md border-2 border-solid p-2"
+              placeholder={t("phone")}
+              id="numeroTelefono"
+              value={userData.numeroTelefono}
+              label={t("phone")}
+            />
+            <div className="absolute right-0 top-3 flex h-full items-center">
+              {userData.verificadoSms ? (
+                <span className="ml-2 p-2 text-green-500">{t("verifiedPhone")}</span>
+              ) : (
+                <button
+                  onClick={handleValidatePhoneNumber}
+                  className="relative right-1 h-[2.4rem] w-[8.1rem] rounded-md bg-customGreen p-2 text-white"
+                >
+                  {t("validatePhone")}
+                </button>
+              )}
+            </div>
+          </div>
 
           <InputField
             onChange={handleChange}

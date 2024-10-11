@@ -13,6 +13,7 @@ import VenderEntrada from "../app/pages/SellEntryPage"
 import Ticket from "../app/pages/TicketPage"
 import UserProfile from "../app/pages/UserProfilePage"
 import VerifyEntryPage from "../app/pages/VerifyEntryPage"
+import PhoneCode from "../app/pages/PhoneCode"
 import PrivateRoute from "./PrivateRoute"
 
 const PrivateRoutes: React.FC = () => {
@@ -29,6 +30,7 @@ const PrivateRoutes: React.FC = () => {
       <Route path="/my-tickets" element={<PrivateRoute element={<MyTickets />} />} />
       <Route path="/my-tickets-sold" element={<PrivateRoute element={<MyTicketsSold />} />} />
       <Route path="/all-tickets" element={<PrivateRoute element={<AllTickets />} />} />
+      <Route path="/phone-code" element={<PrivateRoute element={<PhoneCode />} />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   )

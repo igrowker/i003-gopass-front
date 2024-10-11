@@ -65,7 +65,9 @@ export default function Grid({ viewType }: GridProps) {
             <h2 className="text-xl font-bold">{t("resaleTickets")}</h2>
             {viewType === "landing" && (
               <Link to="/all-tickets">
-                <span className="cursor-pointer rounded-md px-4 py-2 text-customRed">{t("viewMore")}</span>
+                <span className="flex w-[6rem] cursor-pointer rounded-md px-4 py-2 text-customRed">
+                  {t("viewMore")}
+                </span>
               </Link>
             )}
           </div>
@@ -76,7 +78,7 @@ export default function Grid({ viewType }: GridProps) {
               <img src={notTicketsImage} alt="No hay entradas" className="h-auto w-full rounded-md" />
             </div>
           ) : (
-            <div className={`grid grid-cols-2 gap-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8`}>
+            <div className={`grid grid-cols-2 gap-4 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4`}>
               {filteredTickets.slice(0, viewType === "landing" ? 4 : Infinity).map((ticket, index) => (
                 <div key={index} className="w-full cursor-pointer" onClick={() => handleTicketClick(ticket)}>
                   <img src={ticket?.entrada.image} alt={`Imagen`} className="h-auto w-full rounded-md" />
