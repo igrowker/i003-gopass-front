@@ -84,9 +84,11 @@ export default function SideBarMenu({ isOpen, onClose }: { isOpen: boolean; onCl
           <hr className="w-full border-2" />
           <div>
             <ul className="flex flex-col gap-5 pt-5 text-center">
-              <li className="cursor-pointer">
-                <p>{t("help")}</p>
-              </li>
+              <Link to="/help-support">
+                <li className="cursor-pointer">
+                  <p>{t("help")}</p>
+                </li>
+              </Link>
               <li className="cursor-pointer">
                 <p>{t("about")}</p>
               </li>

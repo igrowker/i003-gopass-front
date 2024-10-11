@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom"
 import AllTickets from "../app/pages/AllTickets"
 import ComprarEntrada from "../app/pages/BuyEntryPage"
 import Contact from "../app/pages/ContactPage"
+import { HelpSupport } from "../app/pages/HelpSupport"
 import LandingView from "../app/pages/LandingViewPage"
 import { MyTickets } from "../app/pages/MyTickets"
 import { MyTicketsSold } from "../app/pages/MyTicketsSold"
@@ -23,6 +24,7 @@ const PrivateRoutes: React.FC = () => {
       <Route path="/comprar-entrada" element={<PrivateRoute element={<ComprarEntrada />} />} />
       <Route path="/pagar-entrada" element={<PrivateRoute element={<PagarEntrada />} />} />
       <Route path="/contact" element={<PrivateRoute element={<Contact />} />} />
+      <Route path="/help-support" element={<PrivateRoute element={<HelpSupport />} />} />
       <Route path="/ticket" element={<PrivateRoute element={<Ticket />} />} />
       <Route path="/verificar-entrada" element={<PrivateRoute element={<VerifyEntryPage />} />} />
       <Route path="/vender-entrada" element={<PrivateRoute element={<VenderEntrada />} />} />
