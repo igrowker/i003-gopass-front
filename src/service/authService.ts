@@ -15,17 +15,22 @@ export const autenticarUsuario = async (email: string, password: string): Promis
     return response.data.token
   } catch (error: unknown) {
     if (axios.isAxiosError(error)) {
-      if (error.response && error.response.status === 401) {
-        throw new CredentialsError("Credenciales incorrectas")
+      if (error.response) {
+        if (error.response.status === 401) {
+          throw new CredentialsError("Credenciales incorrectas")
+        } else if (error.response.status === 400) {
+          throw new ContentError("Por favor, verifica tu correo electrónico.")
+        } else {
+          throw new SystemError(error.message)
+        }
       } else {
-        throw new SystemError(error.message)
+        throw new SystemError("Error de conexión")
       }
     } else {
       throw new SystemError("Error de conexión")
     }
   }
 }
-
 export const registrarUsuario = async (email: string, password: string, passwordRepeat: string): Promise<void> => {
   validate.email(email)
   validate.password(password)
@@ -41,7 +46,11 @@ export const registrarUsuario = async (email: string, password: string, password
     throw new SystemError(`Error en el registro: ${response.statusText}`)
   } catch (error: unknown) {
     if (axios.isAxiosError(error)) {
-      throw new ContentError(error.message)
+      if (error.response && error.response.status === 400) {
+        throw new ContentError("El correo electrónico ya está registrado o los datos son inválidos.")
+      } else {
+        throw new ContentError(error.message)
+      }
     }
     throw new SystemError("Error de conexión")
   }
