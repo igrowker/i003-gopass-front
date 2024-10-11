@@ -20,9 +20,13 @@ export default function Grid({ viewType }: GridProps) {
   const dispatch = useDispatch()
   const { getTicketsForSellData } = useGetTicketsForSell()
   const tickets = useSelector((state: RootState) => state.entry.tickets)
+  const user = useSelector((state: RootState) => state.user)
   const [currentPage, setCurrentPage] = useState(1)
   const ticketsPerPage = viewType === "allTickets" ? 10 : 6
   const navigate = useNavigate()
+
+  const userVerifiedSms = user.userProfile.verificadoSms
+  console.log(userVerifiedSms)
 
   const [filteredTickets, setFilteredTickets] = useState<Ticket[]>([])
   const [searchQuery, setSearchQuery] = useState("")
@@ -78,16 +82,18 @@ export default function Grid({ viewType }: GridProps) {
               <img src={notTicketsImage} alt="No hay entradas" className="h-auto w-full rounded-md" />
             </div>
           ) : (
-            <div className={`grid grid-cols-2 gap-4 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4`}>
-              {filteredTickets.slice(0, viewType === "landing" ? 4 : Infinity).map((ticket, index) => (
-                <div key={index} className="w-full cursor-pointer" onClick={() => handleTicketClick(ticket)}>
-                  <img src={ticket?.entrada.image} alt={`Imagen`} className="h-auto w-full rounded-md" />
-                  <div>
-                    <p className="text-center text-[0.8rem]">{ticket?.entrada.gameName}</p>
+            userVerifiedSms && (
+              <div className={`grid grid-cols-2 gap-4 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4`}>
+                {filteredTickets.slice(0, viewType === "landing" ? 4 : Infinity).map((ticket, index) => (
+                  <div key={index} className="w-full cursor-pointer" onClick={() => handleTicketClick(ticket)}>
+                    <img src={ticket?.entrada.image} alt={`Imagen`} className="h-auto w-full rounded-md" />
+                    <div>
+                      <p className="text-center text-[0.8rem]">{ticket?.entrada.gameName}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            )
           )}
 
           {viewType === "allTickets" && (

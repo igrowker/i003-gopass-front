@@ -3,15 +3,18 @@ import { useSelector } from "react-redux"
 
 import { useGetTicketsForSell } from "../../hooks/useGetTicketsForSell"
 import { RootState } from "../../store"
-import { Ticket } from "../../store/entry/entrySlice"
 import Card from "../components/UI/Card"
 
 export default function LatestEntries(): JSX.Element {
-  const tickets: Ticket[] = useSelector((state: RootState) => state.entry.tickets)
-
+  const tickets = useSelector((state: RootState) => state.entry.tickets)
+  const user = useSelector((state: RootState) => state.user)
   const { getTicketsForSellData } = useGetTicketsForSell()
+
   const ticketsPerPage = tickets.length + 1
   const currentPage = 1
+
+  const userVerifiedSms = user.userProfile.verificadoSms
+  console.log(userVerifiedSms)
 
   useEffect(() => {
     getTicketsForSellData(currentPage, ticketsPerPage)
@@ -27,9 +30,13 @@ export default function LatestEntries(): JSX.Element {
 
   return (
     <>
-      {sortedTickets.map((ticket, index) => (
-        <Card key={index} ticket={ticket} />
-      ))}
+      {!userVerifiedSms ? (
+        <div className="flex justify-center">
+          <h2>Necesitas verificar el numero de telefono para comprar entradas</h2>
+        </div>
+      ) : (
+        sortedTickets.map((ticket, index) => <Card key={index} ticket={ticket} />)
+      )}
     </>
   )
 }
