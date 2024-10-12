@@ -1,8 +1,10 @@
 import { useState } from "react"
+import { useTranslation } from "react-i18next"
 
 import { Policy } from "../views/Policy"
 
 export const RefundPolicy = () => {
+  const { t } = useTranslation()
   const [showPolicy, setShowPolicy] = useState(false)
 
   const handleShowPolicy = () => {
@@ -15,14 +17,13 @@ export const RefundPolicy = () => {
 
   return (
     <div className="refund-section">
-      <h2 className="text-2xl font-semibold text-gray-800 mb-4">Políticas de Reembolso</h2>
+      <h2 className="text-2xl font-semibold text-gray-800 mb-4">{t("refundPolicyTitle")}</h2>
       <p className="text-lg text-gray-600 leading-relaxed mb-5">
-        Si tu entrada es marcada como falsa o no válida y fue comprada a través de GoPass, el proceso de reembolso se
-        iniciará de manera automática. Para más detalles, consulta nuestra{" "}
+        {t("refundPolicyText1")}{" "}
         <span className="text-blue-500 underline cursor-pointer" onClick={handleShowPolicy}>
-          Política de Reembolso
+          {t("refundPolicyLink")}
         </span>
-        .
+        {t("refundPolicyText2")}
       </p>
       {showPolicy && <Policy onClose={handleClosePolicy} />}
     </div>
