@@ -1,7 +1,7 @@
 const isAuthenticated = (): boolean => {
   const token = sessionStorage.getItem("token")
   return token !== null
-// return true
+  // return true
 }
 
 export default isAuthenticated
