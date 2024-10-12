@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 
 import { useGetTicketsForSell } from "../../hooks/useGetTicketsForSell"
@@ -7,13 +7,17 @@ import Card from "../components/UI/Card"
 
 export default function LatestEntries(): JSX.Element {
   const tickets = useSelector((state: RootState) => state.entry.tickets)
-  const user = useSelector((state: RootState) => state.user)
   const { getTicketsForSellData } = useGetTicketsForSell()
 
   const ticketsPerPage = tickets.length + 1
   const currentPage = 1
 
-  const userVerifiedSms = user.userProfile.verificadoSms
+  const [userVerifiedSms, setUserVerifiedSms] = useState(false)
+
+  useEffect(() => {
+    const userVerified = sessionStorage.getItem("user.verificadoSms") === "true"
+    setUserVerifiedSms(userVerified)
+  }, [])
 
   useEffect(() => {
     getTicketsForSellData(currentPage, ticketsPerPage)

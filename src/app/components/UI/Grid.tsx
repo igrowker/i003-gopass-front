@@ -20,13 +20,16 @@ export default function Grid({ viewType }: GridProps) {
   const dispatch = useDispatch()
   const { getTicketsForSellData } = useGetTicketsForSell()
   const tickets = useSelector((state: RootState) => state.entry.tickets)
-  const user = useSelector((state: RootState) => state.user)
   const [currentPage, setCurrentPage] = useState(1)
   const ticketsPerPage = viewType === "allTickets" ? 10 : 6
   const navigate = useNavigate()
 
-  const userVerifiedSms = user.userProfile.verificadoSms
-  console.log(userVerifiedSms)
+  const [userVerifiedSms, setUserVerifiedSms] = useState(false)
+
+  useEffect(() => {
+    const userVerified = sessionStorage.getItem("user.verificadoSms") === "true"
+    setUserVerifiedSms(userVerified)
+  }, [])
 
   const [filteredTickets, setFilteredTickets] = useState<Ticket[]>([])
   const [searchQuery, setSearchQuery] = useState("")

@@ -84,7 +84,7 @@ export default function BuyEntryPage() {
         {warningMessage && <p className="mt-2 text-xl text-customRed">{warningMessage}</p>}
         <span className="my-8 flex w-full justify-center">
           {isCompradorVendedor ? (
-            <p className="text-lg font-semibold text-customLigthRed font-azonix">{t("thisIsYourEntry")}</p>
+            <p className="font-azonix text-lg font-semibold text-customLigthRed">{t("thisIsYourEntry")}</p>
           ) : (
             <Button onClick={handleBuyClick} className="w-[15rem] bg-customGreen text-2xl text-customWhite">
               {t("buy")}
