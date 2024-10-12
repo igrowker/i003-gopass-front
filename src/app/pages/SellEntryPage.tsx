@@ -97,9 +97,17 @@ export default function SellEntryPage() {
             id="eventName"
             label={t("eventName")}
             value={entry?.gameName || ""}
+            readonly
           />
 
-          <InputField type="text" className="hidden" placeholder="dd/mm/yyyy" id="eventDate" value={entry?.eventDate} />
+          <InputField
+            type="text"
+            className="hidden"
+            placeholder="dd/mm/yyyy"
+            id="eventDate"
+            readonly
+            value={entry?.eventDate}
+          />
           <div className="-mt-[4.5rem]">
             <InputField
               type="text"
@@ -107,15 +115,20 @@ export default function SellEntryPage() {
               placeholder="dd/mm/yyyy hh:mm"
               id="eventDateFake"
               label={t("date")}
-              value={new Date(entry?.eventDate).toLocaleString("es-AR", {
-                year: "numeric",
-                month: "2-digit",
-                day: "2-digit",
-                hour: "2-digit",
-                minute: "2-digit",
-                hour12: false,
-                timeZone: "America/Argentina/Buenos_Aires"
-              })}
+              value={
+                entry?.eventDate
+                  ? new Date(entry.eventDate).toLocaleString("es-AR", {
+                      year: "numeric",
+                      month: "2-digit",
+                      day: "2-digit",
+                      hour: "2-digit",
+                      minute: "2-digit",
+                      hour12: false,
+                      timeZone: "America/Argentina/Buenos_Aires"
+                    })
+                  : ""
+              }
+              readonly
             />
           </div>
 
@@ -126,6 +139,7 @@ export default function SellEntryPage() {
             id="address"
             label={t("eventAddress")}
             value={entry?.address}
+            readonly
           />
 
           <InputField
@@ -135,6 +149,7 @@ export default function SellEntryPage() {
             id="details"
             label={t("entryDetails")}
             value={entry?.description}
+            readonly
           />
 
           <TextArea

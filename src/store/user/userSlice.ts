@@ -1,29 +1,29 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
 export interface User {
-  image: string
-  email: string
-  nombre: string
-  dni: string
-  numeroTelefono: string
-  city: string
-  country: string
+  image: string | null
+  email: string | null
+  nombre: string | null
+  dni: string | null
+  numeroTelefono: string | null
+  city: string | null
+  country: string | null
   verificado: boolean
-  id: number
+  id: number | null
   userProfile: User
   verificadoSms?: boolean
 }
 
 const initialState: User = {
-  image: "",
-  email: "",
-  nombre: "",
-  dni: "",
-  numeroTelefono: "",
-  city: "",
-  country: "",
+  image: null,
+  email: null,
+  nombre: null,
+  dni: null,
+  numeroTelefono: null,
+  city: null,
+  country: null,
   verificado: false,
-  id: 0,
+  id: null,
   userProfile: {} as User
 }
 
