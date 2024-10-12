@@ -34,6 +34,7 @@ const userSlice = createSlice({
     setUser(state, action: PayloadAction<User>) {
       const user = action.payload
       sessionStorage.setItem("user", JSON.stringify(user))
+      sessionStorage.setItem("user.verificadoSms", user.verificadoSms ? "true" : "false")
       return { ...state, ...user }
     },
     updateUser(state, action: PayloadAction<Partial<User>>) {

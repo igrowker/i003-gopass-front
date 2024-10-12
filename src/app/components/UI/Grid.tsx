@@ -16,14 +16,13 @@ type GridProps = {
 }
 
 export default function Grid({ viewType }: GridProps) {
-  const { t } = useTranslation()
   const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const { t } = useTranslation()
   const { getTicketsForSellData } = useGetTicketsForSell()
   const tickets = useSelector((state: RootState) => state.entry.tickets)
   const [currentPage, setCurrentPage] = useState(1)
   const ticketsPerPage = viewType === "allTickets" ? 10 : 6
-  const navigate = useNavigate()
-
   const [userVerifiedSms, setUserVerifiedSms] = useState(false)
 
   useEffect(() => {
