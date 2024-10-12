@@ -140,16 +140,17 @@ export default function UserProfile() {
               label={t("phone")}
             />
             <div className="absolute right-0 top-3 flex h-full items-center">
-              {userData.verificadoSms ? (
-                <span className="ml-2 p-2 text-green-500">{t("verifiedPhone")}</span>
-              ) : (
-                <button
-                  onClick={handleValidatePhoneNumber}
-                  className="relative right-1 h-[2.4rem] w-[8.1rem] rounded-md bg-customGreen p-2 text-white"
-                >
-                  {t("validatePhone")}
-                </button>
-              )}
+              {user.numeroTelefono &&
+                (userData.verificadoSms ? (
+                  <span className="ml-2 p-2 text-green-500">{t("verifiedPhone")}</span>
+                ) : (
+                  <button
+                    onClick={handleValidatePhoneNumber}
+                    className="relative right-1 h-[2.4rem] w-[8.1rem] rounded-md bg-customGreen p-2 text-white"
+                  >
+                    {t("validatePhone")}
+                  </button>
+                ))}
             </div>
           </div>
 

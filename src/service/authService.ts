@@ -1,5 +1,5 @@
 import axios from "axios"
-import { ContentError, CredentialsError, SystemError } from "com/errors"
+import { ContentError, CredentialsError, MatchError, SystemError } from "com/errors"
 import validate from "com/validate"
 
 import { httpClient } from "../api/axios-config"
@@ -49,7 +49,7 @@ export const registrarUsuario = async (email: string, password: string, password
       if (error.response && error.response.status === 400) {
         throw new ContentError("El correo electrónico ya está registrado o los datos son inválidos.")
       } else {
-        throw new ContentError(error.message)
+        throw new MatchError(error.message)
       }
     }
     throw new SystemError("Error de conexión")
