@@ -54,7 +54,7 @@ export default function ResetPassword() {
             <InputFieldPassword placeholder={t("passwordPlaceholder")} id="password" />
             <InputFieldPassword placeholder={t("confirmPasswordPlaceholder")} id="passwordRepeat" />
             <Button type="submit" className="bg-black text-xl text-white hover:bg-customRed hover:text-black">
-              {t("Cambiar contraseña")}
+              {t("changePassword")}
             </Button>
           </form>
         </div>
