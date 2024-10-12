@@ -10,6 +10,7 @@ type InputFieldProps = {
   value?: any
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
   style?: any
+  readonly?: boolean
 }
 
 export default function InputField({
@@ -21,7 +22,8 @@ export default function InputField({
   type,
   value,
   onChange,
-  style
+  style,
+  readonly
 }: InputFieldProps) {
   return (
     <>
@@ -37,6 +39,7 @@ export default function InputField({
           value={value}
           onChange={onChange}
           style={style}
+          readOnly={readonly}
         />
         {icon && <div className="mr-8 h-7 w-7 cursor-pointer text-3xl text-black opacity-70">{icon}</div>}
       </div>

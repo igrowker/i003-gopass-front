@@ -14,7 +14,6 @@ export default function LatestEntries(): JSX.Element {
   const currentPage = 1
 
   const userVerifiedSms = user.userProfile.verificadoSms
-  console.log(userVerifiedSms)
 
   useEffect(() => {
     getTicketsForSellData(currentPage, ticketsPerPage)
