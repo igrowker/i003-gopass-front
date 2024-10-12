@@ -1,4 +1,4 @@
-import { Faq } from "../views/FAQ"
+import { Faq } from "../views/Faq"
 import { Instructions } from "../views/Instructions"
 import { RefundPolicy } from "../views/RefundPolicy"
 import { Support } from "../views/Support"

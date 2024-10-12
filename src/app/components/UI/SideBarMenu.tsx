@@ -89,9 +89,11 @@ export default function SideBarMenu({ isOpen, onClose }: { isOpen: boolean; onCl
                   <p>{t("help")}</p>
                 </li>
               </Link>
-              <li className="cursor-pointer">
-                <p>{t("about")}</p>
-              </li>
+              <Link to="/about-us">
+                <li className="cursor-pointer">
+                  <p>{t("about")}</p>
+                </li>
+              </Link>
               <li className="cursor-pointer" onClick={handleLogout}>
                 <p>{t("signOut")}</p>
               </li>

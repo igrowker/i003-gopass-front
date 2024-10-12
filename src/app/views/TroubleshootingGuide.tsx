@@ -2,7 +2,7 @@ export const TroubleshootingGuide = ({ onClose }) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
       <div className="bg-black bg-opacity-50 absolute inset-0" onClick={onClose}></div>
-      <div className="bg-white shadow-md rounded-lg p-6 mb-10 relative z-10 max-w-3xl mx-auto h-1/2 overflow-y-auto">
+      <div className="bg-white w-[90%]  shadow-md rounded-lg p-6 mb-10 relative z-10 max-w-3xl mx-auto h-1/2 overflow-y-auto">
         <button className="absolute top-4 right-4 text-gray-600 text-3xl" onClick={onClose}>
           &times;
         </button>
