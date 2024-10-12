@@ -32,7 +32,10 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     setUser(state, action: PayloadAction<User>) {
-      return { ...state, ...action.payload }
+      const user = action.payload
+      sessionStorage.setItem("user", JSON.stringify(user))
+      sessionStorage.setItem("user.verificadoSms", user.verificadoSms ? "true" : "false")
+      return { ...state, ...user }
     },
     updateUser(state, action: PayloadAction<Partial<User>>) {
       return { ...state, ...action.payload }

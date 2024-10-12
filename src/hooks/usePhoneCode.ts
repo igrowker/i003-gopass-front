@@ -8,7 +8,7 @@ export const usePhoneCode = () => {
   const phoneCodeCorrect = async (vonageCode: number): Promise<void> => {
     try {
       await phoneCodeFetch(vonageCode)
-      navigate("/")
+      navigate("/login")
     } catch (error: any) {
       if (error instanceof SystemError) {
         alert(error.message)

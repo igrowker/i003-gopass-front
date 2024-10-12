@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"
 import { FaRegCalendarAlt } from "react-icons/fa"
 import { GiPositionMarker } from "react-icons/gi"
@@ -15,10 +15,17 @@ export default function BuyEntryPage() {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const ticket = useSelector((state: RootState) => state.entry.ticketToResell)
-  const user = useSelector((state: RootState) => state.user.userProfile)
   const [isChecked, setIsChecked] = useState(false)
   const [warningMessage, setWarningMessage] = useState("")
-  const isCompradorVendedor = ticket.vendedorId === user.id
+
+  const [isSameUser, setIsSameUser] = useState(false)
+
+  useEffect(() => {
+    const user = JSON.parse(sessionStorage.getItem("user") || "{}")
+    if (user?.id === ticket?.entrada.usuarioId) {
+      setIsSameUser(true)
+    }
+  }, [])
 
   const handleBuyClick = () => {
     if (!isChecked) {
@@ -83,8 +90,8 @@ export default function BuyEntryPage() {
         </div>
         {warningMessage && <p className="mt-2 text-xl text-customRed">{warningMessage}</p>}
         <span className="my-8 flex w-full justify-center">
-          {isCompradorVendedor ? (
-            <p className="text-lg font-semibold text-customLigthRed font-azonix">{t("thisIsYourEntry")}</p>
+          {isSameUser ? (
+            <p className="font-azonix text-lg font-semibold text-customLigthRed">{t("thisIsYourEntry")}</p>
           ) : (
             <Button onClick={handleBuyClick} className="w-[15rem] bg-customGreen text-2xl text-customWhite">
               {t("buy")}

@@ -10,14 +10,5 @@ export const EmailConfirm = async () => {
     cancelButtonColor: "#d33",
     confirmButtonText: "Ok"
   })
-
-  //   if (result.isConfirmed) {
-  //     await Swal.fire({
-  //       title: "¡Publicada!",
-  //       text: "Tu entrada ha sido publicada.",
-  //       icon: "success"
-  //     })
-  //   }
-
   return result.isConfirmed
 }
