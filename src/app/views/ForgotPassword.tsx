@@ -52,7 +52,7 @@ export default function ForgotPassword() {
             label={t("enterEmail")}
           />
           <Button type="submit" className="bg-black text-xl text-white hover:bg-customRed hover:text-black">
-            {t("Send")}
+            {t("send")}
           </Button>
         </form>
       </div>
