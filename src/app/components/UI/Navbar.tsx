@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
 import { GoHome } from "react-icons/go"
 import { IoArrowBack } from "react-icons/io5"
@@ -14,10 +14,6 @@ export const Navbar = () => {
 
   const toggleSideBar = () => {
     setIsSideBarOpen(!isSideBarOpen)
-  }
-
-  const handleGoHome = () => {
-    navigate("/")
   }
 
   const closeSideBar = () => {
