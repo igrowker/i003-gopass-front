@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
+import { Link } from "react-router-dom"
 
 import { useGetTicketsForSell } from "../../hooks/useGetTicketsForSell"
 import { RootState } from "../../store"
@@ -35,7 +36,9 @@ export default function LatestEntries(): JSX.Element {
     <>
       {!userVerifiedSms ? (
         <div className="flex justify-center">
-          <h2>Necesitas verificar el numero de telefono para comprar entradas</h2>
+          <h2>
+            Necesitas verificar el numero de telefono para comprar entradas.<Link to="/user-profile"> Aquí</Link>
+          </h2>
         </div>
       ) : (
         sortedTickets.map((ticket, index) => <Card key={index} ticket={ticket} />)
