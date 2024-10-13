@@ -44,7 +44,7 @@ export default function Register() {
           <picture>
             <source srcSet="/src/assets/isologo.webp" type="image/webp" />
             <source srcSet="/src/assets/isologo.svg" type="image/svg+xml" />
-            <img src="/src/assets/isologo.png" alt="Logo" className="w-[15rem]" />
+            <img src="img/isologo.png" alt="Logo" className="w-[15rem]" />
           </picture>
 
           <form onSubmit={handleRegister} className="flex w-[90%] flex-col gap-5 rounded-2xl bg-[#e0e0e0e2] p-3 px-6">
