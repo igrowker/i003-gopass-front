@@ -5,11 +5,7 @@ import { httpClient } from "../api/axios-config"
 
 export const getProfile = async () => {
   try {
-    const response = await httpClient.get("/Usuario/user-credentials", {
-      // headers: {
-      //   Authorization: `Bearer ${sessionStorage.getItem("token")}`
-      // }
-    })
+    const response = await httpClient.get("/Usuario/user-credentials", {})
     return response.data
   } catch (error: unknown) {
     if (axios.isAxiosError(error)) {

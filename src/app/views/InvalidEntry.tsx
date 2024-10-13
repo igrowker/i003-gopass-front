@@ -13,10 +13,7 @@ function InvalidEntry({ onVerifyAnother }: { onVerifyAnother: () => void }) {
     <>
       <section className="flex flex-col items-center p-4">
         <div className="items-star m-4 flex flex-col">
-          <div className="mb-10 text-xl font-semibold">
-            <h1>{t("checkAnEntry")}</h1>
-          </div>
-          <div className="rounded-xl bg-customLigthRed p-2 text-center text-customWhite">
+          <div className="rounded-xl bg-customLigthRed p-2 mt-28 text-center text-customWhite">
             <p>{t("unverifiedAuthenticity")}</p>
           </div>
           <div className="pt-7 text-xl font-semibold">{t("codeIsNotInDatabase")}</div>

@@ -1,16 +1,23 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
-import { RootState } from "../../store"
-import { Ticket } from "../../store/entry/entrySlice"
 
-import Card from "../components/UI/Card"
 import { useGetTicketsForSell } from "../../hooks/useGetTicketsForSell"
+import { RootState } from "../../store"
+import Card from "../components/UI/Card"
 
 export default function LatestEntries(): JSX.Element {
-  const tickets: Ticket[] = useSelector((state: RootState) => state.entry.tickets)
+  const tickets = useSelector((state: RootState) => state.entry.tickets)
   const { getTicketsForSellData } = useGetTicketsForSell()
+
   const ticketsPerPage = tickets.length + 1
   const currentPage = 1
+
+  const [userVerifiedSms, setUserVerifiedSms] = useState(false)
+
+  useEffect(() => {
+    const userVerified = sessionStorage.getItem("user.verificadoSms") === "true"
+    setUserVerifiedSms(userVerified)
+  }, [])
 
   useEffect(() => {
     getTicketsForSellData(currentPage, ticketsPerPage)
@@ -26,9 +33,13 @@ export default function LatestEntries(): JSX.Element {
 
   return (
     <>
-      {sortedTickets.map((ticket, index) => (
-        <Card key={index} ticket={ticket} />
-      ))}
+      {!userVerifiedSms ? (
+        <div className="flex justify-center">
+          <h2>Necesitas verificar el numero de telefono para comprar entradas</h2>
+        </div>
+      ) : (
+        sortedTickets.map((ticket, index) => <Card key={index} ticket={ticket} />)
+      )}
     </>
   )
 }

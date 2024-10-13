@@ -6,7 +6,7 @@ interface AlertProps {
 }
 
 export default ({ message, onAccept }: AlertProps) => (
-  <div className="absolute top-[20rem] flex w-full flex-col items-center justify-center">
+  <div className="fixed inset-0 flex items-center justify-center">
     <div className="flex w-[22rem] flex-col items-center justify-center rounded-2xl bg-black bg-opacity-90 p-4">
       <p className="mb-4 text-center text-2xl font-semibold text-white">{message}</p>
       <Button

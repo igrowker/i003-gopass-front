@@ -1,5 +1,6 @@
 import axios from "axios"
 import { ContentError, SystemError } from "com/errors"
+import validate from "com/validate"
 
 import { httpClient } from "../api/axios-config"
 
@@ -11,6 +12,12 @@ export const updateProfile = async (
   city: string,
   country: string
 ) => {
+  validate.fullName(nombre)
+  validate.document(dni)
+  validate.phone(numeroTelefono)
+  validate.location(city)
+  validate.location(country)
+
   const body = { nombre, dni, numeroTelefono, image, city, country }
 
   try {
@@ -22,7 +29,11 @@ export const updateProfile = async (
     throw new ContentError(`Error al actualizar: ${response.statusText}`)
   } catch (error: unknown) {
     if (axios.isAxiosError(error)) {
-      throw new SystemError(error.message)
+      if (error.response?.status === 404) {
+        throw new ContentError(error.response.data || error.message)
+      } else {
+        throw new SystemError(`Error de Axios: ${error.message}`)
+      }
     } else {
       throw new SystemError("Error de conexión")
     }

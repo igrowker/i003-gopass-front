@@ -12,6 +12,9 @@ export interface Ticket {
   entradaId: number
   entrada: Entrada
   fechaReventa: string
+  precio: string
+  resaleDetail: string
+  vendedorId: number
 }
 
 export interface Entrada {
@@ -20,14 +23,18 @@ export interface Entrada {
   compradorId: number
   address: string
   precio: string
-  eventDate: Date
+  eventDate: string
   description: string
   codigoQR: string
+  entradaId: number
+  usuarioId: number
 }
 
 const initialState = {
   codigoQR: "",
   tickets: [] as Ticket[],
+  ticketsSold: [] as Ticket[],
+  purchasedTickets: [] as Ticket[],
   ticketToResell: {
     image: "",
     gameName: "",
@@ -42,7 +49,7 @@ const initialState = {
       image: "",
       gameName: "",
       address: "",
-      precio: "",
+      precio: ""
     }
   } as Ticket
 }
@@ -60,11 +67,28 @@ const entrySlice = createSlice({
     setTickets(state, action: PayloadAction<any>) {
       state.tickets = action.payload
     },
+    setTicketsSold(state, action: PayloadAction<any>) {
+      state.ticketsSold = action.payload
+    },
+    setPurchasedTickets(state, action: PayloadAction<any>) {
+      state.purchasedTickets = action.payload
+    },
     setSellTickets(state, action: PayloadAction<any>) {
       state.tickets = action.payload
+    },
+    setSelectedTicket(state, action: PayloadAction<Ticket>) {
+      state.ticketToResell = action.payload
     }
   }
 })
 
-export const { setEntry, clearEntry, setTickets, setSellTickets } = entrySlice.actions
+export const {
+  setEntry,
+  setPurchasedTickets,
+  clearEntry,
+  setTickets,
+  setTicketsSold,
+  setSellTickets,
+  setSelectedTicket
+} = entrySlice.actions
 export default entrySlice.reducer

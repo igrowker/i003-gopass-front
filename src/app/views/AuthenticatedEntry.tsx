@@ -7,11 +7,15 @@ import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "../../store"
 import { clearEntry } from "../../store/entry/entrySlice"
 import Button from "../components/core/Button"
+import { formatDate } from "../utils/formatDate"
 
 function AuthenticatedEntry({ onVerifyAnother }: { onVerifyAnother: () => void }) {
   const { t } = useTranslation()
   const dispatch = useDispatch()
   const entry = useSelector((state: RootState) => state.entry.ticketToResell)
+
+  const eventDate = new Date(entry.eventDate)
+  const formattedDate: string = formatDate(eventDate)
 
   const handleVerifyAnother = () => {
     dispatch(clearEntry())
@@ -36,7 +40,7 @@ function AuthenticatedEntry({ onVerifyAnother }: { onVerifyAnother: () => void }
           <div className="text flex flex-col gap-3 pt-6 text-xl">
             <div className="flex flex-row">
               <FaRegCalendarAlt className="text-2xl text-customLigthRed" />
-              <p className="ml-2">{entry.eventDate}</p>
+              <p className="ml-2">{formattedDate}</p>
             </div>
             <div className="flex flex-row">
               <GiPositionMarker className="text-2xl text-customLigthRed" /> <p className="ml-2">{entry.address}</p>

@@ -65,12 +65,12 @@ export default function SellEntryPage() {
       <Navbar />
 
       <div className="flex flex-col items-center justify-center overflow-visible">
-        <div className="relative mt-20 flex w-full flex-row justify-center text-2xl">
+        <div className="relative mt-24 flex w-full flex-row justify-center text-2xl">
           <h2 className="-z-20 m-5 text-center text-xl font-semibold">{t("resell")}</h2>
         </div>
 
         <form
-          className="flex w-[20rem] flex-col gap-3 sm:w-[30rem] md:w-[30rem] lg:w-[40rem]"
+          className="mt-6 flex w-[20rem] flex-col gap-3 sm:w-[30rem] md:w-[30rem] lg:w-[40rem]"
           onSubmit={handleVerifySubmitTicket}
         >
           <InputField
@@ -83,7 +83,7 @@ export default function SellEntryPage() {
           <Button className="mt-4 bg-customGreen text-2xl font-semibold text-white" type="submit">
             {t("verifyAnEntry")}
           </Button>
-          <hr className="mb-6 mt-6 border-2" />
+          <hr className="my-8 border-2" />
         </form>
 
         <form
@@ -97,16 +97,40 @@ export default function SellEntryPage() {
             id="eventName"
             label={t("eventName")}
             value={entry?.gameName || ""}
+            readonly
           />
 
           <InputField
             type="text"
-            className="rounded-md border-2 border-solid p-2"
+            className="hidden"
             placeholder="dd/mm/yyyy"
             id="eventDate"
-            label={t("date")}
+            readonly
             value={entry?.eventDate}
           />
+          <div className="-mt-[4.5rem]">
+            <InputField
+              type="text"
+              className="rounded-md border-2 border-solid p-2"
+              placeholder="dd/mm/yyyy hh:mm"
+              id="eventDateFake"
+              label={t("date")}
+              value={
+                entry?.eventDate
+                  ? new Date(entry.eventDate).toLocaleString("es-AR", {
+                      year: "numeric",
+                      month: "2-digit",
+                      day: "2-digit",
+                      hour: "2-digit",
+                      minute: "2-digit",
+                      hour12: false,
+                      timeZone: "America/Argentina/Buenos_Aires"
+                    })
+                  : ""
+              }
+              readonly
+            />
+          </div>
 
           <InputField
             type="text"
@@ -115,6 +139,7 @@ export default function SellEntryPage() {
             id="address"
             label={t("eventAddress")}
             value={entry?.address}
+            readonly
           />
 
           <InputField
@@ -124,6 +149,7 @@ export default function SellEntryPage() {
             id="details"
             label={t("entryDetails")}
             value={entry?.description}
+            readonly
           />
 
           <TextArea
@@ -146,7 +172,7 @@ export default function SellEntryPage() {
             <p className="ml-2 w-full">{t("declaration")}</p>
           </div>
 
-          <Button className="mb-6 mt-4 text-2xl font-semibold text-white" type="submit">
+          <Button className="mb-6 mt-4 bg-customGreen text-2xl font-semibold text-white" type="submit">
             {t("resell")}
           </Button>
         </form>

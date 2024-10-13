@@ -1,5 +1,7 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
+import { GoHome } from "react-icons/go"
+import { IoArrowBack } from "react-icons/io5"
 
 import LOGO from "../../../assets/isologo.svg"
 import SideBarMenu from "./SideBarMenu"
@@ -14,27 +16,36 @@ export const Navbar = () => {
     setIsSideBarOpen(!isSideBarOpen)
   }
 
-  const handleGoBack = () => {
-    navigate(-1)
+  const handleGoHome = () => {
+    navigate("/")
+  }
+
+  const closeSideBar = () => {
+    setIsSideBarOpen(false)
+  }
+
+  const handleBack = () => {
+    if (location.pathname === "/comprar-entrada/") {
+      navigate("/all-tickets")
+    } else {
+      navigate("/")
+    }
   }
 
   return (
     <div className="navbar fixed z-50 flex w-full items-center justify-center bg-customRed">
       <div className="absolute left-0">
         {location.pathname !== "/" && (
-          <button onClick={handleGoBack} className="btn btn-ghost">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-10 w-10"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
-            </svg>
+          <button onClick={handleBack} className="btn btn-ghost">
+            {location.pathname === "/comprar-entrada/" ? (
+              <IoArrowBack className="ml-2 h-10 w-10" />
+            ) : (
+              <GoHome className="ml-2 h-10 w-10" />
+            )}
           </button>
         )}
       </div>
+
       <img className="h-16 w-16" src={LOGO} />
       <div className="absolute right-4">
         <div className="dropdown z-30">
@@ -51,7 +62,7 @@ export const Navbar = () => {
           </div>
         </div>
       </div>
-      {isSideBarOpen && <SideBarMenu isOpen={isSideBarOpen} />}
+      {isSideBarOpen && <SideBarMenu onClose={closeSideBar} isOpen={isSideBarOpen} />}
     </div>
   )
 }

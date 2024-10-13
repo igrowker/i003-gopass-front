@@ -1,4 +1,4 @@
-import { SystemError } from "com/errors"
+import { ContentError, MatchError } from "com/errors"
 import { useNavigate } from "react-router-dom"
 
 import { EmailConfirm } from "../app/components/UI/EmailConfirm"
@@ -13,15 +13,19 @@ export const useRegister = () => {
   const register = async (email: string, password: string, passwordRepeat: string): Promise<void> => {
     try {
       await registrarUsuario(email, password, passwordRepeat)
-      navigate("/login")
       const isConfirmed = await EmailConfirm()
       if (!isConfirmed) return
+      navigate("/login")
     } catch (error: any) {
-      if (error instanceof SystemError) {
+      if (error instanceof ContentError) {
         alert(error.message)
+      } else if (error instanceof MatchError) {
+        alert(error.message)
+      } else {
+        alert("Error de conexión")
       }
-      alert(error.message)
     }
   }
+
   return { register }
 }

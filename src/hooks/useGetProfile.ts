@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux"
 
 import useContext from "../context/UseContext"
 import { getProfile } from "../service/getProfile"
-import { setUser } from "../store/user/userSlice"
+import { setUserProfile } from "../store/user/userSlice"
 
 export const useGetProfile = () => {
   const { alert } = useContext()
@@ -13,7 +13,7 @@ export const useGetProfile = () => {
   const getProfileData = async (): Promise<void> => {
     try {
       const profile = await getProfile()
-      dispatch(setUser(profile))
+      dispatch(setUserProfile(profile))
     } catch (error: any) {
       if (error instanceof SystemError) {
         alert(error.message)

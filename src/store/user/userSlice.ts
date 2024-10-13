@@ -1,27 +1,30 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
 export interface User {
-  image: string
-  email: string
-  nombre: string
-  dni: string
-  numeroTelefono: string
-  city: string
-  country: string
+  image: string | null
+  email: string | null
+  nombre: string | null
+  dni: string | null
+  numeroTelefono: string | null
+  city: string | null
+  country: string | null
   verificado: boolean
-  id: string
+  id: number | null
+  userProfile: User
+  verificadoSms?: boolean
 }
 
 const initialState: User = {
-  image: "",
-  email: "",
-  nombre: "",
-  dni: "",
-  numeroTelefono: "",
-  city: "",
-  country: "",
+  image: null,
+  email: null,
+  nombre: null,
+  dni: null,
+  numeroTelefono: null,
+  city: null,
+  country: null,
   verificado: false,
-  id: ""
+  id: null,
+  userProfile: {} as User
 }
 
 const userSlice = createSlice({
@@ -29,13 +32,22 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     setUser(state, action: PayloadAction<User>) {
-      return { ...state, ...action.payload }
+      const user = action.payload
+      sessionStorage.setItem("user", JSON.stringify(user))
+      sessionStorage.setItem("user.verificadoSms", user.verificadoSms ? "true" : "false")
+      return { ...state, ...user }
     },
     updateUser(state, action: PayloadAction<Partial<User>>) {
       return { ...state, ...action.payload }
+    },
+    setUserSellerInfo(state, action: PayloadAction<User>) {
+      return { ...state, ...action.payload }
+    },
+    setUserProfile(state, action: PayloadAction<User>) {
+      state.userProfile = action.payload
     }
   }
 })
 
-export const { setUser, updateUser } = userSlice.actions
+export const { setUser, updateUser, setUserSellerInfo, setUserProfile } = userSlice.actions
 export default userSlice.reducer
