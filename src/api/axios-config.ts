@@ -3,9 +3,11 @@ import axios, { InternalAxiosRequestConfig } from "axios"
 export const httpClient = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
   headers: {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
+    "ngrok-skip-browser-warning": "any-value",
+
     //  Authorization: `Bearer ${sessionStorage.getItem("token")}`
-  }
+  },
 })
 
 const requestInterceptor = (config: InternalAxiosRequestConfig) => {
