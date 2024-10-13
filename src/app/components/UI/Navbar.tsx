@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom"
 import { GoHome } from "react-icons/go"
 import { IoArrowBack } from "react-icons/io5"
 
-import LOGO from "../../../assets/isologo.svg"
+import LOGO from "/img/isologo.svg"
 import SideBarMenu from "./SideBarMenu"
 
 export const Navbar = () => {
