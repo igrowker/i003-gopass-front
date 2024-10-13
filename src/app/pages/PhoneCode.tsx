@@ -31,7 +31,7 @@ export default function ForgotPassword() {
 
   return (
     <>
-      <img className="absolute -z-50 h-screen w-full" src="/public/photo-1674307419403-9f4991ce4ce1.avif" />
+      <img className="absolute -z-50 h-screen w-full" src="/photo-1674307419403-9f4991ce4ce1.avif" />
 
       <div className="flex h-screen flex-col items-center justify-center">
         <p className="mb-6 text-3xl font-black text-customWhite">Introduce el código recibido.</p>
