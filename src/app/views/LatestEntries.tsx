@@ -37,7 +37,11 @@ export default function LatestEntries(): JSX.Element {
       {!userVerifiedSms ? (
         <div className="flex justify-center">
           <h2>
-            Necesitas verificar el numero de telefono para comprar entradas.<Link to="/user-profile"> Aquí</Link>
+            Necesitas verificar el numero de telefono para comprar entradas.
+            <Link className="text-blue-500" to="/user-profile">
+              {" "}
+              Aquí
+            </Link>
           </h2>
         </div>
       ) : (
