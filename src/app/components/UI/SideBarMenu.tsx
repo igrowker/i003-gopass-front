@@ -43,7 +43,7 @@ export default function SideBarMenu({ isOpen, onClose }: { isOpen: boolean; onCl
         className={`h-screen w-1/2 rounded-r-lg bg-gradient-to-r from-black to-gray-800 p-2 pb-14 text-customWhite ${isOpen ? "animate-slide-in" : "animate-slide-out"} `}
       >
         <div className="flex flex-col items-center gap-4">
-          <Avatar img={user?.image} />
+          <Avatar img={user?.image || ""} />
           <h2 className="font-azonix">{user?.nombre}</h2>
           <p>{user?.email}</p>
           <hr className="w-full border-2" />
@@ -85,10 +85,14 @@ export default function SideBarMenu({ isOpen, onClose }: { isOpen: boolean; onCl
           <div>
             <ul className="flex flex-col gap-5 pt-5 text-center">
               <li className="cursor-pointer">
-                <p>{t("help")}</p>
+                <Link to="/help-support">
+                  <p>{t("help")}</p>
+                </Link>
               </li>
               <li className="cursor-pointer">
-                <p>{t("about")}</p>
+                <Link to="/about-us">
+                  <p>{t("about")}</p>
+                </Link>
               </li>
               <li className="cursor-pointer" onClick={handleLogout}>
                 <p>{t("signOut")}</p>
