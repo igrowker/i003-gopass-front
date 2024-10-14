@@ -76,6 +76,7 @@ export default function UserProfile() {
 
     await updatedProfile(nombre, dni, numeroTelefono, image, city, country)
   }
+  
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target
     setUserData((prevUser) => ({
