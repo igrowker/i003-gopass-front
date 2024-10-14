@@ -6,7 +6,10 @@ import { useGetTicketsForSell } from "../../hooks/useGetTicketsForSell"
 import { RootState } from "../../store"
 import Card from "../components/UI/Card"
 
+import { useTranslation } from "react-i18next"
+
 export default function LatestEntries(): JSX.Element {
+  const { t } = useTranslation()
   const tickets = useSelector((state: RootState) => state.entry.tickets)
   const { getTicketsForSellData } = useGetTicketsForSell()
 
@@ -37,10 +40,9 @@ export default function LatestEntries(): JSX.Element {
       {!userVerifiedSms ? (
         <div className="flex justify-center">
           <h2>
-            Necesitas verificar el numero de telefono para comprar entradas.
+            {t("veriyProfile")}
             <Link className="text-blue-500" to="/user-profile">
-              {" "}
-              Aquí
+              {t("here")}
             </Link>
           </h2>
         </div>
