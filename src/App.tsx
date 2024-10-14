@@ -4,13 +4,13 @@ import { Route, Routes } from "react-router-dom"
 import "./App.css"
 import Alert from "./app/components/UI/Alert"
 import Login from "./app/pages/LoginPage"
-import { PageNotFound } from "./app/pages/PageNotFound"
+import { PageNotFound } from "./app/pages/PageNotFoundPage"
 import Register from "./app/pages/RegisterPage"
 import SocialLogin from "./app/pages/SocialLoginPage"
 import { AppWrapper } from "./context/AppWrapper"
 import PrivateRoutes from "./privateRoutes/PrivateRoutes"
-import ForgotPassword from "./app/views/ForgotPassword"
-import ResetPassword from "./app/views/ResetPassword"
+import ForgotPassword from "./app/pages/ForgotPasswordPage"
+import ResetPassword from "./app/pages/ResetPasswordPage"
 
 function App() {
   const [message, setMessage] = useState<string | null>(null)

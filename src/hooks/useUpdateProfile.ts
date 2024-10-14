@@ -32,6 +32,7 @@ export const useUpdateProfile = () => {
           navigate("/")
         }
       })
+      
     } catch (error: any) {
       if (error instanceof SystemError) {
         alert(error.message)
