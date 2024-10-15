@@ -25,7 +25,7 @@ export default function VerifiedSeller({ ticket }: { ticket: Ticket }) {
       <div className="flex flex-col p-2">
         <p className="mb-2 font-bold">{t("verifiedSeller")}</p>
         <div className="flex flex-row">
-          <Avatar size="5rem" img={user.image} />
+          <Avatar size="5rem" img={user.image || ""} />
 
           <div>
             <span className="flex gap-3">

@@ -3,14 +3,14 @@ import { useState } from "react"
 export default function InputFieldPassword({
   placeholder,
   id,
-  className
+  className,
 }: {
   placeholder: string
   id: string
   className?: string
 }) {
   const [showPassword, setShowPassword] = useState(false)
-  const [password, setPassword] = useState("")
+  const [_password, setPassword] = useState("")
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword)

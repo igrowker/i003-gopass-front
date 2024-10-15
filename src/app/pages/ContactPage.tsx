@@ -17,7 +17,7 @@ export default function Contact() {
       <Navbar />
 
       <div className="flex flex-col items-center justify-center overflow-visible">
-        <div className="relative flex w-full flex-row justify-center text-2xl">
+        <div className="relative flex w-full flex-row justify-center text-2xl mt-7 ">
           <h2 className="-z-20 m-5 text-center text-xl font-semibold">{t("contact")}</h2>
         </div>
 
@@ -56,7 +56,7 @@ export default function Contact() {
 
       <h2 className="m-5 text-center text-xl font-semibold">{t("followUsOnSocialMedia")}</h2>
 
-      <section className="flex flex-row justify-center space-x-6 text-6xl text-customRed">
+      <section className="flex flex-row justify-center space-x-6 text-6xl text-customRed mb-5">
         <Link target="_blank" to="https://www.instagram.com/igrowker/">
           <FaInstagramSquare />
         </Link>
