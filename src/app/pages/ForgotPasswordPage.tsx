@@ -34,7 +34,7 @@ export default function ForgotPassword() {
 
   return (
     <>
-      <img className="absolute -z-50 h-screen w-full" src="/public/ronaldinho.webp" />
+      <img className="absolute -z-50 h-screen w-full" src="/ronaldinho.webp" />
 
       <Link to="/login">
         <MdOutlineLogin className="absolute right-0 m-4 cursor-pointer text-5xl font-extrabold text-customWhite" />

@@ -5,7 +5,7 @@ import { IoIosArrowDropright } from "react-icons/io"
 import { useDispatch, useSelector } from "react-redux"
 import { Link, useNavigate } from "react-router-dom"
 
-import notTicketsImage from "../../../assets/soldout.png"
+import notTicketsImage from "/img/soldout.png"
 import { useGetTicketsForSell } from "../../../hooks/useGetTicketsForSell"
 import { RootState } from "../../../store"
 import { setSelectedTicket, Ticket } from "../../../store/entry/entrySlice"
